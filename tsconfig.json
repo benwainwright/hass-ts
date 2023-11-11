@@ -8,14 +8,14 @@
     "outDir": "dist",
     "lib": ["ES2023", "DOM"],
     "strict": true,
-    "esModuleInterop": true,
     "moduleResolution": "NodeNext",
     "skipLibCheck": true,
     "allowJs": true,
     "forceConsistentCasingInFileNames": true,
     "baseUrl": "./",
     "paths": {
-      "@core": ["src/lib/core"]
+      "@core": ["src/lib/core"],
+      "@utils": ["src/lib/utils"]
     }
   },
   "$schema": "https://json.schemastore.org/tsconfig",
