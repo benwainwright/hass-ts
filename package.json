@@ -20,6 +20,7 @@
   "license": "MIT",
   "scripts": {
     "api": "rm -rf dist && tsc --project tsconfig.api.json && tsconfig-replace-paths --project tsconfig.api.json && vite-node ./src/tools/extract-api.ts",
+    "build:docker": "docker build -t hass-e2e:latest .",
     "sonar": "sonar-scanner -Dsonar.host.url=https://sonarcloud.io/ -Dsonar.token=$SONAR_TOKEN",
     "build": "npm run api && tsc --project tsconfig.dist.json && tsconfig-replace-paths",
     "playground": "vite-node src/playground.ts",
@@ -69,6 +70,7 @@
   },
   "dependencies": {
     "@commitlint/cli": "^18.2.0",
+    "@types/node": "^20.9.0",
     "file-tree-walker-ts": "^2.0.2"
   }
 }
