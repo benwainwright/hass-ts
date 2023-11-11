@@ -1,0 +1,1 @@
+2023-11-11 20:19:31.505 WARNING (MainThread) [homeassistant.components.http.ban] Login attempt or request with invalid authentication from 172.19.0.1 (172.19.0.1). Requested URL: '/api/websocket'. (Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36)
