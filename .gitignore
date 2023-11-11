@@ -1,0 +1,10 @@
+node_modules
+dist
+coverage
+temp
+tmp-declarations
+tsdoc-metadata.json
+.DS_Store
+.tmp-compiled-docs
+.scannerwork
+.env

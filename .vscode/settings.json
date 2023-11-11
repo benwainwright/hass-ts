@@ -1,0 +1,12 @@
+{
+  "vitest.commandLine": "npx vitest --run --api --config vitest.unit.config.mts",
+  "cSpell.words": ["bwainwright", "frob", "initialise", "typecheck"],
+  "cSpell.ignorePaths": [
+    "package-lock.json",
+    "node_modules",
+    "package.json",
+    ".vscode",
+    "tsconfig.json",
+    "api-extractor.json"
+  ]
+}

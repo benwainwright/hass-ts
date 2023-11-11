@@ -1,0 +1,139 @@
+name: Main CI
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  test-18:
+    runs-on: ubuntu-latest
+    name: Run unit tests for Node 18.x
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup job
+        uses: ./.github/actions/install-dependencies
+        with:
+          node-version: 18.x
+      - run: npm run test
+
+  test-20:
+    runs-on: ubuntu-latest
+    name: Run unit tests for Node 20.x
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup job
+        uses: ./.github/actions/install-dependencies
+        with:
+          node-version: 20.x
+      - run: npm run test
+
+  test-21:
+    runs-on: ubuntu-latest
+    name: Run unit tests for Node 21.x and Sonarcloud scan
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Setup job
+        uses: ./.github/actions/install-dependencies
+        with:
+          node-version: 21.x
+      - name: Run unit tests
+        run: npm run test
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+  e2e-test:
+    runs-on: ubuntu-latest
+    name: Run E2E tests
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup job
+        uses: ./.github/actions/install-dependencies
+      - run: npm run test:e2e
+        env:
+          RTM_API_KEY: ${{ secrets.RTM_API_KEY }}
+          RTM_API_SECRET: ${{ secrets.RTM_API_SECRET }}
+
+  checks:
+    runs-on: ubuntu-latest
+    name: Run static checks
+    strategy:
+      fail-fast: false
+      matrix:
+        check: [api, lint, check-docs, build]
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup job
+        uses: ./.github/actions/install-dependencies
+      - run: npm run ${{ matrix.check }}
+
+  release:
+    name: Releas
+    runs-on: ubuntu-latest
+    needs: [test-18, test-20, test-21, checks, e2e-test]
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup job
+        uses: ./.github/actions/install-dependencies
+
+      - name: Generate Documentation
+        run: npm run docs
+
+      - name: Build Package
+        run: npm run build
+
+      - name: Release
+        id: semantic
+        uses: cycjimmy/semantic-release-action@v3.4.0
+        env:
+          HUSKY: 0
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+    outputs:
+      new_release_published: ${{ steps.semantic.outputs.new_release_published }}
+      new_release_version: ${{ steps.semantic.outputs.new_release_version }}
+
+  e2e-test-post-release:
+    runs-on: ubuntu-latest
+    name: Run Post-release E2E tests
+    needs: [release]
+    if: needs.release.outputs.new_release_published	== 'true'
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup job
+        uses: ./.github/actions/install-dependencies
+      - run: npm run test:e2e:post-release
+        env:
+          RTM_API_KEY: ${{ secrets.RTM_API_KEY }}
+          RTM_API_SECRET: ${{ secrets.RTM_API_SECRET }}
+
+  rollback-release:
+    runs-on: ubuntu-latest
+    name: Check test results and unpublish if failed
+    if: always()
+    needs: [e2e-test-post-release, release]
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup job
+        if: needs.e2e-test-post-release.result == 'failure'
+        uses: ./.github/actions/install-dependencies
+
+      - run: npm unpublish rtm-typescript@${{ needs.release.outputs.new_release_version }}
+        env:
+          NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        if: needs.e2e-test-post-release.result == 'failure'

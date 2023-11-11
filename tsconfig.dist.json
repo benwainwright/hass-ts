@@ -1,0 +1,14 @@
+{
+  "extends": "./tsconfig.json",
+  "exclude": [
+    "src/**/*.spec.ts",
+    "*.config.ts",
+    "*.config.mts",
+    "api/extract.ts",
+    "api/dummy.d.ts",
+    "test-support/**/*",
+    "**/*.js",
+    "dist/**/*"
+  ],
+  "$schema": "https://json.schemastore.org/tsconfig"
+}

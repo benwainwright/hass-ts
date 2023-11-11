@@ -1,0 +1,23 @@
+{
+  "ts-node": {
+    "files": true
+  },
+  "compilerOptions": {
+    "target": "es2015",
+    "module": "nodenext",
+    "outDir": "dist",
+    "lib": ["ES2023", "DOM"],
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "allowJs": true,
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": "./",
+    "paths": {
+      "@subpackageOne": ["src/lib/subpackageOne"],
+      "@subpackageTwo": ["src/lib/subpackageTwo"]
+    }
+  },
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "include": ["**/*.ts", "**/*.js", "**/*.mts", ".eslintrc.js"]
+}
