@@ -33,7 +33,8 @@
     "test": "vitest --config vitest.unit.config.mts --coverage",
     "test:e2e": "vitest --config vitest.e2e.config.mts",
     "test:e2e:post-release": "vitest --config vitest.e2e.post-release.config.mts",
-    "test:watch": "vitest --config vitest.unit.config.mts --coverage --watch",
+    "test:watch": "vitest --allowOnly --config vitest.unit.config.mts --coverage --watch",
+    "test:watch:withoutcoverage": "vitest --allowOnly --config vitest.unit.config.mts --watch",
     "test:ui": "vitest --config vitest.unit.config.mts --watch --ui",
     "prepare": "husky install"
   },

@@ -2,7 +2,7 @@ import { AuthRequiredMessageResponse } from "@core";
 import { send } from "./send";
 import { Socket } from "./socket";
 
-const authedSessions: number[] = [];
+let authedSessions: number[] = [];
 
 export const handleAuth = (
   socket: Socket,
@@ -11,6 +11,9 @@ export const handleAuth = (
   version: string,
   sessionNumber: number,
 ) => {
+  socket.on("close", () => {
+    authedSessions = [];
+  });
   if (
     message.access_token === token &&
     !authedSessions.includes(sessionNumber)

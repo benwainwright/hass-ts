@@ -1,6 +1,6 @@
 import { safeJsonParse } from "@utils";
 import { handleAuth } from "./handle-auth";
-import { handlePing } from "./handle-ping";
+import { handleHello } from "./handle-ping";
 import { Socket } from "./socket";
 import { handleSubscribe } from "./handle-subscribe";
 import { MessageToServer } from "@core";
@@ -25,8 +25,8 @@ export const handleSocketMessage = async (
       handleAuth(socket, message, token, version, sessionNumber);
       break;
 
-    case "ping":
-      handlePing(socket, message);
+    case "hello":
+      handleHello(socket, message);
       break;
 
     case "subscribe_events":

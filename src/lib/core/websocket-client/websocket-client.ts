@@ -6,11 +6,14 @@ import { MessageToServer } from "./messages/message-to-server";
 import { Result } from "./messages/result";
 import { ErrorResult } from "./messages/error-result";
 import { HassTsError } from "../errors/hass-ts-error";
+import { ERRORS } from "../strings";
+import { ErrorResponseError } from "../errors/error-response-error";
 
 export class WebsocketClient {
   private socket: WebSocket;
-  private authed = false;
-  private authCompleteCallbacks: (() => void)[] = [];
+  private connected = false;
+  private authCompleteCallbacks: [success: () => void, failure: () => void][] =
+    [];
   private responseCallbacks = new Map<
     number,
     (message: Result<unknown> | ErrorResult) => void
@@ -22,6 +25,16 @@ export class WebsocketClient {
     private readonly port: number,
     private readonly token: string,
   ) {
+    if (token === "") {
+      throw new HassTsError(ERRORS.tokenCannotBeAnEmptyString);
+    }
+    if (host === "") {
+      throw new HassTsError(ERRORS.hostCannotBeAnEmptyString);
+    }
+    if (port < 0) {
+      throw new HassTsError(ERRORS.portCannotBeNegative);
+    }
+
     this.socket = new WebSocket(`ws://${host}:${port}`);
   }
 
@@ -38,14 +51,18 @@ export class WebsocketClient {
   }
 
   public async close(): Promise<void> {
-    await this.waitTillAuthFinished();
-    this.socket.close();
+    if (this.connected) {
+      await this.waitTillAuthFinished();
+      this.socket.close();
+    }
   }
 
   public async sendCommand<T extends Omit<MessageToServer, "id">, R>(
     command: T,
   ): Promise<R> {
-    await this.waitTillAuthFinished();
+    if (!this.connected) {
+      throw new HassTsError(ERRORS.notInitialised);
+    }
     const id = this.id;
     this.sendToSocket({ ...command, id });
     this.id++;
@@ -53,9 +70,11 @@ export class WebsocketClient {
   }
 
   private async waitTillAuthFinished() {
-    await new Promise<void>((accept) => {
-      if (!this.authed) {
-        this.onAuthComplete(accept);
+    await new Promise<void>((accept, reject) => {
+      if (!this.connected) {
+        this.onAuthComplete(accept, () => {
+          reject(new HassTsError(ERRORS.authenticationFailed));
+        });
       } else {
         accept();
       }
@@ -72,7 +91,10 @@ export class WebsocketClient {
             accept(response.result as R);
           } else {
             reject(
-              new HassTsError(response.error.code, response.error.message),
+              new ErrorResponseError(
+                response.error.code,
+                response.error.message,
+              ),
             );
           }
         },
@@ -84,14 +106,21 @@ export class WebsocketClient {
     this.socket.send(JSON.stringify(message));
   }
 
-  private onAuthComplete(callback: () => void) {
-    this.authCompleteCallbacks.push(callback);
+  private onAuthComplete(accept: () => void, reject: () => void) {
+    this.authCompleteCallbacks.push([accept, reject]);
   }
 
   private handleAuthOk() {
-    this.authed = true;
-    this.authCompleteCallbacks.forEach((callback) => {
-      callback();
+    this.connected = true;
+    this.authCompleteCallbacks.forEach(([successCallback]) => {
+      successCallback();
+    });
+    this.authCompleteCallbacks = [];
+  }
+
+  private handleAuthInvalid() {
+    this.authCompleteCallbacks.forEach(([, failureCallback]) => {
+      failureCallback();
     });
     this.authCompleteCallbacks = [];
   }
@@ -115,6 +144,9 @@ export class WebsocketClient {
         break;
       case "auth_ok":
         this.handleAuthOk();
+        break;
+      case "auth_invalid":
+        this.handleAuthInvalid();
         break;
       case "result":
         this.handleResult(message);
