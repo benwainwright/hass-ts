@@ -6,13 +6,20 @@ export const initialiseMockHassWebsocket = (
   token: string,
   version: string,
 ) => {
+  const sessionNumber = Math.floor(Math.random() * 1000000);
   const server = new WebSocketServer({ port });
 
   server.on("connection", (socket) => {
     socket.send(JSON.stringify({ type: "auth_required", ha_version: version }));
     socket.on("message", (data) => {
-      console.log({ data: data.toString("utf-8")});
-      handleSocketMessage(socket, data, token, version);
+      if (data instanceof Buffer) {
+        handleSocketMessage(socket, data, token, version, sessionNumber).catch(
+          (error) => {
+            console.error(error);
+          },
+        );
+      }
     });
   });
+  return server;
 };
