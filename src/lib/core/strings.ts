@@ -5,4 +5,5 @@ export const ERRORS = {
   portCannotBeNegative: "Port cannot be negative",
   notInitialised: "The websocket client has not been initialised",
   authenticationFailed: "Authentication failed",
+  argumentsAreInvalid: "Arguments are invalid",
 };
