@@ -4,6 +4,7 @@ import { HassTsError } from "../errors/hass-ts-error";
 import { WebsocketClient } from "./websocket-client";
 import { ErrorResponseError } from "../errors/error-response-error";
 import { ERRORS } from "../strings";
+import { vi } from "vitest";
 
 const host = "localhost";
 const port = 123;
@@ -13,10 +14,12 @@ const version = "1.2.3";
 let server: ReturnType<typeof initialiseMockHassWebsocket>;
 
 beforeAll(() => {
+  vi.useFakeTimers();
   server = initialiseMockHassWebsocket(port, token, version);
 });
 
 afterAll(() => {
+  vi.useRealTimers();
   server.close();
 });
 
@@ -71,8 +74,76 @@ describe("The websocket client", () => {
     });
   });
 
+  describe("addMessageListener", () => {
+    it("throws an error if it is called before init", () => {
+      const client = new WebsocketClient(host, port, token);
+      expect(() => {
+        client.addMessageListener(vi.fn());
+      }).toThrow(new HassTsError(ERRORS.notInitialised));
+    });
+
+    it("allows the caller to supply a callback which will be called when a message is received", async () => {
+      const client = new WebsocketClient(host, port, token);
+      await client.init();
+      const callback = vi.fn();
+      client.addMessageListener(callback);
+      expect(callback).not.toHaveBeenCalled();
+      const ONE_SECOND = 1000;
+      await vi.advanceTimersByTimeAsync(2 * ONE_SECOND);
+      expect(callback).toHaveBeenCalledWith({
+        type: "test",
+        testMessage: "test",
+      });
+      await client.close();
+    });
+
+    it("does not trigger callback for messages that are consumed by the client", async () => {
+      const client = new WebsocketClient(host, port, token);
+      await client.init();
+      const callback = vi.fn();
+      client.addMessageListener(callback);
+      const ONE_SECOND = 1000;
+      await vi.advanceTimersByTimeAsync(2 * ONE_SECOND);
+      expect(callback).toHaveBeenCalledTimes(1);
+      await client.close();
+    });
+  });
+
+  describe("removeMessageListener", () => {
+    it("throws an error if the callback was not previously registered", async () => {
+      const client = new WebsocketClient(host, port, token);
+      await client.init();
+      const callback = vi.fn();
+      expect(() => {
+        client.removeMessageListener(callback);
+      }).toThrow(new HassTsError(ERRORS.callbackNotRegistered));
+      await client.close();
+    });
+
+    it("throws an error if called before init", () => {
+      const client = new WebsocketClient(host, port, token);
+      expect(() => {
+        client.removeMessageListener(vi.fn());
+      }).toThrow(new HassTsError(ERRORS.notInitialised));
+    });
+
+    it("stops the listener being triggered when a message is received", async () => {
+      const client = new WebsocketClient(host, port, token);
+      await client.init();
+      const callback = vi.fn();
+      client.addMessageListener(callback);
+      expect(callback).not.toHaveBeenCalled();
+      const ONE_SECOND = 1000;
+      client.removeMessageListener(callback);
+      await vi.advanceTimersByTimeAsync(2 * ONE_SECOND);
+      expect(callback).not.toHaveBeenCalled();
+      await client.close();
+    });
+  });
+
   describe("sendCommand", () => {
     it.todo("times out and throws an error after three seconds");
+
     it("throws an error if it is called before init", async () => {
       const client = new WebsocketClient(host, port, token);
       await expect(client.sendCommand({ type: "hello" })).rejects.toThrow(
@@ -112,12 +183,4 @@ describe("The websocket client", () => {
   it.todo(
     "sends pings to the server regularly, closes the connection and reconnects if the server doesn't respond",
   );
-
-  describe("subscribeToEvents", () => {
-    it.todo("throws an error if it is called before init");
-
-    it.todo(
-      "allows the caller to supply a callback which will be called when an event is received",
-    );
-  });
 });

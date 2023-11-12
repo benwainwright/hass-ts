@@ -15,7 +15,9 @@ export const handleSubscribe = async (
     result: null,
   });
 
-  await delay(200);
+  const ONE_SECOND = 1000;
 
-  socket.send(JSON.stringify(mockEventData(message.id)));
+  await delay(2 * ONE_SECOND);
+
+  send(socket, { id: message.id, type: "event", event: mockEventData });
 };

@@ -12,6 +12,7 @@ import { ErrorResponseError } from "../errors/error-response-error";
 export class WebsocketClient {
   private socket: WebSocket;
   private connected = false;
+  private messageCallbacks: ((message: MessageFromServer) => void)[] = [];
   private authCompleteCallbacks: [success: () => void, failure: () => void][] =
     [];
   private responseCallbacks = new Map<
@@ -67,6 +68,28 @@ export class WebsocketClient {
     this.sendToSocket({ ...command, id });
     this.id++;
     return await this.waitForAndReturnResponse<R>(id);
+  }
+
+  public addMessageListener(listener: (message: MessageFromServer) => void) {
+    if (!this.connected) {
+      throw new HassTsError(ERRORS.notInitialised);
+    }
+    this.messageCallbacks.push(listener);
+  }
+
+  public removeMessageListener(listener: (message: MessageFromServer) => void) {
+    if (!this.connected) {
+      throw new HassTsError(ERRORS.notInitialised);
+    }
+    const registeredCallback = this.messageCallbacks.find(
+      (callback) => callback === listener,
+    );
+    if (!registeredCallback) {
+      throw new HassTsError(ERRORS.callbackNotRegistered);
+    }
+    this.messageCallbacks = this.messageCallbacks.filter(
+      (callback) => callback !== listener,
+    );
   }
 
   private async waitTillAuthFinished() {
@@ -137,6 +160,12 @@ export class WebsocketClient {
     callback?.(message);
   }
 
+  private handleOtherMessages(message: MessageFromServer) {
+    this.messageCallbacks.forEach((callback) => {
+      callback(message);
+    });
+  }
+
   private handleMessage(message: MessageFromServer) {
     switch (message.type) {
       case "auth_required":
@@ -150,6 +179,9 @@ export class WebsocketClient {
         break;
       case "result":
         this.handleResult(message);
+        break;
+      default:
+        this.handleOtherMessages(message);
     }
   }
 }
