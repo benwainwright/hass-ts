@@ -10,7 +10,11 @@ const version = "1.2.3";
 
 describe("The websocket client", () => {
   describe("constructor", () => {
-    it("executes without error", async () => {
+    it.todo("throws an error if the host is not a valid hostname");
+    it.todo("throws an error if the port is not a valid port");
+    it.todo("throws an error if the token is not a valid token");
+
+    it("executes without error if all the inputs are valid", async () => {
       const server = initialiseMockHassWebsocket(port, token, version);
       const client = new WebsocketClient(host, port, token);
       await client.init();
@@ -19,7 +23,16 @@ describe("The websocket client", () => {
     });
   });
 
+  describe("init", () => {
+    it.todo("resolves succesfully if the connection is established");
+    it.todo("rejects the promise if the authentication fails");
+    it.todo("rejects the promise if there is any connection errors");
+  });
+
   describe("sendCommand", () => {
+    it.todo("times out and throws an error after three seconds");
+    it.todo("throws an error if it is called before init");
+
     it("initiates an auth handshake if the client is not authenticated and then returns the correct command response", async () => {
       const server = initialiseMockHassWebsocket(port, token, version);
       const client = new WebsocketClient(host, port, token);
@@ -50,5 +63,17 @@ describe("The websocket client", () => {
       await client.close();
       server.close();
     });
+  });
+
+  it.todo(
+    "sends pings to the server regularly, closes the connection and reconnects if the server doesn't respond",
+  );
+
+  describe("subscribeToEvents", () => {
+    it.todo("throws an error if it is called before init");
+
+    it.todo(
+      "allows the caller to supply a callback which will be called when an event is received",
+    );
   });
 });
