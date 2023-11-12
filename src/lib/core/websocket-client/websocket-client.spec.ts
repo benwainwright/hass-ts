@@ -13,6 +13,7 @@ describe("The websocket client", () => {
     it("executes without error", async () => {
       const server = initialiseMockHassWebsocket(port, token, version);
       const client = new WebsocketClient(host, port, token);
+      await client.init();
       await client.close();
       server.close();
     });
@@ -22,6 +23,7 @@ describe("The websocket client", () => {
     it("initiates an auth handshake if the client is not authenticated and then returns the correct command response", async () => {
       const server = initialiseMockHassWebsocket(port, token, version);
       const client = new WebsocketClient(host, port, token);
+      await client.init();
       const result = await client.sendCommand({ type: "ping" });
       expect(result).toEqual({ message: "ping" });
       await client.close();
@@ -31,6 +33,7 @@ describe("The websocket client", () => {
     it("rejects the promise if the response indicates an error", async () => {
       const server = initialiseMockHassWebsocket(port, token, version);
       const client = new WebsocketClient(host, port, token);
+      await client.init();
       await expect(client.sendCommand({ type: "throw" })).rejects.toThrow(
         new HassTsError(TEST_ERROR_CODE, TEST_ERROR_MESSAGE),
       );
@@ -41,6 +44,7 @@ describe("The websocket client", () => {
     it("doesn't need to do auth handshake a second time", async () => {
       const server = initialiseMockHassWebsocket(port, token, version);
       const client = new WebsocketClient(host, port, token);
+      await client.init();
       await client.sendCommand({ type: "ping" });
       await client.sendCommand({ type: "ping" });
       await client.close();

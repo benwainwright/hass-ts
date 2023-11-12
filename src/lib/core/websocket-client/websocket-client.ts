@@ -23,7 +23,9 @@ export class WebsocketClient {
     private readonly token: string,
   ) {
     this.socket = new WebSocket(`ws://${host}:${port}`);
+  }
 
+  public async init(): Promise<void> {
     this.socket.on("open", () => {
       this.socket.on("message", (data: Buffer) => {
         const message = safeJsonParse<MessageFromServer>(
@@ -32,6 +34,7 @@ export class WebsocketClient {
         this.handleMessage(message);
       });
     });
+    await this.waitTillAuthFinished();
   }
 
   public async close(): Promise<void> {
