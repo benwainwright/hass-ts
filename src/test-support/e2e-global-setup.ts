@@ -12,7 +12,7 @@ export const setup = async () => {
     await execCommand(`npm install ${packageName}@latest`);
   }
 
-  console.log("Starting test HASS server...");
+  console.log(" ℹ️  Starting test HASS server...");
 
   await compose.upAll({
     cwd: path.join(__dirname),
@@ -23,7 +23,7 @@ export const setup = async () => {
 };
 
 export const teardown = async () => {
-  console.log("Stopping test HASS server...");
+  console.log(" ℹ️  Stopping test HASS server...");
   await compose.down({
     cwd: path.join(__dirname),
   });
