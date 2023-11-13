@@ -1,10 +1,43 @@
 import { GetStatesCommand } from "../websocket-client/messages";
+import { GetConfigCommand } from "../websocket-client/messages/get-config-command";
+import { GetPanelsCommand } from "../websocket-client/messages/get-panels-command";
+import { GetServicesCommand } from "../websocket-client/messages/get-services-command";
 import { WebsocketClient } from "../websocket-client/websocket-client";
 import { IClient } from "./i-client";
-import { Event, State } from "@types";
+import { Config, Event, Panel, Services, State } from "@types";
 
 export class Client implements IClient {
   constructor(private websocketClient: WebsocketClient) {}
+
+  async getConfig(): Promise<Config> {
+    const { result } = await this.websocketClient.sendCommand<
+      GetConfigCommand,
+      Panel[]
+    >({
+      type: "get_config",
+    });
+    return result;
+  }
+
+  async getServices(): Promise<Services> {
+    const { result } = await this.websocketClient.sendCommand<
+      GetServicesCommand,
+      Panel[]
+    >({
+      type: "get_services",
+    });
+    return result;
+  }
+
+  async getPanels(): Promise<Panel[]> {
+    const { result } = await this.websocketClient.sendCommand<
+      GetPanelsCommand,
+      Panel[]
+    >({
+      type: "get_panels",
+    });
+    return result;
+  }
 
   async getStates(): Promise<State[]> {
     const { result } = await this.websocketClient.sendCommand<

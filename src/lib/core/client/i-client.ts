@@ -1,4 +1,4 @@
-import { Event, State } from "@types";
+import { Config, Event, Panel, Services, State } from "@types";
 
 export interface IClient {
   subscribeToEvents(callback: (message: Event) => void): Promise<void>;
@@ -9,4 +9,7 @@ export interface IClient {
   ): Promise<void>;
 
   getStates(): Promise<State[]>;
+  getConfig(): Promise<Config>;
+  getServices(): Promise<Services>;
+  getPanels(): Promise<Panel[]>;
 }

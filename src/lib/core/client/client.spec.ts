@@ -5,7 +5,7 @@ import { vi } from "vitest";
 import { when } from "jest-when";
 import { MessageFromServer } from "../websocket-client";
 import { mockEventData } from "./mock-event-data";
-import { State } from "@types";
+import { Config, Panel, Services, State } from "@types";
 
 beforeAll(() => {
   vi.useFakeTimers();
@@ -44,6 +44,78 @@ describe("The client", () => {
 
       const result = await client.getStates();
       expect(result).toEqual(states);
+    });
+  });
+
+  describe("getConfig", () => {
+    it("returns the results of a get_config command sent to the websocket client", async () => {
+      const mockWebsocketClient = mock<WebsocketClient>();
+
+      const config = mock<Config>();
+
+      when(mockWebsocketClient.sendCommand)
+        .calledWith({
+          type: "get_config",
+        })
+        .mockResolvedValue({
+          id: 1,
+          type: "result",
+          success: true,
+          result: config,
+        });
+
+      const client = new Client(mockWebsocketClient);
+
+      const result = await client.getConfig();
+      expect(result).toEqual(config);
+    });
+  });
+
+  describe("getServices", () => {
+    it("returns the results of a get_services command sent to the websocket client", async () => {
+      const mockWebsocketClient = mock<WebsocketClient>();
+
+      const services = mock<Services>();
+
+      when(mockWebsocketClient.sendCommand)
+        .calledWith({
+          type: "get_services",
+        })
+        .mockResolvedValue({
+          id: 1,
+          type: "result",
+          success: true,
+          result: services,
+        });
+
+      const client = new Client(mockWebsocketClient);
+
+      const result = await client.getServices();
+      expect(result).toEqual(services);
+    });
+  });
+
+  describe("getPanels", () => {
+    it("returns the results of a get_services command sent to the websocket client", async () => {
+      const mockWebsocketClient = mock<WebsocketClient>();
+
+      const panels = [mock<Panel>(), mock<Panel>(), mock<Panel>()];
+
+      when(mockWebsocketClient.sendCommand)
+        .calledWith({
+          type: "get_panels",
+        })
+        .mockResolvedValue({
+          id: 1,
+          type: "result",
+          success: true,
+          result: panels,
+        });
+
+      const client = new Client(mockWebsocketClient);
+
+      const result = await client.getPanels();
+      expect(result).toEqual(panels);
     });
   });
 
