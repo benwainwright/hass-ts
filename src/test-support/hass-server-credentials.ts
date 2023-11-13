@@ -1,6 +1,8 @@
 /**
  * These credentials are for the test server that is launched using the dockerfile in this project only
  */
+export const TEST_HASS_HOST = "localhost";
+export const TEST_HASS_PORT = 8123;
 export const TEST_HASS_USERNAME = "test-hass";
 export const TEST_HASS_PASSWORD = "test-hass-password";
 export const TEST_HASS_TOKEN =

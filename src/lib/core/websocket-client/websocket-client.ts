@@ -36,7 +36,7 @@ export class WebsocketClient {
       throw new HassTsError(ERRORS.portCannotBeNegative);
     }
 
-    this.socket = new WebSocket(`ws://${host}:${port}`);
+    this.socket = new WebSocket(`ws://${host}:${port}/api/websocket`);
   }
 
   public async init(): Promise<void> {
