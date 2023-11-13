@@ -1,6 +1,6 @@
 import { safeJsonParse } from "@utils";
 import { handleAuth } from "./handle-auth";
-import { handleHello } from "./handle-ping";
+import { handleHello } from "./handle-hello";
 import { Socket } from "./socket";
 import { handleSubscribe } from "./handle-subscribe";
 import { MessageToServer } from "@core";
