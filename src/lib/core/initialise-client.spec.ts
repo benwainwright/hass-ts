@@ -17,7 +17,7 @@ describe("initialiseClient", () => {
     const mockWebsocketClient = mock<WebsocketClient>();
 
     when(vi.mocked(WebsocketClient))
-      .calledWith(host, port, token)
+      .calledWith(host, port, token, expect.anything())
       .mockReturnValue(mockWebsocketClient);
 
     const mockClient = mock<Client>();

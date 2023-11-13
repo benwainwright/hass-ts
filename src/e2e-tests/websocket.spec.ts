@@ -16,8 +16,7 @@ describe("The Hass SDK", () => {
 
     const client = await initialiseClient(config);
 
-    const theConfig = await client.getPanels();
-    console.log(JSON.stringify(theConfig, null, 2));
-    // expect(theConfig.time_zone).toEqual("Europe/London");
+    const theConfig = await client.getConfig();
+    expect(theConfig.time_zone).toEqual("Europe/London");
   });
 });

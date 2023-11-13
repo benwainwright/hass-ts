@@ -8,7 +8,10 @@ export const initialiseClient = async ({
   port,
   token,
 }: HassClientConfig): Promise<IClient> => {
-  const websocketClient = new WebsocketClient(host, port, token);
+  const { Logger } = await import("tslog");
+  const logger = new Logger({ minLevel: 3 });
+
+  const websocketClient = new WebsocketClient(host, port, token, logger);
   await websocketClient.init();
   const client = new Client(websocketClient);
 
