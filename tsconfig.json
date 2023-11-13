@@ -15,7 +15,8 @@
     "baseUrl": "./",
     "paths": {
       "@core": ["src/lib/core"],
-      "@utils": ["src/lib/utils"]
+      "@utils": ["src/lib/utils"],
+      "@types": ["src/lib/types"]
     }
   },
   "$schema": "https://json.schemastore.org/tsconfig",

@@ -1,5 +1,6 @@
-export interface EventMessage<T> {
+import { Event } from "@types";
+export interface EventMessage {
   id: number;
   type: "event";
-  event: T;
+  event: Event;
 }

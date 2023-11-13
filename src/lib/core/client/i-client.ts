@@ -1,12 +1,10 @@
-import { MessageFromServer } from "../websocket-client";
+import { Event } from "@types";
 
 export interface IClient {
-  subscribeToEvents(
-    callback: (message: MessageFromServer) => void,
-  ): Promise<void>;
+  subscribeToEvents(callback: (message: Event) => void): Promise<void>;
 
   subscribeToEvents(
     type: string,
-    callback: (message: MessageFromServer) => void,
+    callback: (message: Event) => void,
   ): Promise<void>;
 }

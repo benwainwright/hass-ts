@@ -1,41 +1,61 @@
-import { MessageFromServer } from "../websocket-client";
 import { WebsocketClient } from "../websocket-client/websocket-client";
 import { IClient } from "./i-client";
+import { Event } from "@types";
 
 export class Client implements IClient {
   constructor(private websocketClient: WebsocketClient) {}
 
-  public async subscribeToEvents(
-    callback: (message: MessageFromServer) => void,
-  ): Promise<void>;
-  public async subscribeToEvents(
-    type: string,
-    callback: (message: MessageFromServer) => void,
-  ): Promise<void>;
-  public async subscribeToEvents(
-    typeOrCallback: string | ((message: MessageFromServer) => void),
-    callbackIfTypeIsSupplied?: (message: MessageFromServer) => void,
-  ): Promise<void> {
+  private getTypeAndCallback(
+    typeOrCallback: string | ((message: Event) => void),
+    callbackIfTypeIsSupplied?: (message: Event) => void,
+  ) {
     /* istanbul ignore else -- @preserve */
     if (
       typeof typeOrCallback === "function" &&
       callbackIfTypeIsSupplied === undefined
     ) {
-      this.websocketClient.addMessageListener(typeOrCallback);
-      await this.websocketClient.sendCommand({
-        type: "subscribe_events",
-      });
+      return { type: undefined, callback: typeOrCallback };
     } else {
       if (
         typeof callbackIfTypeIsSupplied === "function" &&
         typeof typeOrCallback === "string"
       ) {
-        this.websocketClient.addMessageListener(callbackIfTypeIsSupplied);
-        await this.websocketClient.sendCommand({
-          type: "subscribe_events",
-          event_type: typeOrCallback,
-        });
+        return { type: typeOrCallback, callback: callbackIfTypeIsSupplied };
       }
+      return { type: undefined, callback: () => {} };
     }
+  }
+
+  public async subscribeToEvents(
+    callback: (message: Event) => void,
+  ): Promise<void>;
+  public async subscribeToEvents(
+    type: string,
+    callback: (message: Event) => void,
+  ): Promise<void>;
+  public async subscribeToEvents(
+    typeOrCallback: string | ((message: Event) => void),
+    callbackIfTypeIsSupplied?: (message: Event) => void,
+  ): Promise<void> {
+    const { type, callback } = this.getTypeAndCallback(
+      typeOrCallback,
+      callbackIfTypeIsSupplied,
+    );
+
+    const typeObj: { event_type: string } | object = type
+      ? { event_type: type }
+      : {};
+
+    const { id } = await this.websocketClient.sendCommand({
+      type: "subscribe_events",
+      ...typeObj,
+    });
+
+    this.websocketClient.addMessageListener((message) => {
+      if (message.type === "event" && message.id === id) {
+        message;
+        callback(message.event);
+      }
+    });
   }
 }

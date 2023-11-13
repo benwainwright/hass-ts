@@ -10,5 +10,5 @@ export type MessageFromServer<T = unknown> =
   | AuthInvalidMessage
   | Result<T>
   | ErrorResult
-  | EventMessage<T>
+  | EventMessage
   | TestArbitraryMessage;

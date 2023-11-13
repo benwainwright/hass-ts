@@ -2,6 +2,17 @@ import { mock } from "vitest-mock-extended";
 import { Client } from "./client";
 import { WebsocketClient } from "../websocket-client/websocket-client";
 import { vi } from "vitest";
+import { when } from "jest-when";
+import { MessageFromServer } from "../websocket-client";
+import { mockEventData } from "./mock-event-data";
+
+beforeAll(() => {
+  vi.useFakeTimers();
+});
+
+afterAll(() => {
+  vi.useRealTimers();
+});
 
 describe("The client", () => {
   describe("constructor", () => {
@@ -12,28 +23,121 @@ describe("The client", () => {
   });
 
   describe("subscribeToEvents with no type argument", () => {
-    it("sends a subscribe to events command to the websocket client and then registers an event callback", async () => {
+    it("sends a subscribe to events command to the websocket client", async () => {
       const mockWebsocketClient = mock<WebsocketClient>();
       const client = new Client(mockWebsocketClient);
       const callback = vi.fn();
+
+      when(mockWebsocketClient.sendCommand)
+        .calledWith({
+          type: "subscribe_events",
+        })
+        .mockResolvedValue({
+          id: 8,
+          type: "result",
+          success: true,
+          result: null,
+        });
 
       await client.subscribeToEvents(callback);
 
       expect(mockWebsocketClient.sendCommand).toHaveBeenCalledWith({
         type: "subscribe_events",
       });
+    });
 
-      expect(mockWebsocketClient.addMessageListener).toHaveBeenCalledWith(
-        callback,
+    it("registers a callback that returns the corresponding event", async () => {
+      const mockWebsocketClient = mock<WebsocketClient>();
+      const client = new Client(mockWebsocketClient);
+      const callback = vi.fn();
+
+      const EVENT_DELAY = 200;
+
+      const message: MessageFromServer = {
+        id: 1,
+        type: "event",
+        event: mockEventData,
+      };
+
+      when(mockWebsocketClient.sendCommand)
+        .calledWith({
+          type: "subscribe_events",
+        })
+        .mockResolvedValue({
+          id: 1,
+          type: "result",
+          success: true,
+          result: null,
+        });
+
+      vi.mocked(mockWebsocketClient.addMessageListener).mockImplementation(
+        (callback) => {
+          setTimeout(() => {
+            callback(message);
+          }, EVENT_DELAY);
+        },
       );
+      await client.subscribeToEvents(callback);
+      vi.advanceTimersByTime(400);
+
+      expect(callback).toHaveBeenCalledWith(message.event);
+    });
+
+    it("only sends events corresponding with the original request", async () => {
+      const mockWebsocketClient = mock<WebsocketClient>();
+      const client = new Client(mockWebsocketClient);
+      const callback = vi.fn();
+
+      const EVENT_DELAY = 200;
+
+      const message: MessageFromServer = {
+        id: 1,
+        type: "event",
+        event: mockEventData,
+      };
+
+      when(mockWebsocketClient.sendCommand)
+        .calledWith({
+          type: "subscribe_events",
+        })
+        .mockResolvedValue({
+          id: 8,
+          type: "result",
+          success: true,
+          result: null,
+        });
+
+      vi.mocked(mockWebsocketClient.addMessageListener).mockImplementation(
+        (callback) => {
+          setTimeout(() => {
+            callback(message);
+          }, EVENT_DELAY);
+        },
+      );
+      await client.subscribeToEvents(callback);
+      vi.advanceTimersByTime(400);
+      expect(callback).not.toHaveBeenCalled();
     });
   });
 
   describe("subscribeToEvents with a type argument", () => {
-    it("sends a subscribe to events command with the correct type to the websocket client and then registers an event callback", async () => {
+    it("sends a subscribe to events command to the websocket client", async () => {
       const mockWebsocketClient = mock<WebsocketClient>();
       const client = new Client(mockWebsocketClient);
       const callback = vi.fn();
+
+      when(mockWebsocketClient.sendCommand)
+        .calledWith({
+          type: "subscribe_events",
+          event_type: "foo",
+          // This is horrible, but I don't quite understand why there is a type issue here
+        } as Parameters<WebsocketClient["sendCommand"]>[0])
+        .mockResolvedValue({
+          id: 1,
+          type: "result",
+          success: true,
+          result: null,
+        });
 
       await client.subscribeToEvents("foo", callback);
 
@@ -41,10 +145,43 @@ describe("The client", () => {
         type: "subscribe_events",
         event_type: "foo",
       });
+    });
 
-      expect(mockWebsocketClient.addMessageListener).toHaveBeenCalledWith(
-        callback,
+    it("registers a callback that returns the corresponding event", async () => {
+      const mockWebsocketClient = mock<WebsocketClient>();
+      const client = new Client(mockWebsocketClient);
+      const callback = vi.fn();
+
+      const EVENT_DELAY = 200;
+
+      const message: MessageFromServer = {
+        id: 1,
+        type: "event",
+        event: mockEventData,
+      };
+
+      when(mockWebsocketClient.sendCommand)
+        .calledWith({
+          type: "subscribe_events",
+        })
+        .mockResolvedValue({
+          id: 1,
+          type: "result",
+          success: true,
+          result: null,
+        });
+
+      vi.mocked(mockWebsocketClient.addMessageListener).mockImplementation(
+        (callback) => {
+          setTimeout(() => {
+            callback(message);
+          }, EVENT_DELAY);
+        },
       );
+      await client.subscribeToEvents(callback);
+      vi.advanceTimersByTime(400);
+
+      expect(callback).toHaveBeenCalledWith(message.event);
     });
   });
 });

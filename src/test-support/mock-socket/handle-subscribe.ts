@@ -1,5 +1,5 @@
 import { Socket } from "./socket";
-import { mockEventData } from "./mock-event-data";
+import { mockEventData } from "../../lib/core/client/mock-event-data";
 import { send } from "./send";
 import { SubscribeToEventsMessage } from "@core";
 import { delay } from "@utils";
