@@ -5,6 +5,7 @@ import { vi } from "vitest";
 import { when } from "jest-when";
 import { MessageFromServer } from "../websocket-client";
 import { mockEventData } from "./mock-event-data";
+import { State } from "@types";
 
 beforeAll(() => {
   vi.useFakeTimers();
@@ -19,6 +20,30 @@ describe("The client", () => {
     it("executes without error", () => {
       const mockWebsocketClient = mock<WebsocketClient>();
       expect(() => new Client(mockWebsocketClient)).not.toThrow();
+    });
+  });
+
+  describe("getStates", () => {
+    it("returns the results of a get_states command sent to the websocket client", async () => {
+      const mockWebsocketClient = mock<WebsocketClient>();
+
+      const states = [mock<State[]>(), mock<State[]>(), mock<State[]>()];
+
+      when(mockWebsocketClient.sendCommand)
+        .calledWith({
+          type: "get_states",
+        })
+        .mockResolvedValue({
+          id: 1,
+          type: "result",
+          success: true,
+          result: states,
+        });
+
+      const client = new Client(mockWebsocketClient);
+
+      const result = await client.getStates();
+      expect(result).toEqual(states);
     });
   });
 

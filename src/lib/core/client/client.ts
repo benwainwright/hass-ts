@@ -1,9 +1,20 @@
+import { GetStatesCommand } from "../websocket-client/messages";
 import { WebsocketClient } from "../websocket-client/websocket-client";
 import { IClient } from "./i-client";
-import { Event } from "@types";
+import { Event, State } from "@types";
 
 export class Client implements IClient {
   constructor(private websocketClient: WebsocketClient) {}
+
+  async getStates(): Promise<State[]> {
+    const { result } = await this.websocketClient.sendCommand<
+      GetStatesCommand,
+      State[]
+    >({
+      type: "get_states",
+    });
+    return result;
+  }
 
   private getTypeAndCallback(
     typeOrCallback: string | ((message: Event) => void),

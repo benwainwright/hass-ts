@@ -58,8 +58,8 @@ export class WebsocketClient {
     }
   }
 
-  public async sendCommand<T extends Omit<MessageToServer, "id">, R>(
-    command: T,
+  public async sendCommand<T extends MessageToServer, R>(
+    command: Omit<T, "id">,
   ): Promise<Result<R>> {
     if (!this.connected) {
       throw new HassTsError(ERRORS.notInitialised);

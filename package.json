@@ -30,6 +30,7 @@
     "types": "tsc --noEmit",
     "format": "prettier --write .",
     "types:watch": "tsc --noEmit --watch",
+    "test:verbose": "vitest --config vitest.unit.config.mts --coverage --reporter verbose",
     "test": "vitest --config vitest.unit.config.mts --coverage",
     "test:e2e": "vitest --config vitest.e2e.config.mts",
     "test:e2e:post-release": "vitest --config vitest.e2e.post-release.config.mts",
