@@ -29,10 +29,10 @@ export class Client implements IClient {
     return result;
   }
 
-  async getPanels(): Promise<Panel[]> {
+  async getPanels(): Promise<Record<string, Panel>> {
     const { result } = await this.websocketClient.sendCommand<
       GetPanelsCommand,
-      Panel[]
+      Record<string, Panel>
     >({
       type: "get_panels",
     });

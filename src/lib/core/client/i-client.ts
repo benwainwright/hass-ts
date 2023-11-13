@@ -11,5 +11,5 @@ export interface IClient {
   getStates(): Promise<State[]>;
   getConfig(): Promise<Config>;
   getServices(): Promise<Services>;
-  getPanels(): Promise<Panel[]>;
+  getPanels(): Promise<Record<string, Panel>>;
 }

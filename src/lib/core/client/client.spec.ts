@@ -99,7 +99,10 @@ describe("The client", () => {
     it("returns the results of a get_services command sent to the websocket client", async () => {
       const mockWebsocketClient = mock<WebsocketClient>();
 
-      const panels = [mock<Panel>(), mock<Panel>(), mock<Panel>()];
+      const panels = {
+        foo: mock<Panel>(),
+        bar: mock<Panel>(),
+      };
 
       when(mockWebsocketClient.sendCommand)
         .calledWith({
