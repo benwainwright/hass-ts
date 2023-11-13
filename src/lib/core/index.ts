@@ -9,4 +9,6 @@ export {
   HelloCommand,
 } from "./websocket-client";
 
+export { HTTP } from "./constants";
+
 export { initialiseClient } from "./initialise-client";

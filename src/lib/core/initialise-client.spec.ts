@@ -6,9 +6,11 @@ import { mock } from "vitest-mock-extended";
 import { Client } from "./client";
 import { getLogger } from "./get-logger";
 import { Logger } from "@types";
+import { RestClient } from "./rest-client";
 
 vi.mock("./client");
 vi.mock("./websocket-client");
+vi.mock("./rest-client");
 vi.mock("./get-logger");
 
 describe("initialiseClient", () => {
@@ -18,6 +20,7 @@ describe("initialiseClient", () => {
     const token = "token";
 
     const mockWebsocketClient = mock<WebsocketClient>();
+    const mockRestClient = mock<RestClient>();
 
     const logger = mock<Logger>();
 
@@ -27,10 +30,14 @@ describe("initialiseClient", () => {
       .calledWith(host, port, token, logger)
       .mockReturnValue(mockWebsocketClient);
 
+    when(vi.mocked(RestClient))
+      .calledWith(host, port, token, logger)
+      .mockReturnValue(mockRestClient);
+
     const mockClient = mock<Client>();
 
     when(vi.mocked(Client))
-      .calledWith(mockWebsocketClient)
+      .calledWith(mockWebsocketClient, mockRestClient)
       .mockReturnValue(mockClient);
 
     const client = await initialiseClient({ host, port, token, logger });

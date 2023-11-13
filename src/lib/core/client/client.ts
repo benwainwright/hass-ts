@@ -1,3 +1,4 @@
+import { RestClient } from "../rest-client/rest-client";
 import { GetStatesCommand } from "../websocket-client/messages";
 import { GetConfigCommand } from "../websocket-client/messages/get-config-command";
 import { GetPanelsCommand } from "../websocket-client/messages/get-panels-command";
@@ -7,7 +8,10 @@ import { IClient } from "./i-client";
 import { Config, Event, Panel, Services, State } from "@types";
 
 export class Client implements IClient {
-  constructor(private websocketClient: WebsocketClient) {}
+  constructor(
+    private websocketClient: WebsocketClient,
+    private httpClient: RestClient,
+  ) {}
 
   async getConfig(): Promise<Config> {
     const { result } = await this.websocketClient.sendCommand<
