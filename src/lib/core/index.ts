@@ -1,9 +1,12 @@
 export { Client, IClient } from "./client";
+
 export {
   MessageFromServer,
   ThrowCommand,
   SubscribeToEventsMessage,
   AuthRequiredMessageResponse,
   MessageToServer,
-  PingCommand,
+  HelloCommand,
 } from "./websocket-client";
+
+export { initialiseClient } from "./initialise-client";

@@ -2,7 +2,9 @@ export {
   MessageFromServer,
   ThrowCommand,
   MessageToServer,
-  PingCommand,
+  HelloCommand,
   SubscribeToEventsMessage,
   AuthRequiredMessageResponse,
 } from "./messages";
+
+export { WebsocketClient } from "./websocket-client";

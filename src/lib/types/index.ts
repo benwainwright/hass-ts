@@ -4,3 +4,4 @@ export { Event } from "./event";
 export { Services } from "./services";
 export { Config } from "./config";
 export { Panel } from "./panels";
+export { ClientConfig } from "./client-config";
