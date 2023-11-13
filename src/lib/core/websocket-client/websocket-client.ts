@@ -8,6 +8,7 @@ import { ErrorResult } from "./messages/error-result";
 import { HassTsError } from "../errors/hass-ts-error";
 import { ERRORS } from "../strings";
 import { ErrorResponseError } from "../errors/error-response-error";
+import { Logger } from "@types";
 
 export class WebsocketClient {
   private socket: WebSocket;
@@ -25,6 +26,7 @@ export class WebsocketClient {
     private readonly host: string,
     private readonly port: number,
     private readonly token: string,
+    private readonly logger: Logger,
   ) {
     if (token === "") {
       throw new HassTsError(ERRORS.tokenCannotBeAnEmptyString);
@@ -45,6 +47,7 @@ export class WebsocketClient {
         const message = safeJsonParse<MessageFromServer>(
           data.toString("utf-8"),
         );
+        this.logger.trace(`Received (ws): ${JSON.stringify(message)}`);
         this.handleMessage(message);
       });
     });
@@ -126,6 +129,7 @@ export class WebsocketClient {
   }
 
   private sendToSocket<T extends Record<string, unknown>>(message: T) {
+    this.logger.trace(`Sent (ws): ${JSON.stringify(message)}`);
     this.socket.send(JSON.stringify(message));
   }
 
