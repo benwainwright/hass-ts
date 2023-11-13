@@ -14,6 +14,9 @@ dependencies:
   '@types/ws':
     specifier: ^8.5.9
     version: 8.5.9
+  docker-compose:
+    specifier: ^0.24.3
+    version: 0.24.3
   file-tree-walker-ts:
     specifier: ^2.0.2
     version: 2.0.2
@@ -2526,6 +2529,13 @@ packages:
     dependencies:
       path-type: 4.0.0
     dev: true
+
+  /docker-compose@0.24.3:
+    resolution: {integrity: sha512-x3/QN3AIOMe7j2c8f/jcycizMft7dl8MluoB9OGPAYCyKHHiPUFqI9GjCcsU0kYy24vYKMCcfR6+5ZaEyQlrxg==}
+    engines: {node: '>= 6.0.0'}
+    dependencies:
+      yaml: 2.3.4
+    dev: false
 
   /doctrine@2.1.0:
     resolution: {integrity: sha512-35mSku4ZXK0vfCuHEDAwt55dg2jNajHZ1odvF+8SSr82EsZY4QmXfuWso8oEd8zRhVObSN18aM0CjSdoBX7zIw==}
@@ -6237,7 +6247,6 @@ packages:
   /yaml@2.3.4:
     resolution: {integrity: sha512-8aAvwVUSHpfEqTQ4w/KMlf3HcRdt50E5ODIQJBw1fQ5RL34xabzxtUlzTXVqc4rkZsPbvrXKWnABCD7kWSmocA==}
     engines: {node: '>= 14'}
-    dev: true
 
   /yargs-parser@20.2.9:
     resolution: {integrity: sha512-y11nGElTIV+CT3Zv9t7VKl+Q3hTQoT9a1Qzezhhl6Rp21gJ/IVTW7Z3y9EWXhuUBC2Shnf+DX0antecpAwSP8w==}
