@@ -12,7 +12,7 @@ export class Client implements IClient {
   async getConfig(): Promise<Config> {
     const { result } = await this.websocketClient.sendCommand<
       GetConfigCommand,
-      Panel[]
+      Config
     >({
       type: "get_config",
     });
@@ -22,7 +22,7 @@ export class Client implements IClient {
   async getServices(): Promise<Services> {
     const { result } = await this.websocketClient.sendCommand<
       GetServicesCommand,
-      Panel[]
+      Services
     >({
       type: "get_services",
     });
