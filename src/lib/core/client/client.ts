@@ -1,5 +1,3 @@
-import { HassTsError } from "../errors/hass-ts-error";
-import { ERRORS } from "../strings";
 import { MessageFromServer } from "../websocket-client";
 import { WebsocketClient } from "../websocket-client/websocket-client";
 import { IClient } from "./i-client";
@@ -18,7 +16,7 @@ export class Client implements IClient {
     typeOrCallback: string | ((message: MessageFromServer) => void),
     callbackIfTypeIsSupplied?: (message: MessageFromServer) => void,
   ): Promise<void> {
-    /* istanbul ignore next */
+    /* istanbul ignore else -- @preserve */
     if (
       typeof typeOrCallback === "function" &&
       callbackIfTypeIsSupplied === undefined
@@ -27,15 +25,17 @@ export class Client implements IClient {
       await this.websocketClient.sendCommand({
         type: "subscribe_events",
       });
-    } else if (
-      typeof callbackIfTypeIsSupplied === "function" &&
-      typeof typeOrCallback === "string"
-    ) {
-      this.websocketClient.addMessageListener(callbackIfTypeIsSupplied);
-      await this.websocketClient.sendCommand({
-        type: "subscribe_events",
-        event_type: typeOrCallback,
-      });
+    } else {
+      if (
+        typeof callbackIfTypeIsSupplied === "function" &&
+        typeof typeOrCallback === "string"
+      ) {
+        this.websocketClient.addMessageListener(callbackIfTypeIsSupplied);
+        await this.websocketClient.sendCommand({
+          type: "subscribe_events",
+          event_type: typeOrCallback,
+        });
+      }
     }
   }
 }
