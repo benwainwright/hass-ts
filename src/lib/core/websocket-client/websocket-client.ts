@@ -60,7 +60,7 @@ export class WebsocketClient {
 
   public async sendCommand<T extends Omit<MessageToServer, "id">, R>(
     command: T,
-  ): Promise<R> {
+  ): Promise<Result<R>> {
     if (!this.connected) {
       throw new HassTsError(ERRORS.notInitialised);
     }
@@ -104,14 +104,14 @@ export class WebsocketClient {
     });
   }
 
-  private async waitForAndReturnResponse<R>(id: number): Promise<R> {
-    return await new Promise<R>((accept, reject) => {
+  private async waitForAndReturnResponse<R>(id: number): Promise<Result<R>> {
+    return await new Promise<Result<R>>((accept, reject) => {
       this.responseCallbacks.set(
         id,
         (response: Result<unknown> | ErrorResult) => {
           this.responseCallbacks.delete(id);
           if (response.success) {
-            accept(response.result as R);
+            accept(response as Result<R>);
           } else {
             reject(
               new ErrorResponseError(

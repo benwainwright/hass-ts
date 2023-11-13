@@ -155,7 +155,12 @@ describe("The websocket client", () => {
       const client = new WebsocketClient(host, port, token);
       await client.init();
       const result = await client.sendCommand({ type: "hello" });
-      expect(result).toEqual({ message: "hey!" });
+      expect(result).toEqual({
+        id: expect.any(Number),
+        type: "result",
+        success: true,
+        result: { message: "hey!" },
+      });
       await client.close();
     });
 
