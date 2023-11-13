@@ -19,7 +19,7 @@ describe("The client", () => {
   describe("constructor", () => {
     it("executes without error", () => {
       const mockWebsocketClient = mock<WebsocketClient>();
-      expect(() => new Client(mockWebsocketClient)).not.toThrow();
+      expect(() => new Client(mockWebsocketClient, mock())).not.toThrow();
     });
   });
 
@@ -40,7 +40,7 @@ describe("The client", () => {
           result: states,
         });
 
-      const client = new Client(mockWebsocketClient);
+      const client = new Client(mockWebsocketClient, mock());
 
       const result = await client.getStates();
       expect(result).toEqual(states);
@@ -64,7 +64,7 @@ describe("The client", () => {
           result: config,
         });
 
-      const client = new Client(mockWebsocketClient);
+      const client = new Client(mockWebsocketClient, mock());
 
       const result = await client.getConfig();
       expect(result).toEqual(config);
@@ -88,7 +88,7 @@ describe("The client", () => {
           result: services,
         });
 
-      const client = new Client(mockWebsocketClient);
+      const client = new Client(mockWebsocketClient, mock());
 
       const result = await client.getServices();
       expect(result).toEqual(services);
@@ -115,7 +115,7 @@ describe("The client", () => {
           result: panels,
         });
 
-      const client = new Client(mockWebsocketClient);
+      const client = new Client(mockWebsocketClient, mock());
 
       const result = await client.getPanels();
       expect(result).toEqual(panels);
@@ -125,7 +125,7 @@ describe("The client", () => {
   describe("subscribeToEvents with no type argument", () => {
     it("sends a subscribe to events command to the websocket client", async () => {
       const mockWebsocketClient = mock<WebsocketClient>();
-      const client = new Client(mockWebsocketClient);
+      const client = new Client(mockWebsocketClient, mock());
       const callback = vi.fn();
 
       when(mockWebsocketClient.sendCommand)
@@ -148,7 +148,7 @@ describe("The client", () => {
 
     it("registers a callback that returns the corresponding event", async () => {
       const mockWebsocketClient = mock<WebsocketClient>();
-      const client = new Client(mockWebsocketClient);
+      const client = new Client(mockWebsocketClient, mock());
       const callback = vi.fn();
 
       const EVENT_DELAY = 200;
@@ -185,7 +185,7 @@ describe("The client", () => {
 
     it("only sends events corresponding with the original request", async () => {
       const mockWebsocketClient = mock<WebsocketClient>();
-      const client = new Client(mockWebsocketClient);
+      const client = new Client(mockWebsocketClient, mock());
       const callback = vi.fn();
 
       const EVENT_DELAY = 200;
@@ -223,7 +223,7 @@ describe("The client", () => {
   describe("subscribeToEvents with a type argument", () => {
     it("sends a subscribe to events command to the websocket client", async () => {
       const mockWebsocketClient = mock<WebsocketClient>();
-      const client = new Client(mockWebsocketClient);
+      const client = new Client(mockWebsocketClient, mock());
       const callback = vi.fn();
 
       when(mockWebsocketClient.sendCommand)
@@ -249,7 +249,7 @@ describe("The client", () => {
 
     it("registers a callback that returns the corresponding event", async () => {
       const mockWebsocketClient = mock<WebsocketClient>();
-      const client = new Client(mockWebsocketClient);
+      const client = new Client(mockWebsocketClient, mock());
       const callback = vi.fn();
 
       const EVENT_DELAY = 200;
