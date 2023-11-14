@@ -44,7 +44,6 @@ export class Client implements IClient {
 
     const path = `/logbook${timestampString}${finalQueryString}`;
 
-    console.log(path);
     return await this.httpClient.get(path);
   }
 
