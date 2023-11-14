@@ -64,6 +64,15 @@ describe("The client", () => {
     });
   });
 
+  describe("close", () => {
+    it("calls the close method on the websocket client", async () => {
+      const mockWebsocketClient = mock<WebsocketClient>();
+      const client = new Client(mockWebsocketClient, mock());
+      await client.close();
+      expect(mockWebsocketClient.close).toHaveBeenCalled();
+    });
+  });
+
   describe("getServices", () => {
     it("calls the correct endpoint on the rest client and returns the result", async () => {
       const mockRestClient = mock<RestClient>();

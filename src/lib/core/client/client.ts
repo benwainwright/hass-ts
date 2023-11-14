@@ -21,19 +21,22 @@ export class Client implements IClient {
     private websocketClient: WebsocketClient,
     private httpClient: RestClient,
   ) {}
-  async getEvents(): Promise<EventDetails[]> {
+  public async close(): Promise<void> {
+    await this.websocketClient.close();
+  }
+  public async getEvents(): Promise<EventDetails[]> {
     return await this.httpClient.get("/events");
   }
 
-  async getErrorLog(): Promise<string> {
+  public async getErrorLog(): Promise<string> {
     return await this.httpClient.get("/error_log");
   }
 
-  async getCalendars(): Promise<CalendarDetails> {
+  public async getCalendars(): Promise<CalendarDetails> {
     return await this.httpClient.get("/calendars");
   }
 
-  async getConfig(): Promise<Config> {
+  public async getConfig(): Promise<Config> {
     const { result } = await this.websocketClient.sendCommand<
       GetConfigCommand,
       Config
@@ -43,11 +46,11 @@ export class Client implements IClient {
     return result;
   }
 
-  async getServiceDomains(): Promise<ServiceDomainDetails[]> {
+  public async getServiceDomains(): Promise<ServiceDomainDetails[]> {
     return await this.httpClient.get("/services");
   }
 
-  async getServices(): Promise<Services> {
+  public async getServices(): Promise<Services> {
     const { result } = await this.websocketClient.sendCommand<
       GetServicesCommand,
       Services
@@ -57,7 +60,7 @@ export class Client implements IClient {
     return result;
   }
 
-  async getPanels(): Promise<Record<string, Panel>> {
+  public async getPanels(): Promise<Record<string, Panel>> {
     const { result } = await this.websocketClient.sendCommand<
       GetPanelsCommand,
       Record<string, Panel>
@@ -67,7 +70,7 @@ export class Client implements IClient {
     return result;
   }
 
-  async getStates(): Promise<State[]> {
+  public async getStates(): Promise<State[]> {
     const { result } = await this.websocketClient.sendCommand<
       GetStatesCommand,
       State[]

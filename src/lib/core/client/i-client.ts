@@ -25,4 +25,5 @@ export interface IClient {
   getCalendars(): Promise<CalendarDetails>;
   getEvents(): Promise<EventDetails[]>;
   getErrorLog(): Promise<string>;
+  close(): Promise<void>;
 }
