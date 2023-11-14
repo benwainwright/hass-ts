@@ -33,6 +33,25 @@ describe("The client", () => {
     });
   });
 
+  describe("getState", () => {
+    it("calls the correct endpoint on the rest client and returns the result", async () => {
+      const mockRestClient = mock<RestClient>();
+
+      const state = mock<State>();
+
+      const entity = "light.bedroom";
+
+      when(mockRestClient.get)
+        .calledWith(`/states/${entity}`)
+        .mockResolvedValue(state);
+
+      const client = new Client(mock(), mockRestClient);
+
+      const result = await client.getState(entity);
+      expect(result).toEqual(state);
+    });
+  });
+
   describe("getCalendars", () => {
     it("calls the correct endpoint on the rest client and returns the result", async () => {
       const mockRestClient = mock<RestClient>();

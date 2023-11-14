@@ -26,6 +26,10 @@ export class Client implements IClient {
     private httpClient: RestClient,
   ) {}
 
+  public async getState(entityId: string): Promise<State> {
+    return await this.httpClient.get(`/states/${entityId}`);
+  }
+
   public async getLogbook(
     params: GetLogbookParams = {},
   ): Promise<LogBookEntry[]> {
