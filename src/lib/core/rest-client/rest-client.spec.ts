@@ -37,6 +37,28 @@ describe("The REST client", () => {
     );
   });
 
+  it("Logs requests and responses with trace logging even when an error is returned", async () => {
+    const logger = mock<Logger>();
+    const client = new RestClient(
+      TEST_HASS_HOST,
+      TEST_HASS_PORT,
+      "test-bad-token",
+      logger,
+    );
+
+    try {
+      await client.post("/test", { testArg: "test" });
+    } catch {
+      // Do nothing
+    }
+
+    expect(logger.trace).toHaveBeenCalledWith(
+      `Request (http): POST /api/test body: [${JSON.stringify({
+        testArg: "test",
+      })}] response: (401) [Unauthorized]`,
+    );
+  });
+
   describe("get", () => {
     it("Throws an appropriate error if the endpoint returns a HTTP error", async () => {
       const client = new RestClient(

@@ -38,12 +38,13 @@ export class RestClient {
     });
     const text = await response.text();
 
+    this.logger.trace(
+      `Request (http): ${method} ${apiPath} body: [${JSON.stringify(
+        body,
+      )}] response: (${response.status}) [${text}]`,
+    );
+
     if (response.ok) {
-      this.logger.trace(
-        `Request (http): ${method} ${apiPath} body: [${JSON.stringify(
-          body,
-        )}] response: (${response.status}) [${text}]`,
-      );
       return safeJsonParse<T>(text);
     }
     throw new HassHttpError(response.status, text);
