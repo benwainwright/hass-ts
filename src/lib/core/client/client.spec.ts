@@ -64,6 +64,78 @@ describe("The client", () => {
     });
   });
 
+  describe("getHistory", () => {
+    it("calls the correct method endpoint when no timestamp or params other than filter_entity are provided", async () => {
+      const mockRestClient = mock<RestClient>();
+
+      const states = mock<State[][]>();
+
+      const filterEntityId = ["light.bedroom", "light.lounge"];
+      const path = `/history/period?filter_entity_id=${filterEntityId.join(
+        ",",
+      )}`;
+
+      when(mockRestClient.get).calledWith(path).mockResolvedValue(states);
+
+      const client = new Client(mock(), mockRestClient);
+
+      const result = await client.getHistory({ filterEntityId });
+
+      expect(result).toEqual(states);
+    });
+
+    it("when timestamp is supplied it adds to the end of the path", async () => {
+      const mockRestClient = mock<RestClient>();
+
+      const states = mock<State[][]>();
+
+      const filterEntityId = ["light.bedroom", "light.lounge"];
+      const timestamp = new Date(2023, 0, 1);
+
+      when(mockRestClient.get)
+        .calledWith(
+          `/history/period/2023-01-01T00:00:00.000Z?filter_entity_id=${filterEntityId.join(
+            ",",
+          )}`,
+        )
+        .mockResolvedValue(states);
+
+      const client = new Client(mock(), mockRestClient);
+
+      const result = await client.getHistory({ filterEntityId, timestamp });
+
+      expect(result).toEqual(states);
+    });
+
+    it("adds other params to the queryString", async () => {
+      const mockRestClient = mock<RestClient>();
+
+      const states = mock<State[][]>();
+
+      const filterEntityId = ["light.bedroom", "light.lounge"];
+      const timestamp = new Date(2023, 0, 1);
+
+      when(mockRestClient.get)
+        .calledWith(
+          `/history/period/2023-01-01T00:00:00.000Z?filter_entity_id=${filterEntityId.join(
+            ",",
+          )}&minimal_response=true&no_attributes=true`,
+        )
+        .mockResolvedValue(states);
+
+      const client = new Client(mock(), mockRestClient);
+
+      const result = await client.getHistory({
+        filterEntityId,
+        timestamp,
+        minimalResponse: true,
+        noAttributes: true,
+      });
+
+      expect(result).toEqual(states);
+    });
+  });
+
   describe("close", () => {
     it("calls the close method on the websocket client", async () => {
       const mockWebsocketClient = mock<WebsocketClient>();

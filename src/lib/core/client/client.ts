@@ -5,6 +5,7 @@ import { GetConfigCommand } from "../websocket-client/messages/get-config-comman
 import { GetPanelsCommand } from "../websocket-client/messages/get-panels-command";
 import { GetServicesCommand } from "../websocket-client/messages/get-services-command";
 import { WebsocketClient } from "../websocket-client/websocket-client";
+import { convertCamelCaseToUnderscoreCase } from "@utils";
 import { IClient } from "./i-client";
 import {
   CalendarDetails,
@@ -15,15 +16,30 @@ import {
   Services,
   State,
 } from "@types";
+import { GetHistoryParams } from "./get-history-params";
 
 export class Client implements IClient {
   constructor(
     private websocketClient: WebsocketClient,
     private httpClient: RestClient,
   ) {}
-  public async close(): Promise<void> {
-    await this.websocketClient.close();
+  public async getHistory(params: GetHistoryParams): Promise<State[][]> {
+    const { timestamp, ...queryParams } = params;
+
+    const queryString = Object.entries(queryParams)
+      .map(
+        ([key, value]) =>
+          `${convertCamelCaseToUnderscoreCase(key)}=${String(value)}`,
+      )
+      .join("&");
+
+    const timestampString = timestamp ? `/${timestamp.toISOString()}` : "";
+
+    const path = `/history/period${timestampString}?${queryString}`;
+
+    return await this.httpClient.get(path);
   }
+
   public async getEvents(): Promise<EventDetails[]> {
     return await this.httpClient.get("/events");
   }
@@ -110,6 +126,10 @@ export class Client implements IClient {
         callback(message.event);
       }
     });
+  }
+
+  public async close(): Promise<void> {
+    await this.websocketClient.close();
   }
 
   private getTypeAndCallback(
