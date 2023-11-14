@@ -11,6 +11,9 @@ import { EventDetails } from "src/lib/types/event-details";
 import { GetHistoryParams } from "./get-history-params";
 
 export interface IClient {
+  /**
+   * Returns an array of state changes from the past
+   */
   getHistory(params: GetHistoryParams): Promise<State[][]>;
   getStates(): Promise<State[]>;
   getConfig(): Promise<Config>;

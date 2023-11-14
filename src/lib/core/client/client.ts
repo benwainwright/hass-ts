@@ -23,6 +23,8 @@ export class Client implements IClient {
     private websocketClient: WebsocketClient,
     private httpClient: RestClient,
   ) {}
+
+  // TODO need a return type that takes into account the nuances of the params
   public async getHistory(params: GetHistoryParams): Promise<State[][]> {
     const { timestamp, ...queryParams } = params;
 
