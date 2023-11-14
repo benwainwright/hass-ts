@@ -8,6 +8,7 @@ import {
 import { RestClient } from "./rest-client";
 import { HassHttpError } from "../errors/hass-http-error";
 import { HTTP } from "../constants";
+import { Logger } from "@types";
 
 beforeEach(() => {
   server.listen();
@@ -18,6 +19,24 @@ afterEach(() => {
 });
 
 describe("The REST client", () => {
+  it("Logs requests and responses with trace logging", async () => {
+    const logger = mock<Logger>();
+    const client = new RestClient(
+      TEST_HASS_HOST,
+      TEST_HASS_PORT,
+      TEST_HASS_TOKEN,
+      logger,
+    );
+
+    await client.post("/test", { testArg: "test" });
+
+    expect(logger.trace).toHaveBeenCalledWith(
+      `Request (http): POST /api/test body: [${JSON.stringify({
+        testArg: "test",
+      })}] response: (200) [${JSON.stringify({ result: "ok" })}]`,
+    );
+  });
+
   describe("get", () => {
     it("Throws an appropriate error if the endpoint returns a HTTP error", async () => {
       const client = new RestClient(

@@ -23,20 +23,24 @@ export class RestClient {
     method: "GET" | "POST",
     body?: Record<string, unknown>,
   ) {
-    const response = await fetch(
-      `http://${this.host}:${this.port}/api${this.normalisePath(path)}`,
-      {
-        body: JSON.stringify(body),
-        method,
-        headers: {
-          authorization: `Bearer ${this.token}`,
-          "content-type": "application/json",
-        },
+    const apiPath = `/api${this.normalisePath(path)}`;
+
+    const response = await fetch(`http://${this.host}:${this.port}${apiPath}`, {
+      body: JSON.stringify(body),
+      method,
+      headers: {
+        authorization: `Bearer ${this.token}`,
+        "content-type": "application/json",
       },
-    );
+    });
     const text = await response.text();
 
     if (response.ok) {
+      this.logger.trace(
+        `Request (http): ${method} ${apiPath} body: [${JSON.stringify(
+          body,
+        )}] response: (${response.status}) [${text}]`,
+      );
       return safeJsonParse<T>(text);
     }
     throw new HassHttpError(response.status, text);
