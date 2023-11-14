@@ -88,7 +88,6 @@ export class Client implements IClient {
 
     this.websocketClient.addMessageListener((message) => {
       if (message.type === "event" && message.id === id) {
-        message;
         callback(message.event);
       }
     });
