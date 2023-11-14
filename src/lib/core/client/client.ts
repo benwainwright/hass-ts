@@ -53,27 +53,6 @@ export class Client implements IClient {
     return result;
   }
 
-  private getTypeAndCallback(
-    typeOrCallback: string | ((message: Event) => void),
-    callbackIfTypeIsSupplied?: (message: Event) => void,
-  ) {
-    /* istanbul ignore else -- @preserve */
-    if (
-      typeof typeOrCallback === "function" &&
-      callbackIfTypeIsSupplied === undefined
-    ) {
-      return { type: undefined, callback: typeOrCallback };
-    } else {
-      if (
-        typeof callbackIfTypeIsSupplied === "function" &&
-        typeof typeOrCallback === "string"
-      ) {
-        return { type: typeOrCallback, callback: callbackIfTypeIsSupplied };
-      }
-      return { type: undefined, callback: () => {} };
-    }
-  }
-
   public async subscribeToEvents(
     callback: (message: Event) => void,
   ): Promise<void>;
@@ -105,5 +84,26 @@ export class Client implements IClient {
         callback(message.event);
       }
     });
+  }
+
+  private getTypeAndCallback(
+    typeOrCallback: string | ((message: Event) => void),
+    callbackIfTypeIsSupplied?: (message: Event) => void,
+  ) {
+    /* istanbul ignore else -- @preserve */
+    if (
+      typeof typeOrCallback === "function" &&
+      callbackIfTypeIsSupplied === undefined
+    ) {
+      return { type: undefined, callback: typeOrCallback };
+    } else {
+      if (
+        typeof callbackIfTypeIsSupplied === "function" &&
+        typeof typeOrCallback === "string"
+      ) {
+        return { type: typeOrCallback, callback: callbackIfTypeIsSupplied };
+      }
+      return { type: undefined, callback: () => {} };
+    }
   }
 }

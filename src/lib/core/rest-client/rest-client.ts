@@ -10,12 +10,15 @@ export class RestClient {
     private readonly logger: Logger,
   ) {}
 
-  private normalisePath(path: string) {
-    if (path.startsWith("/")) {
-      return path;
-    } else {
-      return `/${path}`;
-    }
+  public async get<R>(path: string): Promise<R> {
+    return await this.request<R>(path, "GET");
+  }
+
+  public async post<B extends Record<string, unknown>, R>(
+    path: string,
+    body: B,
+  ): Promise<R> {
+    return await this.request<R>(path, "POST", body);
   }
 
   private async request<T>(
@@ -46,14 +49,11 @@ export class RestClient {
     throw new HassHttpError(response.status, text);
   }
 
-  public async get<R>(path: string): Promise<R> {
-    return await this.request<R>(path, "GET");
-  }
-
-  public async post<B extends Record<string, unknown>, R>(
-    path: string,
-    body: B,
-  ): Promise<R> {
-    return await this.request<R>(path, "POST", body);
+  private normalisePath(path: string) {
+    if (path.startsWith("/")) {
+      return path;
+    } else {
+      return `/${path}`;
+    }
   }
 }
