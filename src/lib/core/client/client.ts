@@ -11,18 +11,42 @@ import {
   CalendarDetails,
   Config,
   Event,
+  LogBookEntry,
   Panel,
   ServiceDomainDetails,
   Services,
   State,
 } from "@types";
 import { GetHistoryParams } from "./get-history-params";
+import { GetLogbookParams } from "./get-logbook-params";
 
 export class Client implements IClient {
   constructor(
     private websocketClient: WebsocketClient,
     private httpClient: RestClient,
   ) {}
+
+  public async getLogbook(
+    params: GetLogbookParams = {},
+  ): Promise<LogBookEntry[]> {
+    const { timestamp, ...queryParams } = params;
+
+    const queryString = Object.entries(queryParams)
+      .map(
+        ([key, value]) =>
+          `${convertCamelCaseToUnderscoreCase(key)}=${
+            value instanceof Date ? value.toISOString() : String(value)
+          }`,
+      )
+      .join("&");
+    const timestampString = timestamp ? `/${timestamp.toISOString()}` : "";
+    const finalQueryString = queryString ? `?${queryString}` : "";
+
+    const path = `/logbook${timestampString}${finalQueryString}`;
+
+    console.log(path);
+    return await this.httpClient.get(path);
+  }
 
   // TODO need a return type that takes into account the nuances of the params
   public async getHistory(params: GetHistoryParams): Promise<State[][]> {

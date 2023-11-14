@@ -9,3 +9,4 @@ export { Logger } from "./logger";
 export { CalendarDetails } from "./calendar-details";
 export { EventDetails } from "./event-details";
 export { ServiceDomainDetails } from "./service-domain-details";
+export { LogBookEntry } from "./logbook-entry";

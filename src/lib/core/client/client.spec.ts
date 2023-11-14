@@ -9,6 +9,7 @@ import {
   CalendarDetails,
   Config,
   EventDetails,
+  LogBookEntry,
   Panel,
   ServiceDomainDetails,
   Services,
@@ -61,6 +62,68 @@ describe("The client", () => {
 
       const result = await client.getErrorLog();
       expect(result).toEqual(log);
+    });
+  });
+  describe("getLogbook", () => {
+    it("calls the correct method endpoint when no params are provided", async () => {
+      const mockRestClient = mock<RestClient>();
+
+      const entries = mock<LogBookEntry[]>();
+
+      const path = `/logbook`;
+
+      when(mockRestClient.get).calledWith(path).mockResolvedValue(entries);
+
+      const client = new Client(mock(), mockRestClient);
+
+      const result = await client.getLogbook();
+
+      expect(result).toEqual(entries);
+    });
+
+    it("when timestamp is supplied it adds to the end of the path", async () => {
+      const mockRestClient = mock<RestClient>();
+
+      const entries = mock<LogBookEntry[]>();
+
+      const timestamp = new Date(2023, 0, 1);
+
+      when(mockRestClient.get)
+        .calledWith(`/logbook/2023-01-01T00:00:00.000Z`)
+        .mockResolvedValue(entries);
+
+      const client = new Client(mock(), mockRestClient);
+
+      const result = await client.getLogbook({ timestamp });
+
+      expect(result).toEqual(entries);
+    });
+
+    it("adds other params to the queryString", async () => {
+      const mockRestClient = mock<RestClient>();
+
+      const entries = mock<LogBookEntry[]>();
+
+      const entity = "light.bedroom";
+
+      const timestamp = new Date(2023, 0, 1);
+      const endTime = new Date(2023, 0, 2);
+
+      when(mockRestClient.get)
+        .calledWith(
+          `/logbook/${timestamp.toISOString()}?entity=${entity}&end_time=${endTime.toISOString()}`,
+        )
+        .mockResolvedValue(entries);
+
+      const client = new Client(mock(), mockRestClient);
+
+      const result = await client.getLogbook({
+        entity,
+        timestamp,
+        endTime,
+      });
+
+      expect(result).toEqual(entries);
     });
   });
 
