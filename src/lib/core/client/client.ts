@@ -5,13 +5,21 @@ import { GetPanelsCommand } from "../websocket-client/messages/get-panels-comman
 import { GetServicesCommand } from "../websocket-client/messages/get-services-command";
 import { WebsocketClient } from "../websocket-client/websocket-client";
 import { IClient } from "./i-client";
-import { Config, Event, Panel, Services, State } from "@types";
+import { CalendarDetails, Config, Event, Panel, Services, State } from "@types";
 
 export class Client implements IClient {
   constructor(
     private websocketClient: WebsocketClient,
     private httpClient: RestClient,
   ) {}
+
+  async getErrorLog(): Promise<string> {
+    return await this.httpClient.get("/error_log");
+  }
+
+  async getCalendars(): Promise<CalendarDetails> {
+    return await this.httpClient.get("/calendars");
+  }
 
   async getConfig(): Promise<Config> {
     const { result } = await this.websocketClient.sendCommand<

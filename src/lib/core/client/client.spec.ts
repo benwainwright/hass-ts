@@ -5,7 +5,8 @@ import { vi } from "vitest";
 import { when } from "jest-when";
 import { MessageFromServer } from "../websocket-client";
 import { mockEventData } from "./mock-event-data";
-import { Config, Panel, Services, State } from "@types";
+import { CalendarDetails, Config, Panel, Services, State } from "@types";
+import { RestClient } from "../rest-client";
 
 beforeAll(() => {
   vi.useFakeTimers();
@@ -20,6 +21,38 @@ describe("The client", () => {
     it("executes without error", () => {
       const mockWebsocketClient = mock<WebsocketClient>();
       expect(() => new Client(mockWebsocketClient, mock())).not.toThrow();
+    });
+  });
+
+  describe("getCalendars", () => {
+    it("calls the correct endpoint on the rest client and returns the result", async () => {
+      const mockRestClient = mock<RestClient>();
+
+      const details = mock<CalendarDetails>();
+
+      when(mockRestClient.get)
+        .calledWith("/calendars")
+        .mockResolvedValue(details);
+
+      const client = new Client(mock(), mockRestClient);
+
+      const result = await client.getCalendars();
+      expect(result).toEqual(details);
+    });
+  });
+
+  describe("getErrorLogs", () => {
+    it("calls the correct endpoint on the rest client and returns the result", async () => {
+      const mockRestClient = mock<RestClient>();
+
+      const log = "a log";
+
+      when(mockRestClient.get).calledWith("/error_log").mockResolvedValue(log);
+
+      const client = new Client(mock(), mockRestClient);
+
+      const result = await client.getErrorLog();
+      expect(result).toEqual(log);
     });
   });
 

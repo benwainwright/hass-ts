@@ -86,6 +86,19 @@ describe("The REST client", () => {
       expect(result).toEqual({ result: "ok" });
     });
 
+    it("works correctly for text only endpoints", async () => {
+      const client = new RestClient(
+        TEST_HASS_HOST,
+        TEST_HASS_PORT,
+        TEST_HASS_TOKEN,
+        mock(),
+      );
+
+      const result = await client.get("/text");
+
+      expect(result).toEqual("some text");
+    });
+
     it("correctly normalises the request path", async () => {
       const client = new RestClient(
         TEST_HASS_HOST,

@@ -21,11 +21,11 @@ export class RestClient {
     return await this.request<R>(path, "POST", body);
   }
 
-  private async request<T>(
+  private async request<R>(
     path: string,
     method: "GET" | "POST",
     body?: Record<string, unknown>,
-  ) {
+  ): Promise<R> {
     const apiPath = `/api${this.normalisePath(path)}`;
 
     const response = await fetch(`http://${this.host}:${this.port}${apiPath}`, {
@@ -37,7 +37,6 @@ export class RestClient {
       },
     });
     const text = await response.text();
-
     this.logger.trace(
       `Request (http): ${method} ${apiPath} body: [${JSON.stringify(
         body,
@@ -45,7 +44,10 @@ export class RestClient {
     );
 
     if (response.ok) {
-      return safeJsonParse<T>(text);
+      return response.headers.get("content-type")?.includes("json")
+        ? safeJsonParse<R>(text)
+        : // TODO this is nasty. Should improve this.
+          (text as R);
     }
     throw new HassHttpError(response.status, text);
   }

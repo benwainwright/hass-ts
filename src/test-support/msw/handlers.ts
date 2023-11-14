@@ -20,6 +20,18 @@ export const handlers = [
     },
   ),
 
+  http.get(
+    `http://${TEST_HASS_HOST}:${TEST_HASS_PORT}/api/text`,
+    ({ request }): HttpResponse => {
+      const errorResponse = validateCredentials(request);
+      if (errorResponse) {
+        return errorResponse;
+      }
+
+      return HttpResponse.text("some text", { status: HTTP.statusCodes.ok });
+    },
+  ),
+
   http.post(
     `http://${TEST_HASS_HOST}:${TEST_HASS_PORT}/api/test`,
     async ({ request }): Promise<HttpResponse> => {
