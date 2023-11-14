@@ -10,6 +10,7 @@ import {
   Config,
   EventDetails,
   Panel,
+  ServiceDomainDetails,
   Services,
   State,
 } from "@types";
@@ -60,6 +61,26 @@ describe("The client", () => {
 
       const result = await client.getErrorLog();
       expect(result).toEqual(log);
+    });
+  });
+
+  describe("getServices", () => {
+    it("calls the correct endpoint on the rest client and returns the result", async () => {
+      const mockRestClient = mock<RestClient>();
+
+      const serviceDomains = [
+        mock<ServiceDomainDetails>(),
+        mock<ServiceDomainDetails>(),
+      ];
+
+      when(mockRestClient.get)
+        .calledWith("/services")
+        .mockResolvedValue(serviceDomains);
+
+      const client = new Client(mock(), mockRestClient);
+
+      const result = await client.getServiceDomains();
+      expect(result).toEqual(serviceDomains);
     });
   });
 

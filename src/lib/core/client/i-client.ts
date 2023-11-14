@@ -1,4 +1,12 @@
-import { Config, Event, Panel, Services, State, CalendarDetails } from "@types";
+import {
+  Config,
+  Event,
+  Panel,
+  Services,
+  State,
+  CalendarDetails,
+  ServiceDomainDetails,
+} from "@types";
 import { EventDetails } from "src/lib/types/event-details";
 
 export interface IClient {
@@ -12,6 +20,7 @@ export interface IClient {
   getStates(): Promise<State[]>;
   getConfig(): Promise<Config>;
   getServices(): Promise<Services>;
+  getServiceDomains(): Promise<ServiceDomainDetails[]>;
   getPanels(): Promise<Record<string, Panel>>;
   getCalendars(): Promise<CalendarDetails>;
   getEvents(): Promise<EventDetails[]>;

@@ -6,7 +6,15 @@ import { GetPanelsCommand } from "../websocket-client/messages/get-panels-comman
 import { GetServicesCommand } from "../websocket-client/messages/get-services-command";
 import { WebsocketClient } from "../websocket-client/websocket-client";
 import { IClient } from "./i-client";
-import { CalendarDetails, Config, Event, Panel, Services, State } from "@types";
+import {
+  CalendarDetails,
+  Config,
+  Event,
+  Panel,
+  ServiceDomainDetails,
+  Services,
+  State,
+} from "@types";
 
 export class Client implements IClient {
   constructor(
@@ -33,6 +41,10 @@ export class Client implements IClient {
       type: "get_config",
     });
     return result;
+  }
+
+  async getServiceDomains(): Promise<ServiceDomainDetails[]> {
+    return await this.httpClient.get("/services");
   }
 
   async getServices(): Promise<Services> {
