@@ -5,7 +5,14 @@ import { vi } from "vitest";
 import { when } from "jest-when";
 import { MessageFromServer } from "../websocket-client";
 import { mockEventData } from "./mock-event-data";
-import { CalendarDetails, Config, Panel, Services, State } from "@types";
+import {
+  CalendarDetails,
+  Config,
+  EventDetails,
+  Panel,
+  Services,
+  State,
+} from "@types";
 import { RestClient } from "../rest-client";
 
 beforeAll(() => {
@@ -53,6 +60,21 @@ describe("The client", () => {
 
       const result = await client.getErrorLog();
       expect(result).toEqual(log);
+    });
+  });
+
+  describe("getEvents", () => {
+    it("calls the correct endpoint on the rest client and returns the result", async () => {
+      const mockRestClient = mock<RestClient>();
+
+      const events = [mock<EventDetails>(), mock<EventDetails>()];
+
+      when(mockRestClient.get).calledWith("/events").mockResolvedValue(events);
+
+      const client = new Client(mock(), mockRestClient);
+
+      const result = await client.getEvents();
+      expect(result).toEqual(events);
     });
   });
 

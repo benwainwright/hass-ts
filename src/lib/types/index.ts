@@ -7,3 +7,4 @@ export { Panel } from "./panel";
 export { HassClientConfig } from "./client-config";
 export { Logger } from "./logger";
 export { CalendarDetails } from "./calendar-details";
+export { EventDetails } from "./event-details";

@@ -1,3 +1,4 @@
+import { EventDetails } from "src/lib/types/event-details";
 import { RestClient } from "../rest-client/rest-client";
 import { GetStatesCommand } from "../websocket-client/messages";
 import { GetConfigCommand } from "../websocket-client/messages/get-config-command";
@@ -12,6 +13,9 @@ export class Client implements IClient {
     private websocketClient: WebsocketClient,
     private httpClient: RestClient,
   ) {}
+  async getEvents(): Promise<EventDetails[]> {
+    return await this.httpClient.get("/events");
+  }
 
   async getErrorLog(): Promise<string> {
     return await this.httpClient.get("/error_log");
