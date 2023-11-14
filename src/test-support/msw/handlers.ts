@@ -32,6 +32,28 @@ export const handlers = [
     },
   ),
 
+  http.get(
+    `http://${TEST_HASS_HOST}:${TEST_HASS_PORT}/api/cache-test`,
+    ({ request }): HttpResponse => {
+      const errorResponse = validateCredentials(request);
+      if (errorResponse) {
+        return errorResponse;
+      }
+      const etag = request.headers.get("if-none-match");
+      if (etag === "foo-bar") {
+        return HttpResponse.text(undefined, {
+          headers: { etag: "foo-bar" },
+          status: HTTP.statusCodes.notModified,
+        });
+      }
+
+      return HttpResponse.text("some text", {
+        headers: { etag: "foo-bar" },
+        status: HTTP.statusCodes.ok,
+      });
+    },
+  ),
+
   http.post(
     `http://${TEST_HASS_HOST}:${TEST_HASS_PORT}/api/test`,
     async ({ request }): Promise<HttpResponse> => {

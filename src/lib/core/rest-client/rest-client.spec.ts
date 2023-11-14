@@ -16,6 +16,7 @@ beforeEach(() => {
 
 afterEach(() => {
   server.resetHandlers();
+  server.events.removeAllListeners();
 });
 
 describe("The REST client", () => {
@@ -84,6 +85,26 @@ describe("The REST client", () => {
       const result = await client.get("/test");
 
       expect(result).toEqual({ result: "ok" });
+    });
+
+    it("Caches responses sent with an etag and uses the cached response if server returns a 304", async () => {
+      expect.assertions(3);
+      const client = new RestClient(
+        TEST_HASS_HOST,
+        TEST_HASS_PORT,
+        TEST_HASS_TOKEN,
+        mock(),
+      );
+
+      const resultOne = await client.get("/cache-test");
+      expect(resultOne).toEqual("some text");
+
+      server.events.on("response:mocked", ({ response }) => {
+        expect(response.status).toEqual(HTTP.statusCodes.notModified);
+      });
+
+      const resultTwo = await client.get("/cache-test");
+      expect(resultTwo).toEqual("some text");
     });
 
     it("works correctly for text only endpoints", async () => {
