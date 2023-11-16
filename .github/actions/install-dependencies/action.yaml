@@ -1,5 +1,5 @@
-name: "Hello World"
-description: "Greet someone"
+name: "Setup Dependencies"
+description: "Setup node and install dependencies using pnpm"
 inputs:
   node-version:
     description: "Node Version"
