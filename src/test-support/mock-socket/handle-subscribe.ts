@@ -1,8 +1,8 @@
-import { Socket } from "./socket";
-import { mockEventData } from "../../lib/core/client/mock-event-data";
-import { send } from "./send";
+import { Socket } from "./socket.js";
+import { mockEventData } from "../../lib/core/client/mock-event-data.js";
+import { send } from "./send.js";
 import { SubscribeToEventsMessage } from "@core";
-import { delay } from "../delay";
+import { delay } from "../delay.js";
 
 export const handleSubscribe = async (
   socket: Socket,

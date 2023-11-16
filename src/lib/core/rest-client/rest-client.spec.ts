@@ -8,9 +8,9 @@ import {
   server,
 } from "@test-support";
 
-import { RestClient } from "./rest-client";
-import { HassHttpError } from "../errors/hass-http-error";
-import { HTTP } from "../constants";
+import { RestClient } from "./rest-client.js";
+import { HassHttpError } from "../errors/index.js";
+import { HTTP } from "../constants.js";
 
 beforeEach(() => {
   server.listen();

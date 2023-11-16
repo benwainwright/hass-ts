@@ -1,3 +1,6 @@
+/**
+ * @alpha
+ */
 export interface Logger {
   trace: (message: string) => void;
   debug: (message: string) => void;

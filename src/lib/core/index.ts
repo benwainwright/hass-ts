@@ -1,4 +1,9 @@
-export { Client, IClient } from "./client";
+export {
+  Client,
+  IClient,
+  GetHistoryParams,
+  GetLogbookParams,
+} from "./client/index.js";
 
 export {
   MessageFromServer,
@@ -7,8 +12,8 @@ export {
   AuthRequiredMessageResponse,
   MessageToServer,
   HelloCommand,
-} from "./websocket-client";
+} from "./websocket-client/index.js";
 
-export { HTTP } from "./constants";
+export { HTTP } from "./constants.js";
 
-export { initialiseClient } from "./initialise-client";
+export { initialiseClient } from "./initialise-client.js";

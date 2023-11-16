@@ -1,4 +1,4 @@
-import { Command } from "./command";
+import { Command } from "./command.js";
 
 export interface SubscribeToEventsMessage extends Command {
   type: "subscribe_events";

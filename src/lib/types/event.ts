@@ -1,6 +1,9 @@
-import { Context } from "./context";
-import { State } from "./state";
+import { Context } from "./context.js";
+import { State } from "./state.js";
 
+/**
+ * @public
+ */
 export interface Event {
   data: {
     entity_id: string;

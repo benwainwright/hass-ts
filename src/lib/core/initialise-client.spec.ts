@@ -1,12 +1,14 @@
 import { vi } from "vitest";
-import { initialiseClient } from "./initialise-client";
-import { WebsocketClient } from "./websocket-client";
 import { when } from "jest-when";
-import { mock } from "vitest-mock-extended";
-import { Client } from "./client";
-import { getLogger } from "./get-logger";
+
 import { Logger } from "@types";
-import { RestClient } from "./rest-client";
+
+import { initialiseClient } from "./initialise-client.js";
+import { WebsocketClient } from "./websocket-client/index.js";
+import { mock } from "vitest-mock-extended";
+import { Client } from "./client/index.js";
+import { getLogger } from "./get-logger.js";
+import { RestClient } from "./rest-client/index.js";
 
 vi.mock("./client");
 vi.mock("./websocket-client");

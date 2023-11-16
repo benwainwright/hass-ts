@@ -1,10 +1,13 @@
 import { HassClientConfig } from "@types";
+import { Client, IClient } from "./client/index.js";
+import { WebsocketClient } from "./websocket-client/index.js";
+import { getLogger } from "./get-logger.js";
+import { RestClient } from "./rest-client/index.js";
 
-import { Client, IClient } from "./client";
-import { WebsocketClient } from "./websocket-client";
-import { getLogger } from "./get-logger";
-import { RestClient } from "./rest-client";
-
+/**
+ * @param config - Config for the Home Assistant client
+ * @alpha
+ */
 export const initialiseClient = async ({
   host,
   port,

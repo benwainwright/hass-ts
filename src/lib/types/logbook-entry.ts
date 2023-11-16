@@ -1,3 +1,6 @@
+/**
+ * @alpha
+ */
 export interface LogBookEntry {
   context_user_id: string;
   domain: string;

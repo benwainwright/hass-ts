@@ -1,5 +1,5 @@
 import { mock } from "vitest-mock-extended";
-import { getLogger } from "./get-logger";
+import { getLogger } from "./get-logger.js";
 import { Logger } from "@types";
 import { vi } from "vitest";
 

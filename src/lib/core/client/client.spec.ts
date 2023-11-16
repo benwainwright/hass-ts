@@ -1,10 +1,7 @@
-import { mock } from "vitest-mock-extended";
-import { Client } from "./client";
-import { WebsocketClient } from "../websocket-client/websocket-client";
 import { vi } from "vitest";
 import { when } from "jest-when";
-import { MessageFromServer } from "../websocket-client";
-import { mockEventData } from "./mock-event-data";
+import { mock } from "vitest-mock-extended";
+
 import {
   CalendarDetails,
   Config,
@@ -15,7 +12,12 @@ import {
   Services,
   State,
 } from "@types";
-import { RestClient } from "../rest-client";
+
+import { WebsocketClient } from "../websocket-client/index.js";
+import { Client } from "./client.js";
+import { MessageFromServer } from "../websocket-client/index.js";
+import { mockEventData } from "./mock-event-data.js";
+import { RestClient } from "../rest-client/index.js";
 
 beforeAll(() => {
   vi.useFakeTimers();

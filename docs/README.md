@@ -1,96 +1,65 @@
-rtm-typescript
+hass-ts
 
-# rtm-typescript
+# hass-ts
 
 ## Table of contents
 
 ### Functions
 
-- [initialiseApi](README.md#initialiseapi)
+- [initialiseClient](README.md#initialiseclient)
 
 ### Interfaces
 
-- [Auth](interfaces/Auth.md)
-- [CheckTokenParams](interfaces/CheckTokenParams.md)
-- [GetListParams](interfaces/GetListParams.md)
-- [GetTokenParams](interfaces/GetTokenParams.md)
-- [IRememberTheMilkApi](interfaces/IRememberTheMilkApi.md)
-- [RtmApiConfig](interfaces/RtmApiConfig.md)
-- [SuccessResponse](interfaces/SuccessResponse.md)
-- [Tasks](interfaces/Tasks.md)
-- [Test](interfaces/Test.md)
-
-### Classes
-
-- [RtmApiFailedResponseError](classes/RtmApiFailedResponseError.md)
-- [RtmHttpError](classes/RtmHttpError.md)
-- [RtmTypescriptError](classes/RtmTypescriptError.md)
-
-### Enumerations
-
-- [ClientPermissions](enums/ClientPermissions.md)
+- [CalendarDetails](interfaces/CalendarDetails.md)
+- [Config](interfaces/Config.md)
+- [Context](interfaces/Context.md)
+- [Event](interfaces/Event.md)
+- [EventDetails](interfaces/EventDetails.md)
+- [GetHistoryParams](interfaces/GetHistoryParams.md)
+- [GetLogbookParams](interfaces/GetLogbookParams.md)
+- [HassClientConfig](interfaces/HassClientConfig.md)
+- [IClient](interfaces/IClient.md)
+- [LogBookEntry](interfaces/LogBookEntry.md)
+- [Logger](interfaces/Logger.md)
+- [Panel](interfaces/Panel.md)
+- [Service](interfaces/Service.md)
+- [ServiceDomainDetails](interfaces/ServiceDomainDetails.md)
+- [State](interfaces/State.md)
 
 ### Type Aliases
 
-- [ExpandRecursively](README.md#expandrecursively)
+- [Services](README.md#services)
 
 ## Functions
 
-### initialiseApi
+### initialiseClient
 
-▸ **initialiseApi**(`config`): [`IRememberTheMilkApi`](interfaces/IRememberTheMilkApi.md)
-
-Entry point to the API. Calling it with valid credentials will initialise and return an instantiated [IRememberTheMilkApi](interfaces/IRememberTheMilkApi.md)
+▸ **initialiseClient**(`config`): `Promise`\<[`IClient`](interfaces/IClient.md)\>
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `config` | [`RtmApiConfig`](interfaces/RtmApiConfig.md) | Configuration object for the API |
+| Name     | Type                                                 | Description                          |
+| :------- | :--------------------------------------------------- | :----------------------------------- |
+| `config` | [`HassClientConfig`](interfaces/HassClientConfig.md) | Config for the Home Assistant client |
 
 #### Returns
 
-[`IRememberTheMilkApi`](interfaces/IRememberTheMilkApi.md)
-
-**`Example`**
-
-```TypeScript
- import { initialiseApi, ClientPermissions } from "rtm-typescript";
-
- const key = "my-api-key";
- const secret = "my-shared-secret";
-
- const myAsyncFunction = async () => {
-
-   const client = initialiseApi({
-     key,
-     secret,
-     permissions: ClientPermissions.Read,
-   });
-
-   const result = await client.tasks.getList({ list_id: "2"});
- }
-```
+`Promise`\<[`IClient`](interfaces/IClient.md)\>
 
 #### Defined in
 
-[src/lib/core/initialise-api.ts:63](https://github.com/benwainwright/rtm-typescript/blob/566fc76/src/lib/core/initialise-api.ts#L63)
+lib/core/initialise-client.ts:11
 
 ## Type Aliases
 
-### ExpandRecursively
+### Services
 
-Ƭ **ExpandRecursively**\<`T`\>: `T` extends `object` ? `T` extends infer O ? \{ [K in keyof O]: ExpandRecursively\<O[K]\> } : `never` : `T`
+Ƭ **Services**: `Object`
 
-A helper type that expands types so that they resolve to their final forma
-in editor tooltips
+#### Index signature
 
-#### Type parameters
-
-| Name |
-| :------ |
-| `T` |
+▪ [key: `string`]: \{ `[key: string]`: [`Service`](interfaces/Service.md); }
 
 #### Defined in
 
-[src/lib/types/expand-recursively.ts:7](https://github.com/benwainwright/rtm-typescript/blob/566fc76/src/lib/types/expand-recursively.ts#L7)
+lib/types/services.ts:4

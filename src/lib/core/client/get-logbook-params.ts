@@ -1,3 +1,6 @@
+/**
+ * @alpha
+ */
 export interface GetLogbookParams {
   timestamp?: Date;
   entity?: string;

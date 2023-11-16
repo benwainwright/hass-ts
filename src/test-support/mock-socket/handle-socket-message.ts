@@ -1,10 +1,11 @@
-import { safeJsonParse } from "@utils";
-import { handleAuth } from "./handle-auth";
-import { handleHello } from "./handle-hello";
-import { Socket } from "./socket";
-import { handleSubscribe } from "./handle-subscribe";
 import { MessageToServer } from "@core";
-import { handleThrow } from "./handle-throw";
+import { safeJsonParse } from "@utils";
+
+import { handleAuth } from "./handle-auth.js";
+import { handleHello } from "./handle-hello.js";
+import { Socket } from "./socket.js";
+import { handleSubscribe } from "./handle-subscribe.js";
+import { handleThrow } from "./handle-throw.js";
 
 export const handleSocketMessage = async (
   socket: Socket,

@@ -1,4 +1,4 @@
-import { getTestClient } from "./get-test-client";
+import { getTestClient } from "./get-test-client.js";
 
 describe("The Hass SDK", () => {
   describe("getErrorLog", () => {

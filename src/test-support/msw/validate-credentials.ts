@@ -1,6 +1,6 @@
 import { HTTP } from "@core";
 import { DefaultBodyType, HttpResponse, StrictRequest } from "msw";
-import { TEST_HASS_TOKEN } from "..";
+import { TEST_HASS_TOKEN } from "../hass-server-credentials.js";
 
 export const validateCredentials = (
   request: StrictRequest<DefaultBodyType>,

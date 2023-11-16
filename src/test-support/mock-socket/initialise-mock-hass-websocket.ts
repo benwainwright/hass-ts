@@ -1,6 +1,6 @@
 import { WebSocketServer } from "ws";
-import { handleSocketMessage } from "./handle-socket-message";
-import { send } from "./send";
+import { handleSocketMessage } from "./handle-socket-message.js";
+import { send } from "./send.js";
 
 const ONE_SECOND = 1000;
 

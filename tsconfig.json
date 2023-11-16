@@ -3,7 +3,6 @@
     "files": true
   },
   "compilerOptions": {
-    "target": "es2015",
     "module": "NodeNext",
     "outDir": "dist",
     "lib": ["ES2023", "DOM"],
@@ -14,12 +13,18 @@
     "forceConsistentCasingInFileNames": true,
     "baseUrl": "./",
     "paths": {
-      "@test-support": ["src/test-support"],
-      "@core": ["src/lib/core"],
-      "@utils": ["src/lib/utils"],
-      "@types": ["src/lib/types"]
+      "@test-support": ["src/test-support/index.js"],
+      "@core": ["src/lib/core/index.js"],
+      "@utils": ["src/lib/utils/index.js"],
+      "@types": ["src/lib/types/index.js"]
     }
   },
   "$schema": "https://json.schemastore.org/tsconfig",
-  "include": ["**/*.ts", "**/*.js", "**/*.mts", ".eslintrc.js"]
+  "include": [
+    "**/*.ts",
+    "**/*.js",
+    "**/*.mts",
+    "eslint.config.js",
+    "lint-staged.config.cjs"
+  ]
 }

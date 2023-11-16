@@ -1,8 +1,12 @@
-import { AuthInvalidMessage, AuthOkMessage, AuthRequiredMessage } from "./auth";
-import { ErrorResult } from "./error-result";
-import { EventMessage } from "./event-message";
-import { Result } from "./result";
-import { TestArbitraryMessage } from "./test-arbitrary-message";
+import {
+  AuthInvalidMessage,
+  AuthOkMessage,
+  AuthRequiredMessage,
+} from "./auth.js";
+import { ErrorResult } from "./error-result.js";
+import { EventMessage } from "./event-message.js";
+import { Result } from "./result.js";
+import { TestArbitraryMessage } from "./test-arbitrary-message.js";
 
 export type MessageFromServer<T = unknown> =
   | AuthRequiredMessage

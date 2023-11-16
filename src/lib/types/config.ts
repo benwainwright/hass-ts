@@ -1,3 +1,6 @@
+/**
+ * @alpha
+ */
 export interface Config {
   latitude: number;
   longitude: number;

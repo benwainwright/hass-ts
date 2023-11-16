@@ -1,6 +1,6 @@
 import { AuthRequiredMessageResponse } from "@core";
-import { send } from "./send";
-import { Socket } from "./socket";
+import { send } from "./send.js";
+import { Socket } from "./socket.js";
 
 let authedSessions: number[] = [];
 

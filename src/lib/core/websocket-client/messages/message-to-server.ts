@@ -1,11 +1,11 @@
-import { ThrowCommand } from "./throw-command";
-import { AuthRequiredMessageResponse } from "./auth";
-import { GetStatesCommand } from "./get-states-comand";
-import { HelloCommand } from "./hello";
-import { SubscribeToEventsMessage } from "./subscribe-to-events";
-import { GetConfigCommand } from "./get-config-command";
-import { GetPanelsCommand } from "./get-panels-command";
-import { GetServicesCommand } from "./get-services-command";
+import { ThrowCommand } from "./throw-command.js";
+import { AuthRequiredMessageResponse } from "./auth.js";
+import { GetStatesCommand } from "./get-states-comand.js";
+import { HelloCommand } from "./hello.js";
+import { SubscribeToEventsMessage } from "./subscribe-to-events.js";
+import { GetConfigCommand } from "./get-config-command.js";
+import { GetPanelsCommand } from "./get-panels-command.js";
+import { GetServicesCommand } from "./get-services-command.js";
 
 export type MessageToServer =
   | AuthRequiredMessageResponse

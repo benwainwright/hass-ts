@@ -10,9 +10,14 @@ import {
   EventDetails,
 } from "@types";
 
-import { GetHistoryParams } from "./get-history-params";
-import { GetLogbookParams } from "./get-logbook-params";
+import { GetHistoryParams } from "./get-history-params.js";
+import { GetLogbookParams } from "./get-logbook-params.js";
 
+/**
+ * The Home Assistant client API. Implements both the websocket and REST APIs
+ *
+ * @alpha
+ */
 export interface IClient {
   /**
    * Returns an array of state changes from the past

@@ -2,7 +2,7 @@ import { HTTP } from "@core";
 import { Logger } from "@types";
 import { safeJsonParse } from "@utils";
 
-import { HassHttpError } from "../errors";
+import { HassHttpError } from "../errors/index.js";
 
 export class RestClient {
   private requestCache = new Map<string, { etag: string; text: string }>();

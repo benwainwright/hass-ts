@@ -1,12 +1,16 @@
-import { TEST_ERROR_CODE, TEST_ERROR_MESSAGE } from "src/test-support";
-import { initialiseMockHassWebsocket } from "../../../test-support/mock-socket";
-import { HassTsError } from "../errors/hass-ts-error";
-import { WebsocketClient } from "./websocket-client";
-import { ErrorResponseError } from "../errors/error-response-error";
-import { ERRORS } from "../strings";
+import { Logger } from "@types";
+import {
+  TEST_ERROR_CODE,
+  TEST_ERROR_MESSAGE,
+  initialiseMockHassWebsocket,
+} from "@test-support";
+import { WebsocketClient } from "./websocket-client.js";
+
 import { vi } from "vitest";
 import { mock } from "vitest-mock-extended";
-import { Logger } from "@types";
+
+import { ERRORS } from "../strings.js";
+import { ErrorResponseError, HassTsError } from "../errors/index.js";
 
 const host = "localhost";
 const port = 123;

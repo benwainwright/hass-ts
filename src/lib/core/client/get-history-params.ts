@@ -1,3 +1,6 @@
+/**
+ * @alpha
+ */
 export interface GetHistoryParams {
   /**
    * Beginning of the history period - defaults to 1 day before the request

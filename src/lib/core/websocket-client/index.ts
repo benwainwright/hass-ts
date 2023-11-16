@@ -5,6 +5,10 @@ export {
   HelloCommand,
   SubscribeToEventsMessage,
   AuthRequiredMessageResponse,
-} from "./messages";
+  GetStatesCommand,
+  GetConfigCommand,
+  GetPanelsCommand,
+  GetServicesCommand,
+} from "./messages/index.js";
 
-export { WebsocketClient } from "./websocket-client";
+export { WebsocketClient } from "./websocket-client.js";

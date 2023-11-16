@@ -1,3 +1,6 @@
+/**
+ * @alpha
+ */
 export interface Panel {
   component_name: string;
   icon: null | string;

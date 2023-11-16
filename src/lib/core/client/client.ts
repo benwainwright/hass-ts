@@ -1,13 +1,17 @@
 import { EventDetails } from "@types";
 import { convertCamelCaseToUnderscoreCase } from "@utils";
 
-import { RestClient } from "../rest-client/rest-client";
-import { GetStatesCommand } from "../websocket-client/messages";
-import { GetConfigCommand } from "../websocket-client/messages/get-config-command";
-import { GetPanelsCommand } from "../websocket-client/messages/get-panels-command";
-import { GetServicesCommand } from "../websocket-client/messages/get-services-command";
-import { WebsocketClient } from "../websocket-client/websocket-client";
-import { IClient } from "./i-client";
+import { RestClient } from "../rest-client/index.js";
+import {
+  GetConfigCommand,
+  GetPanelsCommand,
+  GetServicesCommand,
+  GetStatesCommand,
+  WebsocketClient,
+} from "../websocket-client/index.js";
+
+import { IClient } from "./i-client.js";
+
 import {
   CalendarDetails,
   Config,
@@ -18,8 +22,8 @@ import {
   Services,
   State,
 } from "@types";
-import { GetHistoryParams } from "./get-history-params";
-import { GetLogbookParams } from "./get-logbook-params";
+import { GetHistoryParams } from "./get-history-params.js";
+import { GetLogbookParams } from "./get-logbook-params.js";
 
 export class Client implements IClient {
   constructor(

@@ -1,7 +1,7 @@
 import { HttpResponse, http } from "msw";
 
-import { TEST_HASS_HOST, TEST_HASS_PORT } from "..";
-import { validateCredentials } from "./validate-credentials";
+import { TEST_HASS_HOST, TEST_HASS_PORT } from "../hass-server-credentials.js";
+import { validateCredentials } from "./validate-credentials.js";
 import { HTTP } from "@core";
 
 type Handler = ReturnType<typeof http.get>;

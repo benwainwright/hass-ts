@@ -1,3 +1,6 @@
+/**
+ * @alpha
+ */
 export interface Context {
   id: string;
   parent_id: null;

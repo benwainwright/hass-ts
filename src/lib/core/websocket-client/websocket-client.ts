@@ -1,14 +1,16 @@
 import WebSocket from "ws";
 import { safeJsonParse } from "@utils";
 
-import { MessageFromServer } from "./messages";
-import { MessageToServer } from "./messages/message-to-server";
-import { Result } from "./messages/result";
-import { ErrorResult } from "./messages/error-result";
-import { HassTsError } from "../errors/hass-ts-error";
-import { ERRORS } from "../strings";
-import { ErrorResponseError } from "../errors/error-response-error";
+import {
+  ErrorResult,
+  MessageFromServer,
+  MessageToServer,
+  Result,
+} from "./messages/index.js";
+import { ERRORS } from "../strings.js";
 import { Logger } from "@types";
+import { ErrorResponseError } from "../errors/error-response-error.js";
+import { HassTsError } from "../errors/hass-ts-error.js";
 
 export class WebsocketClient {
   private socket: WebSocket;

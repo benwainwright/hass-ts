@@ -1,8 +1,12 @@
-export type Services = { [key: string]: Domain };
+/**
+ * @alpha
+ */
+export type Services = { [key: string]: { [key: string]: Service } };
 
-type Domain = { [key: string]: Service };
-
-interface Service {
+/**
+ * @alpha
+ */
+export interface Service {
   name: string;
   description: string;
   fields: Record<string, unknown>;

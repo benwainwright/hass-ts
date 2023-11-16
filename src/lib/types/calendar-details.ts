@@ -1,1 +1,4 @@
+/**
+ * @alpha
+ */
 export interface CalendarDetails {}
