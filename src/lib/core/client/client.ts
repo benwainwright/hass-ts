@@ -1,4 +1,3 @@
-import { EventDetails } from "@types";
 import { convertCamelCaseToUnderscoreCase } from "@utils";
 
 import { RestClient } from "../rest-client/index.js";
@@ -15,6 +14,7 @@ import { IClient } from "./i-client.js";
 import {
   CalendarDetails,
   Config,
+  EventDetails,
   Event,
   LogBookEntry,
   Panel,
