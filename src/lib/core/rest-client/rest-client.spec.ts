@@ -1,14 +1,16 @@
 import { mock } from "vitest-mock-extended";
+
+import { Logger } from "@types";
 import {
   TEST_HASS_HOST,
   TEST_HASS_PORT,
   TEST_HASS_TOKEN,
   server,
-} from "../../../test-support";
+} from "@test-support";
+
 import { RestClient } from "./rest-client";
 import { HassHttpError } from "../errors/hass-http-error";
 import { HTTP } from "../constants";
-import { Logger } from "@types";
 
 beforeEach(() => {
   server.listen();

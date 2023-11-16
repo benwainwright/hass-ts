@@ -7,7 +7,7 @@ import {
 
 const apiExtractorJsonPath: string = path.join(
   __dirname,
-  "../api-extractor.json",
+  "../../api-extractor.json",
 );
 
 const extractorConfig: ExtractorConfig =

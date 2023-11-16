@@ -4,7 +4,7 @@ import { TEST_HASS_TOKEN } from "..";
 
 export const validateCredentials = (
   request: StrictRequest<DefaultBodyType>,
-) => {
+): HttpResponse | undefined => {
   const auth = request.headers.get("Authorization");
   const matches = auth?.match(/Bearer (?<token>.*)/);
   const token = matches?.groups?.token;

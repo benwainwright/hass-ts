@@ -1,11 +1,12 @@
-import { EventDetails } from "src/lib/types/event-details";
+import { EventDetails } from "@types";
+import { convertCamelCaseToUnderscoreCase } from "@utils";
+
 import { RestClient } from "../rest-client/rest-client";
 import { GetStatesCommand } from "../websocket-client/messages";
 import { GetConfigCommand } from "../websocket-client/messages/get-config-command";
 import { GetPanelsCommand } from "../websocket-client/messages/get-panels-command";
 import { GetServicesCommand } from "../websocket-client/messages/get-services-command";
 import { WebsocketClient } from "../websocket-client/websocket-client";
-import { convertCamelCaseToUnderscoreCase } from "@utils";
 import { IClient } from "./i-client";
 import {
   CalendarDetails,

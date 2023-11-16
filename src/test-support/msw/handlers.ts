@@ -4,7 +4,9 @@ import { TEST_HASS_HOST, TEST_HASS_PORT } from "..";
 import { validateCredentials } from "./validate-credentials";
 import { HTTP } from "@core";
 
-export const handlers = [
+type Handler = ReturnType<typeof http.get>;
+
+export const handlers: Handler[] = [
   http.get(
     `http://${TEST_HASS_HOST}:${TEST_HASS_PORT}/api/test`,
     ({ request }): HttpResponse => {

@@ -7,8 +7,9 @@ import {
   CalendarDetails,
   ServiceDomainDetails,
   LogBookEntry,
+  EventDetails,
 } from "@types";
-import { EventDetails } from "src/lib/types/event-details";
+
 import { GetHistoryParams } from "./get-history-params";
 import { GetLogbookParams } from "./get-logbook-params";
 
