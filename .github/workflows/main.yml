@@ -62,7 +62,7 @@ jobs:
       - uses: actions/checkout@v3
       - name: Setup job
         uses: ./.github/actions/install-dependencies
-      - run: npm run test:e2e
+      - run: pnpm run test:e2e
         env:
           RTM_API_KEY: ${{ secrets.RTM_API_KEY }}
           RTM_API_SECRET: ${{ secrets.RTM_API_SECRET }}
@@ -79,7 +79,7 @@ jobs:
       - uses: actions/checkout@v3
       - name: Setup job
         uses: ./.github/actions/install-dependencies
-      - run: npm run ${{ matrix.check }}
+      - run: pnpm run ${{ matrix.check }}
 
   release:
     name: Release
@@ -92,10 +92,10 @@ jobs:
         uses: ./.github/actions/install-dependencies
 
       - name: Generate Documentation
-        run: npm run docs
+        run: pnpm run docs
 
       - name: Build Package
-        run: npm run build
+        run: pnpm run build
 
       - name: Release
         id: semantic
@@ -117,7 +117,7 @@ jobs:
       - uses: actions/checkout@v3
       - name: Setup job
         uses: ./.github/actions/install-dependencies
-      - run: npm run test:e2e:post-release
+      - run: pnpm run test:e2e:post-release
         env:
           RTM_API_KEY: ${{ secrets.RTM_API_KEY }}
           RTM_API_SECRET: ${{ secrets.RTM_API_SECRET }}
@@ -133,7 +133,7 @@ jobs:
         if: needs.e2e-test-post-release.result == 'failure'
         uses: ./.github/actions/install-dependencies
 
-      - run: npm unpublish rtm-typescript@${{ needs.release.outputs.new_release_version }}
+      - run: pnpm unpublish rtm-typescript@${{ needs.release.outputs.new_release_version }}
         env:
           NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         if: needs.e2e-test-post-release.result == 'failure'
