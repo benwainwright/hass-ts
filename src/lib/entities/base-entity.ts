@@ -7,13 +7,13 @@ export abstract class BaseEntity<T extends IdType> {
     id: ET,
     entity: unknown
   ): entity is EntityWithMatchingId<ET, Entity> {
-    return id === this.id;
+    return id === this.id && entity == this;
   }
 
   public matchesDomain<ET extends GetDomain<T>>(
     id: ET,
     entity: unknown
   ): entity is EntityWithMatchingId<`${ET}.${string}`, Entity> {
-    return id.startsWith(this.id);
+    return this.id.startsWith(id) && entity == this;
   }
 }

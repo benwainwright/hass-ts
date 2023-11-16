@@ -26,3 +26,9 @@ export type EntityWithMatchingId<
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   Y extends new (...id: any[]) => any,
 > = Y extends MatchesId<T, Y> ? InstanceType<Y> : never;
+
+type EntityType<T extends IdType> = EntityWithMatchingId<T, Entity>;
+
+export type Entities<T extends Record<keyof T, IdType>> = {
+  [K in keyof T]: EntityType<T[K]>;
+};

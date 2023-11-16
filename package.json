@@ -82,6 +82,7 @@
     "@eslint/js": "^8.53.0",
     "eslint-plugin-jsdoc": "^46.9.0",
     "globals": "^13.23.0",
+    "type-fest": "^4.7.1",
     "ws": "^8.14.2"
   }
 }
