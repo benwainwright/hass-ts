@@ -15,6 +15,7 @@
     "paths": {
       "@test-support": ["src/test-support/index.js"],
       "@core": ["src/lib/core/index.js"],
+      "@entities": ["src/lib/entities/index.js"],
       "@utils": ["src/lib/utils/index.js"],
       "@types": ["src/lib/types/index.js"]
     }

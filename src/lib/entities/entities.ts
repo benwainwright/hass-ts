@@ -1,0 +1,28 @@
+import { Climate } from "./climate.js";
+import { Light } from "./light.js";
+
+export type Entity =
+  | typeof Light<`light.${string}`>
+  | typeof Climate<`climate.${string}`>;
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type GetIdTypes<T extends abstract new (...args: any[]) => unknown> =
+  T extends unknown ? ConstructorParameters<T>[0] : never;
+
+export type IdType = GetIdTypes<Entity>;
+
+export type GetDomain<T extends IdType> = T extends `${infer Domain}.${string}`
+  ? Domain
+  : never;
+
+export type MatchesId<
+  T extends IdType,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  Y extends abstract new (args: any) => unknown,
+> = T extends ConstructorParameters<Y>[0] ? Y : never;
+
+export type EntityWithMatchingId<
+  T extends IdType,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  Y extends new (...id: any[]) => any,
+> = Y extends MatchesId<T, Y> ? InstanceType<Y> : never;
