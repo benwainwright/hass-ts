@@ -1,21 +1,9 @@
-import { initialiseClient } from "@core";
-import { HassClientConfig } from "@types";
-import {
-  TEST_HASS_HOST,
-  TEST_HASS_PORT,
-  TEST_HASS_TOKEN,
-} from "../test-support";
+import { getTestClient } from "./get-test-client";
 
 describe("The Hass SDK", () => {
   describe("getErrorLog", () => {
     it("returns a result which is a string", async () => {
-      const config: HassClientConfig = {
-        host: TEST_HASS_HOST,
-        port: TEST_HASS_PORT,
-        token: TEST_HASS_TOKEN,
-      };
-
-      const client = await initialiseClient(config);
+      const client = await getTestClient();
 
       const errorLog = await client.getErrorLog();
       expect(typeof errorLog).toEqual("string");
@@ -25,16 +13,33 @@ describe("The Hass SDK", () => {
 
   describe("getConfig", () => {
     it("returns the time_zone from the server", async () => {
-      const config: HassClientConfig = {
-        host: TEST_HASS_HOST,
-        port: TEST_HASS_PORT,
-        token: TEST_HASS_TOKEN,
-      };
-
-      const client = await initialiseClient(config);
+      const client = await getTestClient();
 
       const theConfig = await client.getConfig();
       expect(theConfig.time_zone).toEqual("Europe/London");
+      await client.close();
+    });
+  });
+
+  describe("getStates", () => {
+    it("returns data of the correct format", async () => {
+      const client = await getTestClient();
+
+      const states = await client.getStates();
+      expect(states).toBeInstanceOf(Array);
+      expect(states.length).toBeGreaterThan(0);
+      await client.close();
+    });
+  });
+
+  describe("getState", () => {
+    it("returns data from person.test_hass", async () => {
+      const client = await getTestClient();
+
+      const state = await client.getState("person.test_hass");
+
+      expect(state.entity_id).toEqual("person.test_hass");
+      expect(state.attributes.id).toEqual("test_hass");
       await client.close();
     });
   });

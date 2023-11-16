@@ -14,6 +14,7 @@
     "forceConsistentCasingInFileNames": true,
     "baseUrl": "./",
     "paths": {
+      "@test-support": ["src/test-support"],
       "@core": ["src/lib/core"],
       "@utils": ["src/lib/utils"],
       "@types": ["src/lib/types"]
