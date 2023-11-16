@@ -13,7 +13,7 @@ import { ERRORS } from "../strings.js";
 import { ErrorResponseError, HassTsError } from "../errors/index.js";
 
 const host = "localhost";
-const port = 123;
+const port = 1234;
 const token = "test-token";
 const version = "1.2.3";
 
