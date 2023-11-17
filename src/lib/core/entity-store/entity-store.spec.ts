@@ -13,10 +13,10 @@ describe("the entity store", () => {
 
   describe("getEntities", () => {
     it("should return the correct entities", () => {
-      const mockLightOne = new Light("light.foo");
-      const mockLightTwo = new Light("light.bar");
-      const mockClimateOne = new Climate("climate.baz");
-      const mockClimateTwo = new Climate("climate.qux");
+      const mockLightOne = new Light("light.foo", mock());
+      const mockLightTwo = new Light("light.bar", mock());
+      const mockClimateOne = new Climate("climate.baz", mock());
+      const mockClimateTwo = new Climate("climate.qux", mock());
 
       const hass = new EntityStore([
         mockLightOne,
@@ -34,10 +34,10 @@ describe("the entity store", () => {
     });
 
     it("should throw an error if any of the entities do not matxh", () => {
-      const mockLightOne = new Light("light.foo");
-      const mockLightTwo = new Light("light.bar");
-      const mockClimateOne = new Climate("climate.baz");
-      const mockClimateTwo = new Climate("climate.qux");
+      const mockLightOne = new Light("light.foo", mock());
+      const mockLightTwo = new Light("light.bar", mock());
+      const mockClimateOne = new Climate("climate.baz", mock());
+      const mockClimateTwo = new Climate("climate.qux", mock());
 
       const hass = new EntityStore([
         mockLightOne,
@@ -56,10 +56,10 @@ describe("the entity store", () => {
   });
 
   it("should throw an error if no entity is found", () => {
-    const mockLightOne = new Light("light.foo");
-    const mockLightTwo = new Light("light.bar");
-    const mockClimateOne = new Climate("climate.baz");
-    const mockClimateTwo = new Climate("climate.qux");
+    const mockLightOne = new Light("light.foo", mock());
+    const mockLightTwo = new Light("light.bar", mock());
+    const mockClimateOne = new Climate("climate.baz", mock());
+    const mockClimateTwo = new Climate("climate.qux", mock());
 
     const hass = new EntityStore([
       mockLightOne,
@@ -75,10 +75,10 @@ describe("the entity store", () => {
 
   describe("getDomainEntities", () => {
     it("should return an array containing entities for the associated domain only", () => {
-      const mockLightOne = new Light("light.foo");
-      const mockLightTwo = new Light("light.bar");
-      const mockClimateOne = new Climate("climate.baz");
-      const mockClimateTwo = new Climate("climate.qux");
+      const mockLightOne = new Light("light.foo", mock());
+      const mockLightTwo = new Light("light.bar", mock());
+      const mockClimateOne = new Climate("climate.baz", mock());
+      const mockClimateTwo = new Climate("climate.qux", mock());
 
       const hass = new EntityStore([
         mockLightOne,
@@ -92,8 +92,8 @@ describe("the entity store", () => {
     });
 
     it("should return an empty array if there are genuinely no matching entities", () => {
-      const mockLightOne = new Light("light.foo");
-      const mockLightTwo = new Light("light.bar");
+      const mockLightOne = new Light("light.foo", mock());
+      const mockLightTwo = new Light("light.bar", mock());
 
       const hass = new EntityStore([mockLightOne, mockLightTwo]);
 
@@ -104,10 +104,10 @@ describe("the entity store", () => {
 
   describe("getEntity", () => {
     it("should return the correct entity", () => {
-      const mockLightOne = new Light("light.foo");
-      const mockLightTwo = new Light("light.bar");
-      const mockClimateOne = new Climate("climate.baz");
-      const mockClimateTwo = new Climate("climate.qux");
+      const mockLightOne = new Light("light.foo", mock());
+      const mockLightTwo = new Light("light.bar", mock());
+      const mockClimateOne = new Climate("climate.baz", mock());
+      const mockClimateTwo = new Climate("climate.qux", mock());
 
       const hass = new EntityStore([
         mockLightOne,
@@ -121,10 +121,10 @@ describe("the entity store", () => {
     });
 
     it("should throw an error if no entity is found", () => {
-      const mockLightOne = new Light("light.foo");
-      const mockLightTwo = new Light("light.bar");
-      const mockClimateOne = new Climate("climate.baz");
-      const mockClimateTwo = new Climate("climate.qux");
+      const mockLightOne = new Light("light.foo", mock());
+      const mockLightTwo = new Light("light.bar", mock());
+      const mockClimateOne = new Climate("climate.baz", mock());
+      const mockClimateTwo = new Climate("climate.qux", mock());
 
       const hass = new EntityStore([
         mockLightOne,

@@ -1,9 +1,4 @@
-import { Climate } from "./climate.js";
-import { Light } from "./light.js";
-
-export type Entity =
-  | typeof Light<`light.${string}`>
-  | typeof Climate<`climate.${string}`>;
+import { Entity } from "./entity.js";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type GetIdTypes<T extends abstract new (...args: any[]) => unknown> =

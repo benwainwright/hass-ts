@@ -1,5 +1,6 @@
 import { Client } from "@core";
-import { Entity, EntityWithMatchingId, GetDomain, IdType } from "./entities.js";
+import { EntityWithMatchingId, GetDomain, IdType } from "./entities.js";
+import { Entity } from "./entity.js";
 
 export abstract class BaseEntity<T extends IdType> {
   protected constructor(
