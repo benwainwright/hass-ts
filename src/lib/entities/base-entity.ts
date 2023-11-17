@@ -1,7 +1,11 @@
+import { Client } from "@core";
 import { Entity, EntityWithMatchingId, GetDomain, IdType } from "./entities.js";
 
 export abstract class BaseEntity<T extends IdType> {
-  public abstract readonly id: T;
+  protected constructor(
+    public readonly id: T,
+    protected readonly client: Client
+  ) {}
 
   public matchesId<ET extends T>(
     id: ET,

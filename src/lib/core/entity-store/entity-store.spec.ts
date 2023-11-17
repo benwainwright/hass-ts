@@ -1,14 +1,13 @@
 import { Climate, Light } from "@entities";
-import { Hass } from "./hass.js";
 import { mock } from "vitest-mock-extended";
-import { when } from "jest-when";
 import { HassTsError } from "../errors/hass-ts-error.js";
+import { EntityStore } from "./entity-store.js";
 
-describe("the hass client", () => {
+describe("the entity store", () => {
   describe("constructor", () => {
     it("should construct without errors", () => {
-      expect(() => new Hass([])).not.toThrow();
-      expect(() => new Hass([mock(), mock()])).not.toThrow();
+      expect(() => new EntityStore([])).not.toThrow();
+      expect(() => new EntityStore([mock(), mock()])).not.toThrow();
     });
   });
 
@@ -19,7 +18,7 @@ describe("the hass client", () => {
       const mockClimateOne = new Climate("climate.baz");
       const mockClimateTwo = new Climate("climate.qux");
 
-      const hass = new Hass([
+      const hass = new EntityStore([
         mockLightOne,
         mockLightTwo,
         mockClimateOne,
@@ -40,7 +39,7 @@ describe("the hass client", () => {
       const mockClimateOne = new Climate("climate.baz");
       const mockClimateTwo = new Climate("climate.qux");
 
-      const hass = new Hass([
+      const hass = new EntityStore([
         mockLightOne,
         mockLightTwo,
         mockClimateOne,
@@ -62,7 +61,7 @@ describe("the hass client", () => {
     const mockClimateOne = new Climate("climate.baz");
     const mockClimateTwo = new Climate("climate.qux");
 
-    const hass = new Hass([
+    const hass = new EntityStore([
       mockLightOne,
       mockLightTwo,
       mockClimateOne,
@@ -81,7 +80,7 @@ describe("the hass client", () => {
       const mockClimateOne = new Climate("climate.baz");
       const mockClimateTwo = new Climate("climate.qux");
 
-      const hass = new Hass([
+      const hass = new EntityStore([
         mockLightOne,
         mockLightTwo,
         mockClimateOne,
@@ -96,7 +95,7 @@ describe("the hass client", () => {
       const mockLightOne = new Light("light.foo");
       const mockLightTwo = new Light("light.bar");
 
-      const hass = new Hass([mockLightOne, mockLightTwo]);
+      const hass = new EntityStore([mockLightOne, mockLightTwo]);
 
       const entities = hass.getDomainEntities("climate");
       expect(entities).toEqual([]);
@@ -110,7 +109,7 @@ describe("the hass client", () => {
       const mockClimateOne = new Climate("climate.baz");
       const mockClimateTwo = new Climate("climate.qux");
 
-      const hass = new Hass([
+      const hass = new EntityStore([
         mockLightOne,
         mockLightTwo,
         mockClimateOne,
@@ -127,7 +126,7 @@ describe("the hass client", () => {
       const mockClimateOne = new Climate("climate.baz");
       const mockClimateTwo = new Climate("climate.qux");
 
-      const hass = new Hass([
+      const hass = new EntityStore([
         mockLightOne,
         mockLightTwo,
         mockClimateOne,

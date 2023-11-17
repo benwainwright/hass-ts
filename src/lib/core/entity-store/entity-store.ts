@@ -6,9 +6,8 @@ import {
   BaseEntity,
   GetDomain,
 } from "@entities";
-import { isKeyOf } from "@utils";
 
-export class Hass {
+export class EntityStore {
   public entities = new Map<IdType, BaseEntity<IdType>>();
 
   constructor(entities: BaseEntity<IdType>[]) {
