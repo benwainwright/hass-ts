@@ -10,6 +10,7 @@ export {
   ThrowCommand,
   SubscribeToEventsMessage,
   AuthRequiredMessageResponse,
+  ErrorResult,
   MessageToServer,
   HelloCommand,
 } from "./websocket-client/index.js";

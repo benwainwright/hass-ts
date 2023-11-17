@@ -1,8 +1,7 @@
 import { HTTP } from "@core";
 import { Logger } from "@types";
 import { safeJsonParse } from "@utils";
-
-import { HassHttpError } from "../errors/index.js";
+import { HassHttpError } from "@core/errors";
 
 export class RestClient {
   private requestCache = new Map<string, { etag: string; text: string }>();
@@ -10,7 +9,7 @@ export class RestClient {
     private readonly host: string,
     private readonly port: number,
     private readonly token: string,
-    private readonly logger: Logger,
+    private readonly logger: Logger
   ) {}
 
   public async get<R>(path: string): Promise<R> {
@@ -19,7 +18,7 @@ export class RestClient {
 
   public async post<B extends Record<string, unknown>, R>(
     path: string,
-    body: B,
+    body: B
   ): Promise<R> {
     return await this.request<R>(path, "POST", body);
   }
@@ -27,7 +26,7 @@ export class RestClient {
   private async fetchRaw(
     path: string,
     method: "GET" | "POST",
-    body?: Record<string, unknown>,
+    body?: Record<string, unknown>
   ) {
     const finalUrl = `http://${this.host}:${this.port}${path}`;
     const cache = this.requestCache.get(finalUrl);
@@ -61,7 +60,7 @@ export class RestClient {
   private async request<R>(
     path: string,
     method: "GET" | "POST",
-    body?: Record<string, unknown>,
+    body?: Record<string, unknown>
   ): Promise<R> {
     const apiPath = `/api${this.normalisePath(path)}`;
 
@@ -69,8 +68,8 @@ export class RestClient {
 
     this.logger.trace(
       `Request (http): ${method} ${apiPath} body: [${JSON.stringify(
-        body,
-      )}] response: (${response.status}) [${text}]`,
+        body
+      )}] response: (${response.status}) [${text}]`
     );
 
     if (response.ok || response.status === HTTP.statusCodes.notModified) {

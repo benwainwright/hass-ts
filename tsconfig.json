@@ -15,6 +15,12 @@
     "paths": {
       "@test-support": ["src/test-support/index.js"],
       "@core": ["src/lib/core/index.js"],
+      "@core/constants": ["src/lib/core/constants.js"],
+      "@core/websocket-client": ["src/lib/core/websocket-client/index.js"],
+      "@core/client": ["src/lib/core/client/index.js"],
+      "@core/rest-client": ["src/lib/core/rest-client/index.js"],
+      "@core/entity-store": ["src/lib/core/entity-store/index.js"],
+      "@core/errors": ["src/lib/core/errors/index.js"],
       "@entities": ["src/lib/entities/index.js"],
       "@utils": ["src/lib/utils/index.js"],
       "@types": ["src/lib/types/index.js"]

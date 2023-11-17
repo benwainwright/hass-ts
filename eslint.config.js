@@ -2,6 +2,7 @@ import globals from "globals";
 import js from "@eslint/js";
 import typescript from "@typescript-eslint/eslint-plugin";
 import importPlugin from "eslint-plugin-import";
+import noRelativeImportPaths from "eslint-plugin-no-relative-import-paths";
 import tsParser from "@typescript-eslint/parser";
 import filenames from "eslint-plugin-filenames";
 import jsdoc from "eslint-plugin-jsdoc";
@@ -16,6 +17,7 @@ export default [
       filenames,
       import: importPlugin,
       jsdoc,
+      "no-relative-import-paths": noRelativeImportPaths,
     },
     languageOptions: {
       globals: {
@@ -24,7 +26,13 @@ export default [
         ...globals.jest,
       },
     },
-    rules: {},
+    rules: {
+      "no-relative-import-paths/no-relative-import-paths": [
+        "error",
+        { allowSameFolder: true },
+      ],
+      "filenames/match-regex": [2, "^[a-z-0-9.]+$", true],
+    },
   },
   {
     files: ["**/*.js"],
@@ -48,9 +56,7 @@ export default [
     },
     rules: {
       ...typescript.configs["strict-type-checked"].rules,
-      "import/no-relative-parent-imports": "error",
       "@typescript-eslint/prefer-readonly-parameter-types": "off",
-      "filenames/match-regex": [2, "^[a-z-0-9.]+$", true],
     },
   },
   {

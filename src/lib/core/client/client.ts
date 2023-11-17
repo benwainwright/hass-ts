@@ -1,13 +1,13 @@
 import { convertCamelCaseToUnderscoreCase } from "@utils";
 
-import { RestClient } from "../rest-client/index.js";
+import { RestClient } from "@core/rest-client";
 import {
   GetConfigCommand,
   GetPanelsCommand,
   GetServicesCommand,
   GetStatesCommand,
   WebsocketClient,
-} from "../websocket-client/index.js";
+} from "@core/websocket-client";
 
 import { IClient } from "./i-client.js";
 
@@ -28,7 +28,7 @@ import { GetLogbookParams } from "./get-logbook-params.js";
 export class Client implements IClient {
   constructor(
     private websocketClient: WebsocketClient,
-    private httpClient: RestClient,
+    private httpClient: RestClient
   ) {}
 
   public async getState(entityId: string): Promise<State> {
@@ -36,7 +36,7 @@ export class Client implements IClient {
   }
 
   public async getLogbook(
-    params: GetLogbookParams = {},
+    params: GetLogbookParams = {}
   ): Promise<LogBookEntry[]> {
     const { timestamp, ...queryParams } = params;
 
@@ -45,7 +45,7 @@ export class Client implements IClient {
         ([key, value]) =>
           `${convertCamelCaseToUnderscoreCase(key)}=${
             value instanceof Date ? value.toISOString() : String(value)
-          }`,
+          }`
       )
       .join("&");
     const timestampString = timestamp ? `/${timestamp.toISOString()}` : "";
@@ -63,7 +63,7 @@ export class Client implements IClient {
     const queryString = Object.entries(queryParams)
       .map(
         ([key, value]) =>
-          `${convertCamelCaseToUnderscoreCase(key)}=${String(value)}`,
+          `${convertCamelCaseToUnderscoreCase(key)}=${String(value)}`
       )
       .join("&");
 
@@ -131,19 +131,19 @@ export class Client implements IClient {
   }
 
   public async subscribeToEvents(
-    callback: (message: Event) => void,
+    callback: (message: Event) => void
   ): Promise<void>;
   public async subscribeToEvents(
     type: string,
-    callback: (message: Event) => void,
+    callback: (message: Event) => void
   ): Promise<void>;
   public async subscribeToEvents(
     typeOrCallback: string | ((message: Event) => void),
-    callbackIfTypeIsSupplied?: (message: Event) => void,
+    callbackIfTypeIsSupplied?: (message: Event) => void
   ): Promise<void> {
     const { type, callback } = this.getTypeAndCallback(
       typeOrCallback,
-      callbackIfTypeIsSupplied,
+      callbackIfTypeIsSupplied
     );
 
     const typeObj: { event_type: string } | object = type
@@ -168,7 +168,7 @@ export class Client implements IClient {
 
   private getTypeAndCallback(
     typeOrCallback: string | ((message: Event) => void),
-    callbackIfTypeIsSupplied?: (message: Event) => void,
+    callbackIfTypeIsSupplied?: (message: Event) => void
   ) {
     /* istanbul ignore else -- @preserve */
     if (

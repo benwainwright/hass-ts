@@ -1,6 +1,7 @@
 import { Climate, Light } from "@entities";
+import { HassTsError } from "@core/errors";
+
 import { mock } from "vitest-mock-extended";
-import { HassTsError } from "../errors/hass-ts-error.js";
 import { EntityStore } from "./entity-store.js";
 
 describe("the entity store", () => {

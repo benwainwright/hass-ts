@@ -9,8 +9,8 @@ import {
 } from "@test-support";
 
 import { RestClient } from "./rest-client.js";
-import { HassHttpError } from "../errors/index.js";
-import { HTTP } from "../constants.js";
+import { HassHttpError } from "@core/errors";
+import { HTTP } from "@core/constants";
 
 beforeEach(() => {
   server.listen();
@@ -28,7 +28,7 @@ describe("The REST client", () => {
       TEST_HASS_HOST,
       TEST_HASS_PORT,
       TEST_HASS_TOKEN,
-      logger,
+      logger
     );
 
     await client.post("/test", { testArg: "test" });
@@ -36,7 +36,7 @@ describe("The REST client", () => {
     expect(logger.trace).toHaveBeenCalledWith(
       `Request (http): POST /api/test body: [${JSON.stringify({
         testArg: "test",
-      })}] response: (200) [${JSON.stringify({ result: "ok" })}]`,
+      })}] response: (200) [${JSON.stringify({ result: "ok" })}]`
     );
   });
 
@@ -46,7 +46,7 @@ describe("The REST client", () => {
       TEST_HASS_HOST,
       TEST_HASS_PORT,
       "test-bad-token",
-      logger,
+      logger
     );
 
     try {
@@ -58,7 +58,7 @@ describe("The REST client", () => {
     expect(logger.trace).toHaveBeenCalledWith(
       `Request (http): POST /api/test body: [${JSON.stringify({
         testArg: "test",
-      })}] response: (401) [Unauthorized]`,
+      })}] response: (401) [Unauthorized]`
     );
   });
 
@@ -68,11 +68,11 @@ describe("The REST client", () => {
         TEST_HASS_HOST,
         TEST_HASS_PORT,
         "bad-token",
-        mock(),
+        mock()
       );
 
       await expect(client.get("/test")).rejects.toThrow(
-        new HassHttpError(HTTP.statusCodes.unauthorized, "Unauthorized"),
+        new HassHttpError(HTTP.statusCodes.unauthorized, "Unauthorized")
       );
     });
 
@@ -81,7 +81,7 @@ describe("The REST client", () => {
         TEST_HASS_HOST,
         TEST_HASS_PORT,
         TEST_HASS_TOKEN,
-        mock(),
+        mock()
       );
 
       const result = await client.get("/test");
@@ -95,7 +95,7 @@ describe("The REST client", () => {
         TEST_HASS_HOST,
         TEST_HASS_PORT,
         TEST_HASS_TOKEN,
-        mock(),
+        mock()
       );
 
       const resultOne = await client.get("/cache-test");
@@ -114,7 +114,7 @@ describe("The REST client", () => {
         TEST_HASS_HOST,
         TEST_HASS_PORT,
         TEST_HASS_TOKEN,
-        mock(),
+        mock()
       );
 
       const result = await client.get("/text");
@@ -127,7 +127,7 @@ describe("The REST client", () => {
         TEST_HASS_HOST,
         TEST_HASS_PORT,
         TEST_HASS_TOKEN,
-        mock(),
+        mock()
       );
 
       const result = await client.get("test");
@@ -142,7 +142,7 @@ describe("The REST client", () => {
         TEST_HASS_HOST,
         TEST_HASS_PORT,
         TEST_HASS_TOKEN,
-        mock(),
+        mock()
       );
 
       const result = await client.post("/test", { testArg: "test" });

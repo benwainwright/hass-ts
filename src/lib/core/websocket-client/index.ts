@@ -4,6 +4,7 @@ export {
   MessageToServer,
   HelloCommand,
   SubscribeToEventsMessage,
+  ErrorResult,
   AuthRequiredMessageResponse,
   GetStatesCommand,
   GetConfigCommand,
