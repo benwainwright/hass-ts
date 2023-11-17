@@ -6,17 +6,13 @@ import {
   BaseEntity,
   GetDomain,
 } from "@entities";
-import { Client } from "@core";
 
 import { IEntityStore } from "./i-entity-store.js";
 
 export class EntityStore implements IEntityStore {
   public entities = new Map<IdType, BaseEntity<IdType>>();
 
-  constructor(
-    entities: BaseEntity<IdType>[],
-    private client: Client
-  ) {
+  constructor(entities: BaseEntity<IdType>[]) {
     entities.forEach((entity) => {
       this.entities.set(entity.id, entity);
     });

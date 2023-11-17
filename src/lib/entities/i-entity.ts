@@ -1,4 +1,5 @@
-import { Entity, EntityWithMatchingId, IdType } from "./entities.js";
+import { EntityWithMatchingId, IdType } from "./entities.js";
+import { Entity } from "./entity.js";
 
 export interface IEntity<T extends IdType> {
   readonly id: T;
