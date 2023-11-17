@@ -11,8 +11,8 @@ describe("the entity store", () => {
     });
   });
 
-  describe("getEntities", () => {
-    it("should return the correct entities", () => {
+  describe("get", () => {
+    it("should return the correct entity if passed a string", () => {
       const mockLightOne = new Light("light.foo", mock());
       const mockLightTwo = new Light("light.bar", mock());
       const mockClimateOne = new Climate("climate.baz", mock());
@@ -25,7 +25,41 @@ describe("the entity store", () => {
         mockClimateTwo,
       ]);
 
-      const { lightOne, lightTwo } = hass.getEntities({
+      const lightTwo = hass.get("light.bar");
+      expect(lightTwo).toBe(mockLightTwo);
+    });
+
+    it("should throw an error if passed a string and no entity is found", () => {
+      const mockLightOne = new Light("light.foo", mock());
+      const mockLightTwo = new Light("light.bar", mock());
+      const mockClimateOne = new Climate("climate.baz", mock());
+      const mockClimateTwo = new Climate("climate.qux", mock());
+
+      const hass = new EntityStore([
+        mockLightOne,
+        mockLightTwo,
+        mockClimateOne,
+        mockClimateTwo,
+      ]);
+
+      expect(() => hass.get("light.bip")).toThrow(
+        new HassTsError("No entity found with id light.bip")
+      );
+    });
+    it("should return the correct entities when passed an object", () => {
+      const mockLightOne = new Light("light.foo", mock());
+      const mockLightTwo = new Light("light.bar", mock());
+      const mockClimateOne = new Climate("climate.baz", mock());
+      const mockClimateTwo = new Climate("climate.qux", mock());
+
+      const hass = new EntityStore([
+        mockLightOne,
+        mockLightTwo,
+        mockClimateOne,
+        mockClimateTwo,
+      ]);
+
+      const { lightOne, lightTwo } = hass.get({
         lightOne: "light.foo",
         lightTwo: "light.bar",
       });
@@ -33,7 +67,7 @@ describe("the entity store", () => {
       expect(lightTwo).toBe(mockLightTwo);
     });
 
-    it("should throw an error if any of the entities do not matxh", () => {
+    it("should throw an error if any of the entities do not match and passed an object", () => {
       const mockLightOne = new Light("light.foo", mock());
       const mockLightTwo = new Light("light.bar", mock());
       const mockClimateOne = new Climate("climate.baz", mock());
@@ -47,7 +81,7 @@ describe("the entity store", () => {
       ]);
 
       expect(() =>
-        hass.getEntities({
+        hass.get({
           lightOne: "light.foo",
           lightTwo: "light.ba",
         })
@@ -68,7 +102,7 @@ describe("the entity store", () => {
       mockClimateTwo,
     ]);
 
-    expect(() => hass.getEntity("light.bip")).toThrow(
+    expect(() => hass.get("light.bip")).toThrow(
       new HassTsError("No entity found with id light.bip")
     );
   });
@@ -87,7 +121,7 @@ describe("the entity store", () => {
         mockClimateTwo,
       ]);
 
-      const entities = hass.getDomainEntities("light");
+      const entities = hass.getFromDomain("light");
       expect(entities).toEqual([mockLightOne, mockLightTwo]);
     });
 
@@ -97,45 +131,8 @@ describe("the entity store", () => {
 
       const hass = new EntityStore([mockLightOne, mockLightTwo]);
 
-      const entities = hass.getDomainEntities("climate");
+      const entities = hass.getFromDomain("climate");
       expect(entities).toEqual([]);
-    });
-  });
-
-  describe("getEntity", () => {
-    it("should return the correct entity", () => {
-      const mockLightOne = new Light("light.foo", mock());
-      const mockLightTwo = new Light("light.bar", mock());
-      const mockClimateOne = new Climate("climate.baz", mock());
-      const mockClimateTwo = new Climate("climate.qux", mock());
-
-      const hass = new EntityStore([
-        mockLightOne,
-        mockLightTwo,
-        mockClimateOne,
-        mockClimateTwo,
-      ]);
-
-      const lightTwo = hass.getEntity("light.bar");
-      expect(lightTwo).toBe(mockLightTwo);
-    });
-
-    it("should throw an error if no entity is found", () => {
-      const mockLightOne = new Light("light.foo", mock());
-      const mockLightTwo = new Light("light.bar", mock());
-      const mockClimateOne = new Climate("climate.baz", mock());
-      const mockClimateTwo = new Climate("climate.qux", mock());
-
-      const hass = new EntityStore([
-        mockLightOne,
-        mockLightTwo,
-        mockClimateOne,
-        mockClimateTwo,
-      ]);
-
-      expect(() => hass.getEntity("light.bip")).toThrow(
-        new HassTsError("No entity found with id light.bip")
-      );
     });
   });
 });

@@ -6,25 +6,45 @@ import {
   BaseEntity,
   GetDomain,
 } from "@entities";
+import { Client } from "@core";
 
-export class EntityStore {
+import { IEntityStore } from "./i-entity-store.js";
+
+export class EntityStore implements IEntityStore {
   public entities = new Map<IdType, BaseEntity<IdType>>();
 
-  constructor(entities: BaseEntity<IdType>[]) {
+  constructor(
+    entities: BaseEntity<IdType>[],
+    private client: Client
+  ) {
     entities.forEach((entity) => {
       this.entities.set(entity.id, entity);
     });
   }
 
-  getEntity<T extends IdType>(id: T): EntityWithMatchingId<T, Entity> {
+  public get<T extends IdType>(id: T): EntityWithMatchingId<T, Entity>;
+  public get<E extends Record<keyof E, IdType>>(entities: E): Entities<E>;
+  public get<T extends IdType, E extends Record<keyof E, IdType>>(
+    idOrObj: T | E
+  ): EntityWithMatchingId<T, Entity> | Entities<E> {
+    if (typeof idOrObj === "string") {
+      return this.getEntity(idOrObj);
+    }
+    return this.getEntities(idOrObj);
+  }
+
+  private getEntity<T extends IdType>(id: T): EntityWithMatchingId<T, Entity> {
     const entity = this.entities.get(id);
+
     if (entity?.matchesId(id, entity)) {
       return entity;
     }
     throw new Error(`No entity found with id ${id}`);
   }
 
-  getEntities<E extends Record<keyof E, IdType>>(entities: E): Entities<E> {
+  private getEntities<E extends Record<keyof E, IdType>>(
+    entities: E
+  ): Entities<E> {
     let result: Partial<Entities<E>> = {};
 
     for (const [key] of Object.entries(entities)) {
@@ -35,7 +55,7 @@ export class EntityStore {
     return result as Entities<E>;
   }
 
-  getDomainEntities<ET extends GetDomain<IdType>>(domain: ET) {
+  public getFromDomain<ET extends GetDomain<IdType>>(domain: ET) {
     const domainEntities: EntityWithMatchingId<`${ET}.${string}`, Entity>[] =
       [];
 
