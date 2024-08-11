@@ -1,12 +1,9 @@
+export * from "./entities.js";
+
 export {
+  EntityType,
   GetDomain,
   IdType,
-  EntityWithMatchingId,
+  EntityList,
   Entities,
-} from "./entities.js";
-
-export { BaseEntity } from "./base-entity.js";
-export { Entity } from "./entity.js";
-export { IEntity } from "./i-entity.js";
-export { Light } from "./light.js";
-export { Climate } from "./climate.js";
+} from "./entity-list.js";

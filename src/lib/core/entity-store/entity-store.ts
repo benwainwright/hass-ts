@@ -1,15 +1,11 @@
-import {
-  Entity,
-  IdType,
-  Entities,
-  EntityWithMatchingId,
-  BaseEntity,
-  GetDomain,
-} from "@entities";
+import { IdType, GetDomain, EntityList, Entities, EntityType } from "@entities";
 
+import { BaseEntity } from "@core";
+import { matchesId } from "./matches-id.js";
+import { matchesDomain } from "./matches-domain.js";
 import { IEntityStore } from "./i-entity-store.js";
 
-export class EntityStore implements IEntityStore {
+export class EntityStore {
   public entities = new Map<IdType, BaseEntity<IdType>>();
 
   constructor(entities: BaseEntity<IdType>[]) {
@@ -18,21 +14,21 @@ export class EntityStore implements IEntityStore {
     });
   }
 
-  public get<T extends IdType>(id: T): EntityWithMatchingId<T, Entity>;
+  public get<T extends IdType>(id: T): EntityType<T>;
   public get<E extends Record<keyof E, IdType>>(entities: E): Entities<E>;
   public get<T extends IdType, E extends Record<keyof E, IdType>>(
     idOrObj: T | E
-  ): EntityWithMatchingId<T, Entity> | Entities<E> {
+  ): EntityType<T> | Entities<E> {
     if (typeof idOrObj === "string") {
       return this.getEntity(idOrObj);
     }
     return this.getEntities(idOrObj);
   }
 
-  private getEntity<T extends IdType>(id: T): EntityWithMatchingId<T, Entity> {
+  private getEntity<T extends IdType>(id: T): EntityType<T> {
     const entity = this.entities.get(id);
 
-    if (entity?.matchesId(id, entity)) {
+    if (entity && matchesId(entity, entity.id, id)) {
       return entity;
     }
     throw new Error(`No entity found with id ${id}`);
@@ -52,11 +48,10 @@ export class EntityStore implements IEntityStore {
   }
 
   public getFromDomain<ET extends GetDomain<IdType>>(domain: ET) {
-    const domainEntities: EntityWithMatchingId<`${ET}.${string}`, Entity>[] =
-      [];
+    const domainEntities: EntityType<`${ET}.${string}`>[] = [];
 
     for (const entity of this.entities.values()) {
-      if (entity.matchesDomain(domain, entity)) {
+      if (matchesDomain(entity, entity.id, domain)) {
         domainEntities.push(entity);
       }
     }
@@ -64,3 +59,7 @@ export class EntityStore implements IEntityStore {
     return domainEntities;
   }
 }
+
+const store = new EntityStore([]);
+
+const foo = store.get("light.bar");

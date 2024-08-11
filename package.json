@@ -71,7 +71,7 @@
     "tsconfig-replace-paths": "^0.0.14",
     "typedoc": "0.25.3",
     "typedoc-plugin-markdown": "3.17.0",
-    "typescript": "5.2.2",
+    "typescript": "5.5.4",
     "typescript-docs-verifier": "^2.5.0",
     "vite-node": "0.34.6",
     "vite-tsconfig-paths": "^4.2.1",

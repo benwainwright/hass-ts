@@ -15,6 +15,9 @@ export {
   HelloCommand,
 } from "./websocket-client/index.js";
 
+export { BaseEntity } from "./base-entity/index.js";
+
 export { HTTP } from "./constants.js";
 
 export { initialiseClient } from "./initialise-client.js";
+
