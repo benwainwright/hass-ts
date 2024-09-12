@@ -3,27 +3,35 @@
     "files": true
   },
   "compilerOptions": {
-    "target": "es2015",
-    "module": "nodenext",
+    "module": "NodeNext",
     "outDir": "dist",
     "lib": ["ES2023", "DOM"],
     "strict": true,
-    "esModuleInterop": true,
+    "moduleResolution": "NodeNext",
     "skipLibCheck": true,
     "allowJs": true,
     "forceConsistentCasingInFileNames": true,
     "baseUrl": "./",
     "paths": {
-      "@constants": ["src/lib/constants"],
-      "@domain": ["src/lib/domain"],
-      "@entry": ["src"],
-      "@core": ["src/lib/core"],
-      "@namespaces": ["src/lib/namespaces"],
-      "@types": ["src/lib/types"],
-      "@errors": ["src/lib/errors"],
-      "@test-support": ["test-support"]
+      "@test-support": ["src/test-support/index.js"],
+      "@core": ["src/lib/core/index.js"],
+      "@core/constants": ["src/lib/core/constants.js"],
+      "@core/websocket-client": ["src/lib/core/websocket-client/index.js"],
+      "@core/client": ["src/lib/core/client/index.js"],
+      "@core/rest-client": ["src/lib/core/rest-client/index.js"],
+      "@core/entity-store": ["src/lib/core/entity-store/index.js"],
+      "@core/errors": ["src/lib/core/errors/index.js"],
+      "@entities": ["src/lib/entities/index.js"],
+      "@utils": ["src/lib/utils/index.js"],
+      "@types": ["src/lib/types/index.js"]
     }
   },
   "$schema": "https://json.schemastore.org/tsconfig",
-  "include": ["**/*.ts", "**/*.js", "**/*.mts", ".eslintrc.js"]
+  "include": [
+    "**/*.ts",
+    "**/*.js",
+    "**/*.mts",
+    "eslint.config.js",
+    "lint-staged.config.cjs"
+  ]
 }

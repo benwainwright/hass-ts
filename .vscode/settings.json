@@ -8,5 +8,8 @@
     ".vscode",
     "tsconfig.json",
     "api-extractor.json"
-  ]
+  ],
+  "files.associations": {
+    "*.yaml": "home-assistant"
+  }
 }
