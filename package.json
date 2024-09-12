@@ -31,6 +31,7 @@
     "lint": "eslint .",
     "types": "tsc --noEmit",
     "format": "prettier --write .",
+    "release:dry-run": "semantic-release --dry-run --no-ci",
     "types:watch": "tsc --noEmit --watch",
     "test:verbose": "vitest --config vitest.unit.config.mts --coverage --reporter verbose",
     "test": "vitest --config vitest.unit.config.mts --coverage",
@@ -80,9 +81,11 @@
   },
   "dependencies": {
     "@eslint/js": "^8.53.0",
+    "@semantic-release/git": "^10.0.1",
     "eslint-plugin-jsdoc": "^46.9.0",
     "eslint-plugin-no-relative-import-paths": "^1.5.3",
     "globals": "^13.23.0",
+    "semantic-release": "^24.1.1",
     "type-fest": "^4.7.1",
     "ws": "^8.14.2"
   }
