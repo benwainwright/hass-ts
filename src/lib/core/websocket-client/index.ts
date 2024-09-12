@@ -7,6 +7,7 @@ export {
   ErrorResult,
   AuthRequiredMessageResponse,
   GetStatesCommand,
+  GetAreasCommand,
   GetConfigCommand,
   GetPanelsCommand,
   GetServicesCommand,

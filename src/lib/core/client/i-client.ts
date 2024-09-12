@@ -8,6 +8,7 @@ import {
   ServiceDomainDetails,
   LogBookEntry,
   EventDetails,
+  HassArea,
 } from "@types";
 
 import { GetHistoryParams } from "./get-history-params.js";
@@ -28,6 +29,8 @@ export interface IClient {
    * Returns an array of state changes from the past
    */
   getHistory(params: GetHistoryParams): Promise<State[][]>;
+
+  getAreas(): Promise<HassArea[]>;
 
   getLogbook(params?: GetLogbookParams): Promise<LogBookEntry[]>;
 

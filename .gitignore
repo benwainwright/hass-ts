@@ -14,3 +14,4 @@ hass-config/home-assistant_v2.db*
 hass-config/.storage/lovelace.map
 hass-config/.storage/lovelace_dashboards
 hass-config/.storage/map
+.env

@@ -4,6 +4,7 @@ import { RestClient } from "@core/rest-client";
 import {
   CallServiceCommand,
   CallServiceResponse,
+  GetAreasCommand,
   GetConfigCommand,
   GetPanelsCommand,
   GetServicesCommand,
@@ -26,12 +27,23 @@ import {
 } from "@types";
 import { GetHistoryParams } from "./get-history-params.js";
 import { GetLogbookParams } from "./get-logbook-params.js";
+import { HassArea } from "src/lib/types/area.js";
 
 export class Client implements IClient {
   constructor(
     private websocketClient: WebsocketClient,
     private httpClient: RestClient,
   ) {}
+
+  public async getAreas() {
+    const { result } = await this.websocketClient.sendCommand<
+      GetAreasCommand,
+      HassArea[]
+    >({
+      type: "config/area_registry/list",
+    });
+    return result;
+  }
 
   public async callService(
     params: Omit<CallServiceCommand, "type" | "id">,

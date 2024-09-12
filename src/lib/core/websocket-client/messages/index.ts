@@ -12,3 +12,4 @@ export { GetPanelsCommand } from "./get-panels-command.js";
 export { GetServicesCommand } from "./get-services-command.js";
 export { CallServiceCommand } from "./call-service-command.js";
 export { CallServiceResponse } from "./call-service-response.js";
+export { GetAreasCommand } from "./get-areas-command.js";

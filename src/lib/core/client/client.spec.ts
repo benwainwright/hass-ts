@@ -355,6 +355,86 @@ describe("The client", () => {
     });
   });
 
+  describe("getAreas", () => {
+    it("returns the results of a config/areas_registry/list command sent to the websocket client", async () => {
+      const mockWebsocketClient = mock<WebsocketClient>();
+
+      const areas = [
+        {
+          aliases: ["My Bedroom", "The Bedroom"],
+          area_id: "bedroom",
+          floor_id: null,
+          icon: null,
+          labels: [],
+          name: "Bedroom",
+          picture: "/api/image/serve/c2443ee11daec25a1405093527ef8a1b/512x512",
+          created_at: 0,
+          modified_at: 0,
+        },
+        {
+          aliases: [],
+          area_id: "gym",
+          floor_id: null,
+          icon: null,
+          labels: [],
+          name: "Spare Room",
+          picture: null,
+          created_at: 0,
+          modified_at: 1723855811.95857,
+        },
+        {
+          aliases: ["The Bathroom", "Toilet", "The Toilet", "My Bathroom"],
+          area_id: "main_bathroom",
+          floor_id: null,
+          icon: null,
+          labels: [],
+          name: "Bathroom",
+          picture: "/api/image/serve/fd833e8a0d6e034b2014568152ae9b7d/512x512",
+          created_at: 0,
+          modified_at: 0,
+        },
+        {
+          aliases: ["The Hallway"],
+          area_id: "hallway",
+          floor_id: null,
+          icon: null,
+          labels: [],
+          name: "Hallway",
+          picture: "/api/image/serve/fd2577e8e26790899e7d321414836bd3/512x512",
+          created_at: 0,
+          modified_at: 0,
+        },
+        {
+          aliases: [],
+          area_id: "living_room",
+          floor_id: null,
+          icon: null,
+          labels: [],
+          name: "Living Room",
+          picture: "/api/image/serve/b43c6ff06ca1dad1adde8514a5431ecd/512x512",
+          created_at: 0,
+          modified_at: 0,
+        },
+      ];
+
+      when(mockWebsocketClient.sendCommand)
+        .calledWith({
+          type: "config/area_registry/list",
+        })
+        .mockResolvedValue({
+          id: 1,
+          type: "result",
+          success: true,
+          result: areas,
+        });
+
+      const client = new Client(mockWebsocketClient, mock());
+
+      const result = await client.getAreas();
+      expect(result).toEqual(areas);
+    });
+  });
+
   describe("getServices", () => {
     it("returns the results of a get_services command sent to the websocket client", async () => {
       const mockWebsocketClient = mock<WebsocketClient>();

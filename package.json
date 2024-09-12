@@ -25,7 +25,7 @@
     "build:docker": "docker build -t hass-e2e:latest .",
     "sonar": "sonar-scanner -Dsonar.host.url=https://sonarcloud.io/ -Dsonar.token=$SONAR_TOKEN",
     "build": "npm run api && tsc --project tsconfig.dist.json && tsconfig-replace-paths",
-    "playground": "vite-node src/playground.ts",
+    "playground": "vite-node src/tools/playground.ts",
     "docs": "typedoc src/index.ts",
     "check-docs": "npm run build && npm run docs && vite-node ./src/tools/check-docs.ts",
     "lint": "eslint .",
@@ -89,6 +89,7 @@
     "hass-ts": "^1.3.3",
     "semantic-release": "^24.1.1",
     "type-fest": "^4.7.1",
+    "vite": "^5.4.4",
     "ws": "^8.14.2"
   }
 }

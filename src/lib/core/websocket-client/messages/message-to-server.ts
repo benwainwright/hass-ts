@@ -7,6 +7,7 @@ import { GetConfigCommand } from "./get-config-command.js";
 import { GetPanelsCommand } from "./get-panels-command.js";
 import { GetServicesCommand } from "./get-services-command.js";
 import { CallServiceCommand } from "./call-service-command.js";
+import { GetAreasCommand } from "./get-areas-command.js";
 
 export type MessageToServer =
   | AuthRequiredMessageResponse
@@ -14,6 +15,7 @@ export type MessageToServer =
   | SubscribeToEventsMessage
   | ThrowCommand
   | GetStatesCommand
+  | GetAreasCommand
   | GetConfigCommand
   | GetPanelsCommand
   | CallServiceCommand

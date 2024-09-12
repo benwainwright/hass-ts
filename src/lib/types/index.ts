@@ -11,3 +11,4 @@ export { CalendarDetails } from "./calendar-details.js";
 export { EventDetails } from "./event-details.js";
 export { ServiceDomainDetails } from "./service-domain-details.js";
 export { LogBookEntry } from "./logbook-entry.js";
+export { HassArea } from "./area.js";

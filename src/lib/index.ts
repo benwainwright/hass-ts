@@ -8,7 +8,7 @@ export {
   CallServiceResponse,
 } from "@core";
 
-export {
+export type {
   HassConfig,
   Context,
   CalendarDetails,
@@ -22,4 +22,5 @@ export {
   Services,
   Panel,
   Event,
+  HassArea,
 } from "@types";
