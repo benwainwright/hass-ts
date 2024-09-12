@@ -17,7 +17,7 @@
 
 #### Defined in
 
-[lib/types/service-domain-details.ts:5](https://github.com/benwainwright/hass-ts/blob/c03f283/src/lib/types/service-domain-details.ts#L5)
+[lib/types/service-domain-details.ts:5](https://github.com/benwainwright/hass-ts/blob/432b3d4/src/lib/types/service-domain-details.ts#L5)
 
 ___
 
@@ -27,4 +27,4 @@ ___
 
 #### Defined in
 
-[lib/types/service-domain-details.ts:6](https://github.com/benwainwright/hass-ts/blob/c03f283/src/lib/types/service-domain-details.ts#L6)
+[lib/types/service-domain-details.ts:6](https://github.com/benwainwright/hass-ts/blob/432b3d4/src/lib/types/service-domain-details.ts#L6)

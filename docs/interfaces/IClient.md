@@ -2,12 +2,13 @@
 
 # Interface: IClient
 
-The Home Assistant client API. Implements both the websocket and REST APIs
+The Home Assistant client API. Uses a combination of both the websocket and HTTP apis
 
 ## Table of contents
 
 ### Methods
 
+- [callService](IClient.md#callservice)
 - [close](IClient.md#close)
 - [getCalendars](IClient.md#getcalendars)
 - [getConfig](IClient.md#getconfig)
@@ -24,6 +25,30 @@ The Home Assistant client API. Implements both the websocket and REST APIs
 
 ## Methods
 
+### callService
+
+▸ **callService**(`params`): `Promise`\<`CallServiceResponse`\>
+
+Call a service action
+
+See https://developers.home-assistant.io/docs/api/websocket/#calling-a-service-action
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `params` | `Omit`\<`CallServiceCommand`, ``"id"`` \| ``"type"``\> | parameters to send with the service command |
+
+#### Returns
+
+`Promise`\<`CallServiceResponse`\>
+
+#### Defined in
+
+[lib/core/client/i-client.ts:45](https://github.com/benwainwright/hass-ts/blob/432b3d4/src/lib/core/client/i-client.ts#L45)
+
+___
+
 ### close
 
 ▸ **close**(): `Promise`\<`void`\>
@@ -34,7 +59,7 @@ The Home Assistant client API. Implements both the websocket and REST APIs
 
 #### Defined in
 
-[lib/core/client/i-client.ts:54](https://github.com/benwainwright/hass-ts/blob/c03f283/src/lib/core/client/i-client.ts#L54)
+[lib/core/client/i-client.ts:70](https://github.com/benwainwright/hass-ts/blob/432b3d4/src/lib/core/client/i-client.ts#L70)
 
 ___
 
@@ -48,7 +73,7 @@ ___
 
 #### Defined in
 
-[lib/core/client/i-client.ts:41](https://github.com/benwainwright/hass-ts/blob/c03f283/src/lib/core/client/i-client.ts#L41)
+[lib/core/client/i-client.ts:57](https://github.com/benwainwright/hass-ts/blob/432b3d4/src/lib/core/client/i-client.ts#L57)
 
 ___
 
@@ -62,7 +87,7 @@ ___
 
 #### Defined in
 
-[lib/core/client/i-client.ts:33](https://github.com/benwainwright/hass-ts/blob/c03f283/src/lib/core/client/i-client.ts#L33)
+[lib/core/client/i-client.ts:49](https://github.com/benwainwright/hass-ts/blob/432b3d4/src/lib/core/client/i-client.ts#L49)
 
 ___
 
@@ -76,7 +101,7 @@ ___
 
 #### Defined in
 
-[lib/core/client/i-client.ts:45](https://github.com/benwainwright/hass-ts/blob/c03f283/src/lib/core/client/i-client.ts#L45)
+[lib/core/client/i-client.ts:61](https://github.com/benwainwright/hass-ts/blob/432b3d4/src/lib/core/client/i-client.ts#L61)
 
 ___
 
@@ -90,7 +115,7 @@ ___
 
 #### Defined in
 
-[lib/core/client/i-client.ts:43](https://github.com/benwainwright/hass-ts/blob/c03f283/src/lib/core/client/i-client.ts#L43)
+[lib/core/client/i-client.ts:59](https://github.com/benwainwright/hass-ts/blob/432b3d4/src/lib/core/client/i-client.ts#L59)
 
 ___
 
@@ -112,7 +137,7 @@ Returns an array of state changes from the past
 
 #### Defined in
 
-[lib/core/client/i-client.ts:25](https://github.com/benwainwright/hass-ts/blob/c03f283/src/lib/core/client/i-client.ts#L25)
+[lib/core/client/i-client.ts:30](https://github.com/benwainwright/hass-ts/blob/432b3d4/src/lib/core/client/i-client.ts#L30)
 
 ___
 
@@ -132,7 +157,7 @@ ___
 
 #### Defined in
 
-[lib/core/client/i-client.ts:27](https://github.com/benwainwright/hass-ts/blob/c03f283/src/lib/core/client/i-client.ts#L27)
+[lib/core/client/i-client.ts:32](https://github.com/benwainwright/hass-ts/blob/432b3d4/src/lib/core/client/i-client.ts#L32)
 
 ___
 
@@ -146,7 +171,7 @@ ___
 
 #### Defined in
 
-[lib/core/client/i-client.ts:39](https://github.com/benwainwright/hass-ts/blob/c03f283/src/lib/core/client/i-client.ts#L39)
+[lib/core/client/i-client.ts:55](https://github.com/benwainwright/hass-ts/blob/432b3d4/src/lib/core/client/i-client.ts#L55)
 
 ___
 
@@ -160,7 +185,7 @@ ___
 
 #### Defined in
 
-[lib/core/client/i-client.ts:37](https://github.com/benwainwright/hass-ts/blob/c03f283/src/lib/core/client/i-client.ts#L37)
+[lib/core/client/i-client.ts:53](https://github.com/benwainwright/hass-ts/blob/432b3d4/src/lib/core/client/i-client.ts#L53)
 
 ___
 
@@ -174,7 +199,7 @@ ___
 
 #### Defined in
 
-[lib/core/client/i-client.ts:35](https://github.com/benwainwright/hass-ts/blob/c03f283/src/lib/core/client/i-client.ts#L35)
+[lib/core/client/i-client.ts:51](https://github.com/benwainwright/hass-ts/blob/432b3d4/src/lib/core/client/i-client.ts#L51)
 
 ___
 
@@ -194,7 +219,7 @@ ___
 
 #### Defined in
 
-[lib/core/client/i-client.ts:31](https://github.com/benwainwright/hass-ts/blob/c03f283/src/lib/core/client/i-client.ts#L31)
+[lib/core/client/i-client.ts:36](https://github.com/benwainwright/hass-ts/blob/432b3d4/src/lib/core/client/i-client.ts#L36)
 
 ___
 
@@ -208,7 +233,7 @@ ___
 
 #### Defined in
 
-[lib/core/client/i-client.ts:29](https://github.com/benwainwright/hass-ts/blob/c03f283/src/lib/core/client/i-client.ts#L29)
+[lib/core/client/i-client.ts:34](https://github.com/benwainwright/hass-ts/blob/432b3d4/src/lib/core/client/i-client.ts#L34)
 
 ___
 
@@ -228,7 +253,7 @@ ___
 
 #### Defined in
 
-[lib/core/client/i-client.ts:47](https://github.com/benwainwright/hass-ts/blob/c03f283/src/lib/core/client/i-client.ts#L47)
+[lib/core/client/i-client.ts:63](https://github.com/benwainwright/hass-ts/blob/432b3d4/src/lib/core/client/i-client.ts#L63)
 
 ▸ **subscribeToEvents**(`type`, `callback`): `Promise`\<`void`\>
 
@@ -245,4 +270,4 @@ ___
 
 #### Defined in
 
-[lib/core/client/i-client.ts:49](https://github.com/benwainwright/hass-ts/blob/c03f283/src/lib/core/client/i-client.ts#L49)
+[lib/core/client/i-client.ts:65](https://github.com/benwainwright/hass-ts/blob/432b3d4/src/lib/core/client/i-client.ts#L65)

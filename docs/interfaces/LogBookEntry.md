@@ -21,7 +21,7 @@
 
 #### Defined in
 
-[lib/types/logbook-entry.ts:5](https://github.com/benwainwright/hass-ts/blob/c03f283/src/lib/types/logbook-entry.ts#L5)
+[lib/types/logbook-entry.ts:5](https://github.com/benwainwright/hass-ts/blob/432b3d4/src/lib/types/logbook-entry.ts#L5)
 
 ___
 
@@ -31,7 +31,7 @@ ___
 
 #### Defined in
 
-[lib/types/logbook-entry.ts:6](https://github.com/benwainwright/hass-ts/blob/c03f283/src/lib/types/logbook-entry.ts#L6)
+[lib/types/logbook-entry.ts:6](https://github.com/benwainwright/hass-ts/blob/432b3d4/src/lib/types/logbook-entry.ts#L6)
 
 ___
 
@@ -41,7 +41,7 @@ ___
 
 #### Defined in
 
-[lib/types/logbook-entry.ts:7](https://github.com/benwainwright/hass-ts/blob/c03f283/src/lib/types/logbook-entry.ts#L7)
+[lib/types/logbook-entry.ts:7](https://github.com/benwainwright/hass-ts/blob/432b3d4/src/lib/types/logbook-entry.ts#L7)
 
 ___
 
@@ -51,7 +51,7 @@ ___
 
 #### Defined in
 
-[lib/types/logbook-entry.ts:8](https://github.com/benwainwright/hass-ts/blob/c03f283/src/lib/types/logbook-entry.ts#L8)
+[lib/types/logbook-entry.ts:8](https://github.com/benwainwright/hass-ts/blob/432b3d4/src/lib/types/logbook-entry.ts#L8)
 
 ___
 
@@ -61,7 +61,7 @@ ___
 
 #### Defined in
 
-[lib/types/logbook-entry.ts:9](https://github.com/benwainwright/hass-ts/blob/c03f283/src/lib/types/logbook-entry.ts#L9)
+[lib/types/logbook-entry.ts:9](https://github.com/benwainwright/hass-ts/blob/432b3d4/src/lib/types/logbook-entry.ts#L9)
 
 ___
 
@@ -71,4 +71,4 @@ ___
 
 #### Defined in
 
-[lib/types/logbook-entry.ts:10](https://github.com/benwainwright/hass-ts/blob/c03f283/src/lib/types/logbook-entry.ts#L10)
+[lib/types/logbook-entry.ts:10](https://github.com/benwainwright/hass-ts/blob/432b3d4/src/lib/types/logbook-entry.ts#L10)

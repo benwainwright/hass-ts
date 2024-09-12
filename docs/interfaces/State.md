@@ -21,7 +21,7 @@
 
 #### Defined in
 
-[lib/types/state.ts:10](https://github.com/benwainwright/hass-ts/blob/c03f283/src/lib/types/state.ts#L10)
+[lib/types/state.ts:10](https://github.com/benwainwright/hass-ts/blob/432b3d4/src/lib/types/state.ts#L10)
 
 ___
 
@@ -31,7 +31,7 @@ ___
 
 #### Defined in
 
-[lib/types/state.ts:12](https://github.com/benwainwright/hass-ts/blob/c03f283/src/lib/types/state.ts#L12)
+[lib/types/state.ts:12](https://github.com/benwainwright/hass-ts/blob/432b3d4/src/lib/types/state.ts#L12)
 
 ___
 
@@ -41,7 +41,7 @@ ___
 
 #### Defined in
 
-[lib/types/state.ts:7](https://github.com/benwainwright/hass-ts/blob/c03f283/src/lib/types/state.ts#L7)
+[lib/types/state.ts:7](https://github.com/benwainwright/hass-ts/blob/432b3d4/src/lib/types/state.ts#L7)
 
 ___
 
@@ -51,7 +51,7 @@ ___
 
 #### Defined in
 
-[lib/types/state.ts:8](https://github.com/benwainwright/hass-ts/blob/c03f283/src/lib/types/state.ts#L8)
+[lib/types/state.ts:8](https://github.com/benwainwright/hass-ts/blob/432b3d4/src/lib/types/state.ts#L8)
 
 ___
 
@@ -61,7 +61,7 @@ ___
 
 #### Defined in
 
-[lib/types/state.ts:11](https://github.com/benwainwright/hass-ts/blob/c03f283/src/lib/types/state.ts#L11)
+[lib/types/state.ts:11](https://github.com/benwainwright/hass-ts/blob/432b3d4/src/lib/types/state.ts#L11)
 
 ___
 
@@ -71,4 +71,4 @@ ___
 
 #### Defined in
 
-[lib/types/state.ts:9](https://github.com/benwainwright/hass-ts/blob/c03f283/src/lib/types/state.ts#L9)
+[lib/types/state.ts:9](https://github.com/benwainwright/hass-ts/blob/432b3d4/src/lib/types/state.ts#L9)

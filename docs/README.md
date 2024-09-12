@@ -48,7 +48,7 @@ homeassistant-typescript
 
 #### Defined in
 
-[lib/core/initialise-client.ts:11](https://github.com/benwainwright/hass-ts/blob/c03f283/src/lib/core/initialise-client.ts#L11)
+[lib/core/initialise-client.ts:11](https://github.com/benwainwright/hass-ts/blob/432b3d4/src/lib/core/initialise-client.ts#L11)
 
 ## Type Aliases
 
@@ -62,4 +62,4 @@ homeassistant-typescript
 
 #### Defined in
 
-[lib/types/services.ts:4](https://github.com/benwainwright/hass-ts/blob/c03f283/src/lib/types/services.ts#L4)
+[lib/types/services.ts:4](https://github.com/benwainwright/hass-ts/blob/432b3d4/src/lib/types/services.ts#L4)
