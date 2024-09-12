@@ -14,6 +14,9 @@
     "baseUrl": "./",
     "paths": {
       "@test-support": ["src/test-support/index.js"],
+      "@test-support/package-intercept": [
+        "src/test-support/package-intercept.js"
+      ],
       "@core": ["src/lib/core/index.js"],
       "@core/constants": ["src/lib/core/constants.js"],
       "@core/websocket-client": ["src/lib/core/websocket-client/index.js"],

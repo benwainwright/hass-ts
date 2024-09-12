@@ -10,12 +10,12 @@
     "dist/src/lib",
     "dist/src/types"
   ],
-  "description": "Strongly typed SDK client for the Remember the Milk API",
+  "description": "Strongly typed client for Home Assistant",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "author": "Ben Wainwright",
   "repository": {
-    "url": "https://github.com/benwainwright/rtm-typescript",
+    "url": "https://github.com/benwainwright/hass-ts",
     "type": "git"
   },
   "license": "MIT",
