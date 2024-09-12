@@ -15,6 +15,7 @@ import { WebsocketClient } from "./websocket-client.js";
 const host = "localhost";
 const port = 1234;
 const token = "test-token";
+const path = "/api/websocket";
 const version = "1.2.3";
 
 let server: ReturnType<typeof initialiseMockHassWebsocket>;
@@ -32,25 +33,25 @@ afterAll(() => {
 describe("The websocket client", () => {
   describe("constructor", () => {
     it("throws an error if the host is an empty string", () => {
-      expect(() => new WebsocketClient("", port, token, mock())).toThrow(
+      expect(() => new WebsocketClient("", port, path, token, mock())).toThrow(
         new HassTsError(ERRORS.hostCannotBeAnEmptyString),
       );
     });
 
     it("throws an error if the port is a negative number", () => {
-      expect(() => new WebsocketClient(host, -512, token, mock())).toThrow(
-        new HassTsError(ERRORS.portCannotBeNegative),
-      );
+      expect(
+        () => new WebsocketClient(host, -512, path, token, mock()),
+      ).toThrow(new HassTsError(ERRORS.portCannotBeNegative));
     });
 
     it("throws an error if the token is an empty string", () => {
-      expect(() => new WebsocketClient(host, port, "", mock())).toThrow(
+      expect(() => new WebsocketClient(host, port, path, "", mock())).toThrow(
         new HassTsError(ERRORS.tokenCannotBeAnEmptyString),
       );
     });
 
     it("executes without error if all the inputs are valid", async () => {
-      const client = new WebsocketClient(host, port, token, mock());
+      const client = new WebsocketClient(host, port, path, token, mock());
       await client.init();
       await client.close();
     });
@@ -58,7 +59,7 @@ describe("The websocket client", () => {
 
   it("correctly logs all messages from the socket with trace logging", async () => {
     const logger = mock<Logger>();
-    const client = new WebsocketClient(host, port, token, logger);
+    const client = new WebsocketClient(host, port, path, token, logger);
     await client.init();
 
     expect(logger.trace).toHaveBeenCalledWith(
@@ -72,7 +73,7 @@ describe("The websocket client", () => {
 
   it("correctly logs all messages sent to the socket with trace logging", async () => {
     const logger = mock<Logger>();
-    const client = new WebsocketClient(host, port, token, logger);
+    const client = new WebsocketClient(host, port, path, token, logger);
     await client.init();
 
     expect(logger.trace).toHaveBeenCalledWith(
@@ -87,13 +88,19 @@ describe("The websocket client", () => {
 
   describe("init", () => {
     it("resolves succesfully if the connection is established", async () => {
-      const client = new WebsocketClient(host, port, token, mock());
+      const client = new WebsocketClient(host, port, path, token, mock());
       await expect(client.init()).resolves.not.toThrow();
       await client.close();
     });
 
     it("rejects the promise if the authentication fails", async () => {
-      const client = new WebsocketClient(host, port, "wrong-token", mock());
+      const client = new WebsocketClient(
+        host,
+        port,
+        path,
+        "wrong-token",
+        mock(),
+      );
       await expect(client.init()).rejects.toThrow(
         new HassTsError(ERRORS.authenticationFailed),
       );
@@ -104,21 +111,27 @@ describe("The websocket client", () => {
 
   describe("close", () => {
     it("resolves succesfully even if init hasn't been called", async () => {
-      const client = new WebsocketClient(host, port, "wrong-token", mock());
+      const client = new WebsocketClient(
+        host,
+        port,
+        path,
+        "wrong-token",
+        mock(),
+      );
       await expect(client.close()).resolves.not.toThrow();
     });
   });
 
   describe("addMessageListener", () => {
     it("throws an error if it is called before init", () => {
-      const client = new WebsocketClient(host, port, token, mock());
+      const client = new WebsocketClient(host, port, path, token, mock());
       expect(() => {
         client.addMessageListener(vi.fn());
       }).toThrow(new HassTsError(ERRORS.notInitialised));
     });
 
     it("allows the caller to supply a callback which will be called when a message is received", async () => {
-      const client = new WebsocketClient(host, port, token, mock());
+      const client = new WebsocketClient(host, port, path, token, mock());
       await client.init();
       const callback = vi.fn();
       client.addMessageListener(callback);
@@ -133,7 +146,7 @@ describe("The websocket client", () => {
     });
 
     it("does not trigger callback for messages that are consumed by the client", async () => {
-      const client = new WebsocketClient(host, port, token, mock());
+      const client = new WebsocketClient(host, port, path, token, mock());
       await client.init();
       const callback = vi.fn();
       client.addMessageListener(callback);
@@ -146,7 +159,7 @@ describe("The websocket client", () => {
 
   describe("removeMessageListener", () => {
     it("throws an error if the callback was not previously registered", async () => {
-      const client = new WebsocketClient(host, port, token, mock());
+      const client = new WebsocketClient(host, port, path, token, mock());
       await client.init();
       const callback = vi.fn();
       expect(() => {
@@ -156,14 +169,14 @@ describe("The websocket client", () => {
     });
 
     it("throws an error if called before init", () => {
-      const client = new WebsocketClient(host, port, token, mock());
+      const client = new WebsocketClient(host, port, path, token, mock());
       expect(() => {
         client.removeMessageListener(vi.fn());
       }).toThrow(new HassTsError(ERRORS.notInitialised));
     });
 
     it("stops the listener being triggered when a message is received", async () => {
-      const client = new WebsocketClient(host, port, token, mock());
+      const client = new WebsocketClient(host, port, path, token, mock());
       await client.init();
       const callback = vi.fn();
       client.addMessageListener(callback);
@@ -180,14 +193,14 @@ describe("The websocket client", () => {
     it.todo("times out and throws an error after three seconds");
 
     it("throws an error if it is called before init", async () => {
-      const client = new WebsocketClient(host, port, token, mock());
+      const client = new WebsocketClient(host, port, path, token, mock());
       await expect(client.sendCommand({ type: "hello" })).rejects.toThrow(
         new HassTsError(ERRORS.notInitialised),
       );
     });
 
     it("initiates an auth handshake if the client is not authenticated and then returns the correct command response", async () => {
-      const client = new WebsocketClient(host, port, token, mock());
+      const client = new WebsocketClient(host, port, path, token, mock());
       await client.init();
       const result = await client.sendCommand({ type: "hello" });
       expect(result).toEqual({
@@ -200,7 +213,7 @@ describe("The websocket client", () => {
     });
 
     it("rejects the promise if the response indicates an error", async () => {
-      const client = new WebsocketClient(host, port, token, mock());
+      const client = new WebsocketClient(host, port, path, token, mock());
       await client.init();
       await expect(client.sendCommand({ type: "throw" })).rejects.toThrow(
         new ErrorResponseError(TEST_ERROR_CODE, TEST_ERROR_MESSAGE),
@@ -209,7 +222,7 @@ describe("The websocket client", () => {
     });
 
     it("doesn't need to do auth handshake a second time", async () => {
-      const client = new WebsocketClient(host, port, token, mock());
+      const client = new WebsocketClient(host, port, path, token, mock());
       await client.init();
       await client.sendCommand({ type: "hello" });
 

@@ -5,7 +5,7 @@ export { Service } from "./services.js";
 export { Services } from "./services.js";
 export { Config } from "./config.js";
 export { Panel } from "./panel.js";
-export { HassClientConfig } from "./client-config.js";
+export { HassConfig } from "./client-config.js";
 export { Logger } from "./logger.js";
 export { CalendarDetails } from "./calendar-details.js";
 export { EventDetails } from "./event-details.js";

@@ -20,3 +20,4 @@ export {
 export { HTTP } from "./constants.js";
 
 export { initialiseClient } from "./initialise-client.js";
+export { getConfig } from "./get-config.js";

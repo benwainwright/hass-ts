@@ -10,16 +10,18 @@ import { Client } from "./client/index.js";
 import { getLogger } from "./get-logger.js";
 import { RestClient } from "./rest-client/index.js";
 
-vi.mock("./client");
-vi.mock("./websocket-client");
-vi.mock("./rest-client");
-vi.mock("./get-logger");
+vi.mock("./client/index.js");
+vi.mock("./websocket-client/index.js");
+vi.mock("./rest-client/index.js");
+vi.mock("./get-logger.js");
 
 describe("initialiseClient", () => {
   it("correctly initialises the websocket client, wires it into the client and returns the client", async () => {
     const host = "host";
     const port = 1234;
     const token = "token";
+    const websocketPath = "/api/websocket";
+    const httpPath = "/api";
 
     const mockWebsocketClient = mock<WebsocketClient>();
     const mockRestClient = mock<RestClient>();
@@ -29,11 +31,11 @@ describe("initialiseClient", () => {
     when(getLogger).calledWith(logger).mockReturnValue(logger);
 
     when(vi.mocked(WebsocketClient))
-      .calledWith(host, port, token, logger)
+      .calledWith(host, port, websocketPath, token, logger)
       .mockReturnValue(mockWebsocketClient);
 
     when(vi.mocked(RestClient))
-      .calledWith(host, port, token, logger)
+      .calledWith(host, port, httpPath, token, logger)
       .mockReturnValue(mockRestClient);
 
     const mockClient = mock<Client>();
@@ -42,7 +44,14 @@ describe("initialiseClient", () => {
       .calledWith(mockWebsocketClient, mockRestClient)
       .mockReturnValue(mockClient);
 
-    const client = await initialiseClient({ host, port, token, logger });
+    const client = await initialiseClient({
+      host,
+      port,
+      httpPath,
+      websocketPath,
+      token,
+      logger,
+    });
 
     expect(mockWebsocketClient.init).toHaveBeenCalled();
     expect(client).toBe(mockClient);

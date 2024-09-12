@@ -1,16 +1,20 @@
 import { HTTP } from "@core";
 import { Logger } from "@types";
-import { safeJsonParse } from "@utils";
+import { normalisePath, safeJsonParse } from "@utils";
 import { HassHttpError } from "@core/errors";
 
 export class RestClient {
   private requestCache = new Map<string, { etag: string; text: string }>();
+  private readonly path: string;
   public constructor(
     private readonly host: string,
     private readonly port: number,
+    path: string,
     private readonly token: string,
     private readonly logger: Logger,
-  ) {}
+  ) {
+    this.path = normalisePath(path);
+  }
 
   public async get<R>(path: string): Promise<R> {
     return await this.request<R>(path, "GET");
@@ -62,7 +66,7 @@ export class RestClient {
     method: "GET" | "POST",
     body?: Record<string, unknown>,
   ): Promise<R> {
-    const apiPath = `/api${this.normalisePath(path)}`;
+    const apiPath = `${this.path}${normalisePath(path)}`;
 
     const { response, text } = await this.fetchRaw(apiPath, method, body);
 
@@ -79,13 +83,5 @@ export class RestClient {
           (text as R);
     }
     throw new HassHttpError(response.status, text);
-  }
-
-  private normalisePath(path: string) {
-    if (path.startsWith("/")) {
-      return path;
-    } else {
-      return `/${path}`;
-    }
   }
 }

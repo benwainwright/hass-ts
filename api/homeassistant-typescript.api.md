@@ -128,6 +128,11 @@ export interface EventDetails {
     listener_count: number;
 }
 
+// Warning: (ae-incompatible-release-tags) The symbol "getConfig" is marked as @public, but its signature references "HassConfig" which is marked as @alpha
+//
+// @public
+export const getConfig: () => HassConfig;
+
 // @alpha (undocumented)
 export interface GetHistoryParams {
     filterEntityId: string[];
@@ -148,15 +153,13 @@ export interface GetLogbookParams {
 }
 
 // @alpha (undocumented)
-export interface HassClientConfig {
-    // (undocumented)
+export interface HassConfig {
     host: string;
-    // (undocumented)
+    httpPath: string;
     logger?: Logger;
-    // (undocumented)
     port: number;
-    // (undocumented)
     token: string;
+    websocketPath: string;
 }
 
 // @alpha
@@ -191,8 +194,8 @@ export interface IClient {
     subscribeToEvents(type: string, callback: (message: Event_2) => void): Promise<void>;
 }
 
-// @alpha (undocumented)
-export const initialiseClient: ({ host, port, token, logger, }: HassClientConfig) => Promise<IClient>;
+// @alpha
+export const initialiseClient: ({ host, port, httpPath, websocketPath, token, logger, }: HassConfig) => Promise<IClient>;
 
 // @alpha (undocumented)
 export interface LogBookEntry {

@@ -27,6 +27,7 @@ describe("The REST client", () => {
     const client = new RestClient(
       TEST_HASS_HOST,
       TEST_HASS_PORT,
+      "/api",
       TEST_HASS_TOKEN,
       logger,
     );
@@ -45,6 +46,7 @@ describe("The REST client", () => {
     const client = new RestClient(
       TEST_HASS_HOST,
       TEST_HASS_PORT,
+      "/api",
       "test-bad-token",
       logger,
     );
@@ -67,6 +69,7 @@ describe("The REST client", () => {
       const client = new RestClient(
         TEST_HASS_HOST,
         TEST_HASS_PORT,
+        "/api",
         "bad-token",
         mock(),
       );
@@ -80,6 +83,7 @@ describe("The REST client", () => {
       const client = new RestClient(
         TEST_HASS_HOST,
         TEST_HASS_PORT,
+        "/api",
         TEST_HASS_TOKEN,
         mock(),
       );
@@ -94,6 +98,7 @@ describe("The REST client", () => {
       const client = new RestClient(
         TEST_HASS_HOST,
         TEST_HASS_PORT,
+        "/api",
         TEST_HASS_TOKEN,
         mock(),
       );
@@ -113,6 +118,7 @@ describe("The REST client", () => {
       const client = new RestClient(
         TEST_HASS_HOST,
         TEST_HASS_PORT,
+        "/api",
         TEST_HASS_TOKEN,
         mock(),
       );
@@ -126,6 +132,7 @@ describe("The REST client", () => {
       const client = new RestClient(
         TEST_HASS_HOST,
         TEST_HASS_PORT,
+        "/api",
         TEST_HASS_TOKEN,
         mock(),
       );
@@ -141,6 +148,7 @@ describe("The REST client", () => {
       const client = new RestClient(
         TEST_HASS_HOST,
         TEST_HASS_PORT,
+        "/api",
         TEST_HASS_TOKEN,
         mock(),
       );

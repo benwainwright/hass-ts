@@ -1,5 +1,6 @@
 export {
   initialiseClient,
+  getConfig,
   IClient,
   GetHistoryParams,
   GetLogbookParams,
@@ -8,7 +9,7 @@ export {
 } from "@core";
 
 export {
-  HassClientConfig,
+  HassConfig,
   Context,
   CalendarDetails,
   EventDetails,

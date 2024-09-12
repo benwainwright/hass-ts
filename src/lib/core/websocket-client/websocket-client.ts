@@ -1,5 +1,5 @@
 import WebSocket from "ws";
-import { safeJsonParse } from "@utils";
+import { normalisePath, safeJsonParse } from "@utils";
 
 import {
   ErrorResult,
@@ -16,6 +16,7 @@ import { ERRORS } from "@core/constants";
 export class WebsocketClient {
   private socket: WebSocket;
   private connected = false;
+  private readonly path: string;
   private messageCallbacks: ((message: MessageFromServer) => void)[] = [];
   private authCompleteCallbacks: [success: () => void, failure: () => void][] =
     [];
@@ -28,20 +29,22 @@ export class WebsocketClient {
   public constructor(
     private readonly host: string,
     private readonly port: number,
+    path: string,
     private readonly token: string,
     private readonly logger: Logger,
   ) {
-    if (token === "") {
+    this.path = normalisePath(path);
+    if (this.token === "") {
       throw new HassTsError(ERRORS.tokenCannotBeAnEmptyString);
     }
-    if (host === "") {
+    if (this.host === "") {
       throw new HassTsError(ERRORS.hostCannotBeAnEmptyString);
     }
-    if (port < 0) {
+    if (this.port < 0) {
       throw new HassTsError(ERRORS.portCannotBeNegative);
     }
 
-    this.socket = new WebSocket(`ws://${host}:${port}/api/websocket`);
+    this.socket = new WebSocket(`ws://${this.host}:${this.port}${this.path}`);
   }
 
   public async init(): Promise<void> {
