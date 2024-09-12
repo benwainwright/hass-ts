@@ -12,6 +12,8 @@ export {
   AuthRequiredMessageResponse,
   ErrorResult,
   MessageToServer,
+  CallServiceCommand,
+  CallServiceResponse,
   HelloCommand,
 } from "./websocket-client/index.js";
 

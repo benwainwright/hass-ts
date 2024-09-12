@@ -3,6 +3,8 @@ export {
   IClient,
   GetHistoryParams,
   GetLogbookParams,
+  CallServiceCommand,
+  CallServiceResponse,
 } from "@core";
 
 export {

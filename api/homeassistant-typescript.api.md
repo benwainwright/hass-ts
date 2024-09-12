@@ -8,6 +8,33 @@
 export interface CalendarDetails {
 }
 
+// Warning: (ae-forgotten-export) The symbol "Command" needs to be exported by the entry point index.d.ts
+//
+// @alpha (undocumented)
+export interface CallServiceCommand extends Command {
+    domain: string;
+    return_response?: boolean;
+    service: string;
+    service_data?: Record<string, unknown>;
+    target?: {
+        entity_id?: string;
+        area_id?: string;
+        device_id?: string;
+    };
+    type: "call_service";
+}
+
+// @alpha (undocumented)
+export interface CallServiceResponse {
+    // (undocumented)
+    context: {
+        id: string;
+        parent_id: null | string;
+        user_id: string;
+    };
+    response: null | Record<string, unknown>;
+}
+
 // @alpha (undocumented)
 export interface Config {
     // (undocumented)
@@ -134,8 +161,6 @@ export interface HassClientConfig {
 
 // @alpha
 export interface IClient {
-    // Warning: (ae-forgotten-export) The symbol "CallServiceCommand" needs to be exported by the entry point index.d.ts
-    // Warning: (ae-forgotten-export) The symbol "CallServiceResponse" needs to be exported by the entry point index.d.ts
     callService(params: Omit<CallServiceCommand, "id" | "type">): Promise<CallServiceResponse>;
     // (undocumented)
     close(): Promise<void>;

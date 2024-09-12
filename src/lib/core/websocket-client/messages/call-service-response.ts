@@ -1,3 +1,6 @@
+/**
+ * @alpha
+ */
 export interface CallServiceResponse {
   context: {
     id: string;
