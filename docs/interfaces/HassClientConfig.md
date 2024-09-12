@@ -19,7 +19,7 @@
 
 #### Defined in
 
-[lib/types/client-config.ts:7](https://github.com/benwainwright/hass-ts/blob/c03f283/src/lib/types/client-config.ts#L7)
+[lib/types/client-config.ts:7](https://github.com/benwainwright/hass-ts/blob/432b3d4/src/lib/types/client-config.ts#L7)
 
 ___
 
@@ -29,7 +29,7 @@ ___
 
 #### Defined in
 
-[lib/types/client-config.ts:10](https://github.com/benwainwright/hass-ts/blob/c03f283/src/lib/types/client-config.ts#L10)
+[lib/types/client-config.ts:10](https://github.com/benwainwright/hass-ts/blob/432b3d4/src/lib/types/client-config.ts#L10)
 
 ___
 
@@ -39,7 +39,7 @@ ___
 
 #### Defined in
 
-[lib/types/client-config.ts:8](https://github.com/benwainwright/hass-ts/blob/c03f283/src/lib/types/client-config.ts#L8)
+[lib/types/client-config.ts:8](https://github.com/benwainwright/hass-ts/blob/432b3d4/src/lib/types/client-config.ts#L8)
 
 ___
 
@@ -49,4 +49,4 @@ ___
 
 #### Defined in
 
-[lib/types/client-config.ts:9](https://github.com/benwainwright/hass-ts/blob/c03f283/src/lib/types/client-config.ts#L9)
+[lib/types/client-config.ts:9](https://github.com/benwainwright/hass-ts/blob/432b3d4/src/lib/types/client-config.ts#L9)
