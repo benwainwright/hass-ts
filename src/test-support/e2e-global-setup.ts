@@ -17,6 +17,9 @@ export const setup = async () => {
   await compose.upAll({
     cwd: path.join(__dirname),
     commandOptions: ["--build"],
+    callback: (chunk) => {
+      console.log(`Job in progress: `, chunk.toString());
+    },
   });
 
   await delay(1000);
