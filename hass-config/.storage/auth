@@ -66,6 +66,7 @@
         "jwt_key": "91d8fa3c8464dafc9c1c212c4470acb7230c730dc36a78b869d7026406ae63db797ea0bd20f0a1600cf6437e8fcdcd75b3798e0f6d4b5c3dab41f4db9a340307",
         "last_used_at": null,
         "last_used_ip": null,
+        "expire_at": null,
         "credential_id": null,
         "version": "2023.11.2"
       },
@@ -82,6 +83,7 @@
         "jwt_key": "b473564d3f0b5795bd3165e4c5c0c9426faff5fb51c95b2334ff81a9a10cea054aeb1eb0ce05bdcfb4c152461fb06000c71b3de92c12f566fc337a9bca0c7fcf",
         "last_used_at": "2023-11-11T20:20:44.738200+00:00",
         "last_used_ip": "172.19.0.1",
+        "expire_at": null,
         "credential_id": "dc253289c09f4a7dafbe6aa91455d1cf",
         "version": "2023.11.2"
       },
@@ -98,6 +100,7 @@
         "jwt_key": "a34788968dad3154122e690c4e79acacb230f337c83f873f22397eb260a7fb6708ff9f28d248db329f0c49845643e0ca39273e2e8df137e7881f01c9786ce29e",
         "last_used_at": "2023-11-11T20:25:13.442101+00:00",
         "last_used_ip": "172.21.0.1",
+        "expire_at": null,
         "credential_id": "dc253289c09f4a7dafbe6aa91455d1cf",
         "version": "2023.11.2"
       },
@@ -114,6 +117,7 @@
         "jwt_key": "f1a394e5a698830a934a51328d7ec7e2865cab310aef33bf74bf10e9f06f10d52cf69ae8191d483a78654dd2cd3d97fa19dc0887cbbae25e9d20e7f8d58c3eb0",
         "last_used_at": "2023-11-11T20:25:29.250653+00:00",
         "last_used_ip": null,
+        "expire_at": null,
         "credential_id": null,
         "version": "2023.11.2"
       }

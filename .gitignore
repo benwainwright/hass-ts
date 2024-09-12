@@ -8,3 +8,9 @@ tsdoc-metadata.json
 .tmp-compiled-docs
 .scannerwork
 .env
+hass-config/.storag
+hass-config/home-assistant.log.fault
+hass-config/home-assistant_v2.db*
+hass-config/.storage/lovelace.map
+hass-config/.storage/lovelace_dashboards
+hass-config/.storage/map

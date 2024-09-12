@@ -22,7 +22,14 @@ export const setup = async () => {
     },
   });
 
-  await delay(1000);
+  void compose.logs("homeassistant", {
+    follow: true,
+    callback: (chunk) => {
+      console.log(chunk.toString());
+    },
+  });
+
+  await delay(3000);
 };
 
 export const teardown = async () => {
