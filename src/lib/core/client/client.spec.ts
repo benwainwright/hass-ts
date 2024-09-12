@@ -132,7 +132,7 @@ describe("The client", () => {
 
       when(mockRestClient.get)
         .calledWith(
-          `/logbook/${timestamp.toISOString()}?entity=${entity}&end_time=${endTime.toISOString()}`
+          `/logbook/${timestamp.toISOString()}?entity=${entity}&end_time=${endTime.toISOString()}`,
         )
         .mockResolvedValue(entries);
 
@@ -156,7 +156,7 @@ describe("The client", () => {
 
       const filterEntityId = ["light.bedroom", "light.lounge"];
       const path = `/history/period?filter_entity_id=${filterEntityId.join(
-        ","
+        ",",
       )}`;
 
       when(mockRestClient.get).calledWith(path).mockResolvedValue(states);
@@ -179,8 +179,8 @@ describe("The client", () => {
       when(mockRestClient.get)
         .calledWith(
           `/history/period/2023-01-01T00:00:00.000Z?filter_entity_id=${filterEntityId.join(
-            ","
-          )}`
+            ",",
+          )}`,
         )
         .mockResolvedValue(states);
 
@@ -202,8 +202,8 @@ describe("The client", () => {
       when(mockRestClient.get)
         .calledWith(
           `/history/period/2023-01-01T00:00:00.000Z?filter_entity_id=${filterEntityId.join(
-            ","
-          )}&minimal_response=true&no_attributes=true`
+            ",",
+          )}&minimal_response=true&no_attributes=true`,
         )
         .mockResolvedValue(states);
 
@@ -416,7 +416,7 @@ describe("The client", () => {
           setTimeout(() => {
             callback(message);
           }, EVENT_DELAY);
-        }
+        },
       );
       await client.subscribeToEvents(callback);
       vi.advanceTimersByTime(400);
@@ -453,7 +453,7 @@ describe("The client", () => {
           setTimeout(() => {
             callback(message);
           }, EVENT_DELAY);
-        }
+        },
       );
       await client.subscribeToEvents(callback);
       vi.advanceTimersByTime(400);
@@ -517,7 +517,7 @@ describe("The client", () => {
           setTimeout(() => {
             callback(message);
           }, EVENT_DELAY);
-        }
+        },
       );
       await client.subscribeToEvents(callback);
       vi.advanceTimersByTime(400);

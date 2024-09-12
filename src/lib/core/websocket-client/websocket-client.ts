@@ -29,7 +29,7 @@ export class WebsocketClient {
     private readonly host: string,
     private readonly port: number,
     private readonly token: string,
-    private readonly logger: Logger
+    private readonly logger: Logger,
   ) {
     if (token === "") {
       throw new HassTsError(ERRORS.tokenCannotBeAnEmptyString);
@@ -48,7 +48,7 @@ export class WebsocketClient {
     this.socket.on("open", () => {
       this.socket.on("message", (data: Buffer) => {
         const message = safeJsonParse<MessageFromServer>(
-          data.toString("utf-8")
+          data.toString("utf-8"),
         );
         this.logger.trace(`Received (ws): ${JSON.stringify(message)}`);
         this.handleMessage(message);
@@ -65,7 +65,7 @@ export class WebsocketClient {
   }
 
   public async sendCommand<T extends MessageToServer, R>(
-    command: Omit<T, "id">
+    command: Omit<T, "id">,
   ): Promise<Result<R>> {
     if (!this.connected) {
       throw new HassTsError(ERRORS.notInitialised);
@@ -88,13 +88,13 @@ export class WebsocketClient {
       throw new HassTsError(ERRORS.notInitialised);
     }
     const registeredCallback = this.messageCallbacks.find(
-      (callback) => callback === listener
+      (callback) => callback === listener,
     );
     if (!registeredCallback) {
       throw new HassTsError(ERRORS.callbackNotRegistered);
     }
     this.messageCallbacks = this.messageCallbacks.filter(
-      (callback) => callback !== listener
+      (callback) => callback !== listener,
     );
   }
 
@@ -122,11 +122,11 @@ export class WebsocketClient {
             reject(
               new ErrorResponseError(
                 response.error.code,
-                response.error.message
-              )
+                response.error.message,
+              ),
             );
           }
-        }
+        },
       );
     });
   }

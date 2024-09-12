@@ -3,7 +3,7 @@ import { DefaultBodyType, HttpResponse, StrictRequest } from "msw";
 import { TEST_HASS_TOKEN } from "@test-support";
 
 export const validateCredentials = (
-  request: StrictRequest<DefaultBodyType>
+  request: StrictRequest<DefaultBodyType>,
 ): HttpResponse | undefined => {
   const auth = request.headers.get("Authorization");
   const matches = auth?.match(/Bearer (?<token>.*)/);

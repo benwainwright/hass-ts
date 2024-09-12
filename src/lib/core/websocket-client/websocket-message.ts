@@ -1,3 +1,3 @@
 export interface WebsocketMessage {
-    type: string
+  type: string;
 }

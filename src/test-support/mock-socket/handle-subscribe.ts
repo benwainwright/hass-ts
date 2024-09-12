@@ -7,7 +7,7 @@ import { SubscribeToEventsMessage } from "@core";
 
 export const handleSubscribe = async (
   socket: Socket,
-  message: SubscribeToEventsMessage
+  message: SubscribeToEventsMessage,
 ) => {
   send(socket, {
     id: message.id,

@@ -33,19 +33,19 @@ describe("The websocket client", () => {
   describe("constructor", () => {
     it("throws an error if the host is an empty string", () => {
       expect(() => new WebsocketClient("", port, token, mock())).toThrow(
-        new HassTsError(ERRORS.hostCannotBeAnEmptyString)
+        new HassTsError(ERRORS.hostCannotBeAnEmptyString),
       );
     });
 
     it("throws an error if the port is a negative number", () => {
       expect(() => new WebsocketClient(host, -512, token, mock())).toThrow(
-        new HassTsError(ERRORS.portCannotBeNegative)
+        new HassTsError(ERRORS.portCannotBeNegative),
       );
     });
 
     it("throws an error if the token is an empty string", () => {
       expect(() => new WebsocketClient(host, port, "", mock())).toThrow(
-        new HassTsError(ERRORS.tokenCannotBeAnEmptyString)
+        new HassTsError(ERRORS.tokenCannotBeAnEmptyString),
       );
     });
 
@@ -65,7 +65,7 @@ describe("The websocket client", () => {
       `Received (ws): ${JSON.stringify({
         type: "auth_required",
         ha_version: version,
-      })}`
+      })}`,
     );
     await client.close();
   });
@@ -79,7 +79,7 @@ describe("The websocket client", () => {
       `Sent (ws): ${JSON.stringify({
         type: "auth",
         access_token: token,
-      })}`
+      })}`,
     );
 
     await client.close();
@@ -95,7 +95,7 @@ describe("The websocket client", () => {
     it("rejects the promise if the authentication fails", async () => {
       const client = new WebsocketClient(host, port, "wrong-token", mock());
       await expect(client.init()).rejects.toThrow(
-        new HassTsError(ERRORS.authenticationFailed)
+        new HassTsError(ERRORS.authenticationFailed),
       );
       await client.close();
     });
@@ -182,7 +182,7 @@ describe("The websocket client", () => {
     it("throws an error if it is called before init", async () => {
       const client = new WebsocketClient(host, port, token, mock());
       await expect(client.sendCommand({ type: "hello" })).rejects.toThrow(
-        new HassTsError(ERRORS.notInitialised)
+        new HassTsError(ERRORS.notInitialised),
       );
     });
 
@@ -203,7 +203,7 @@ describe("The websocket client", () => {
       const client = new WebsocketClient(host, port, token, mock());
       await client.init();
       await expect(client.sendCommand({ type: "throw" })).rejects.toThrow(
-        new ErrorResponseError(TEST_ERROR_CODE, TEST_ERROR_MESSAGE)
+        new ErrorResponseError(TEST_ERROR_CODE, TEST_ERROR_MESSAGE),
       );
       await client.close();
     });
@@ -221,6 +221,6 @@ describe("The websocket client", () => {
   });
 
   it.todo(
-    "sends pings to the server regularly, closes the connection and reconnects if the server doesn't respond"
+    "sends pings to the server regularly, closes the connection and reconnects if the server doesn't respond",
   );
 });
