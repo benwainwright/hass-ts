@@ -1,4 +1,4 @@
-[hass-ts](../README.md) / IClient
+[homeassistant-typescript](../README.md) / IClient
 
 # Interface: IClient
 
@@ -34,9 +34,9 @@ The Home Assistant client API. Implements both the websocket and REST APIs
 
 #### Defined in
 
-[lib/core/client/i-client.ts:54](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/core/client/i-client.ts#L54)
+[lib/core/client/i-client.ts:54](https://github.com/benwainwright/hass-ts/blob/c03f283/src/lib/core/client/i-client.ts#L54)
 
----
+___
 
 ### getCalendars
 
@@ -48,9 +48,9 @@ The Home Assistant client API. Implements both the websocket and REST APIs
 
 #### Defined in
 
-[lib/core/client/i-client.ts:41](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/core/client/i-client.ts#L41)
+[lib/core/client/i-client.ts:41](https://github.com/benwainwright/hass-ts/blob/c03f283/src/lib/core/client/i-client.ts#L41)
 
----
+___
 
 ### getConfig
 
@@ -62,9 +62,9 @@ The Home Assistant client API. Implements both the websocket and REST APIs
 
 #### Defined in
 
-[lib/core/client/i-client.ts:33](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/core/client/i-client.ts#L33)
+[lib/core/client/i-client.ts:33](https://github.com/benwainwright/hass-ts/blob/c03f283/src/lib/core/client/i-client.ts#L33)
 
----
+___
 
 ### getErrorLog
 
@@ -76,9 +76,9 @@ The Home Assistant client API. Implements both the websocket and REST APIs
 
 #### Defined in
 
-[lib/core/client/i-client.ts:45](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/core/client/i-client.ts#L45)
+[lib/core/client/i-client.ts:45](https://github.com/benwainwright/hass-ts/blob/c03f283/src/lib/core/client/i-client.ts#L45)
 
----
+___
 
 ### getEvents
 
@@ -90,9 +90,9 @@ The Home Assistant client API. Implements both the websocket and REST APIs
 
 #### Defined in
 
-[lib/core/client/i-client.ts:43](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/core/client/i-client.ts#L43)
+[lib/core/client/i-client.ts:43](https://github.com/benwainwright/hass-ts/blob/c03f283/src/lib/core/client/i-client.ts#L43)
 
----
+___
 
 ### getHistory
 
@@ -102,8 +102,8 @@ Returns an array of state changes from the past
 
 #### Parameters
 
-| Name     | Type                                      |
-| :------- | :---------------------------------------- |
+| Name | Type |
+| :------ | :------ |
 | `params` | [`GetHistoryParams`](GetHistoryParams.md) |
 
 #### Returns
@@ -112,9 +112,9 @@ Returns an array of state changes from the past
 
 #### Defined in
 
-[lib/core/client/i-client.ts:25](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/core/client/i-client.ts#L25)
+[lib/core/client/i-client.ts:25](https://github.com/benwainwright/hass-ts/blob/c03f283/src/lib/core/client/i-client.ts#L25)
 
----
+___
 
 ### getLogbook
 
@@ -122,8 +122,8 @@ Returns an array of state changes from the past
 
 #### Parameters
 
-| Name      | Type                                      |
-| :-------- | :---------------------------------------- |
+| Name | Type |
+| :------ | :------ |
 | `params?` | [`GetLogbookParams`](GetLogbookParams.md) |
 
 #### Returns
@@ -132,9 +132,9 @@ Returns an array of state changes from the past
 
 #### Defined in
 
-[lib/core/client/i-client.ts:27](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/core/client/i-client.ts#L27)
+[lib/core/client/i-client.ts:27](https://github.com/benwainwright/hass-ts/blob/c03f283/src/lib/core/client/i-client.ts#L27)
 
----
+___
 
 ### getPanels
 
@@ -146,9 +146,9 @@ Returns an array of state changes from the past
 
 #### Defined in
 
-[lib/core/client/i-client.ts:39](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/core/client/i-client.ts#L39)
+[lib/core/client/i-client.ts:39](https://github.com/benwainwright/hass-ts/blob/c03f283/src/lib/core/client/i-client.ts#L39)
 
----
+___
 
 ### getServiceDomains
 
@@ -160,9 +160,9 @@ Returns an array of state changes from the past
 
 #### Defined in
 
-[lib/core/client/i-client.ts:37](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/core/client/i-client.ts#L37)
+[lib/core/client/i-client.ts:37](https://github.com/benwainwright/hass-ts/blob/c03f283/src/lib/core/client/i-client.ts#L37)
 
----
+___
 
 ### getServices
 
@@ -174,9 +174,9 @@ Returns an array of state changes from the past
 
 #### Defined in
 
-[lib/core/client/i-client.ts:35](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/core/client/i-client.ts#L35)
+[lib/core/client/i-client.ts:35](https://github.com/benwainwright/hass-ts/blob/c03f283/src/lib/core/client/i-client.ts#L35)
 
----
+___
 
 ### getState
 
@@ -184,8 +184,8 @@ Returns an array of state changes from the past
 
 #### Parameters
 
-| Name       | Type     |
-| :--------- | :------- |
+| Name | Type |
+| :------ | :------ |
 | `entityId` | `string` |
 
 #### Returns
@@ -194,9 +194,9 @@ Returns an array of state changes from the past
 
 #### Defined in
 
-[lib/core/client/i-client.ts:31](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/core/client/i-client.ts#L31)
+[lib/core/client/i-client.ts:31](https://github.com/benwainwright/hass-ts/blob/c03f283/src/lib/core/client/i-client.ts#L31)
 
----
+___
 
 ### getStates
 
@@ -208,9 +208,9 @@ Returns an array of state changes from the past
 
 #### Defined in
 
-[lib/core/client/i-client.ts:29](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/core/client/i-client.ts#L29)
+[lib/core/client/i-client.ts:29](https://github.com/benwainwright/hass-ts/blob/c03f283/src/lib/core/client/i-client.ts#L29)
 
----
+___
 
 ### subscribeToEvents
 
@@ -218,8 +218,8 @@ Returns an array of state changes from the past
 
 #### Parameters
 
-| Name       | Type                                       |
-| :--------- | :----------------------------------------- |
+| Name | Type |
+| :------ | :------ |
 | `callback` | (`message`: [`Event`](Event.md)) => `void` |
 
 #### Returns
@@ -228,15 +228,15 @@ Returns an array of state changes from the past
 
 #### Defined in
 
-[lib/core/client/i-client.ts:47](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/core/client/i-client.ts#L47)
+[lib/core/client/i-client.ts:47](https://github.com/benwainwright/hass-ts/blob/c03f283/src/lib/core/client/i-client.ts#L47)
 
 ▸ **subscribeToEvents**(`type`, `callback`): `Promise`\<`void`\>
 
 #### Parameters
 
-| Name       | Type                                       |
-| :--------- | :----------------------------------------- |
-| `type`     | `string`                                   |
+| Name | Type |
+| :------ | :------ |
+| `type` | `string` |
 | `callback` | (`message`: [`Event`](Event.md)) => `void` |
 
 #### Returns
@@ -245,4 +245,4 @@ Returns an array of state changes from the past
 
 #### Defined in
 
-[lib/core/client/i-client.ts:49](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/core/client/i-client.ts#L49)
+[lib/core/client/i-client.ts:49](https://github.com/benwainwright/hass-ts/blob/c03f283/src/lib/core/client/i-client.ts#L49)

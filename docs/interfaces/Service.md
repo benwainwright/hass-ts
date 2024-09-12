@@ -1,4 +1,4 @@
-[hass-ts](../README.md) / Service
+[homeassistant-typescript](../README.md) / Service
 
 # Interface: Service
 
@@ -19,9 +19,9 @@
 
 #### Defined in
 
-[lib/types/services.ts:11](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/services.ts#L11)
+[lib/types/services.ts:11](https://github.com/benwainwright/hass-ts/blob/c03f283/src/lib/types/services.ts#L11)
 
----
+___
 
 ### fields
 
@@ -29,9 +29,9 @@
 
 #### Defined in
 
-[lib/types/services.ts:12](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/services.ts#L12)
+[lib/types/services.ts:12](https://github.com/benwainwright/hass-ts/blob/c03f283/src/lib/types/services.ts#L12)
 
----
+___
 
 ### name
 
@@ -39,9 +39,9 @@
 
 #### Defined in
 
-[lib/types/services.ts:10](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/services.ts#L10)
+[lib/types/services.ts:10](https://github.com/benwainwright/hass-ts/blob/c03f283/src/lib/types/services.ts#L10)
 
----
+___
 
 ### target
 
@@ -49,10 +49,10 @@
 
 #### Type declaration
 
-| Name     | Type                              |
-| :------- | :-------------------------------- |
+| Name | Type |
+| :------ | :------ |
 | `entity` | `Record`\<`string`, `unknown`\>[] |
 
 #### Defined in
 
-[lib/types/services.ts:13](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/services.ts#L13)
+[lib/types/services.ts:13](https://github.com/benwainwright/hass-ts/blob/c03f283/src/lib/types/services.ts#L13)

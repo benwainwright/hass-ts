@@ -1,4 +1,4 @@
-[hass-ts](../README.md) / GetHistoryParams
+[homeassistant-typescript](../README.md) / GetHistoryParams
 
 # Interface: GetHistoryParams
 
@@ -22,9 +22,9 @@ Filter response on one more entities
 
 #### Defined in
 
-[lib/core/client/get-history-params.ts:13](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/core/client/get-history-params.ts#L13)
+[lib/core/client/get-history-params.ts:13](https://github.com/benwainwright/hass-ts/blob/c03f283/src/lib/core/client/get-history-params.ts#L13)
 
----
+___
 
 ### minimalResponse
 
@@ -35,9 +35,9 @@ other than the first and last state in the period (much faster)
 
 #### Defined in
 
-[lib/core/client/get-history-params.ts:19](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/core/client/get-history-params.ts#L19)
+[lib/core/client/get-history-params.ts:19](https://github.com/benwainwright/hass-ts/blob/c03f283/src/lib/core/client/get-history-params.ts#L19)
 
----
+___
 
 ### noAttributes
 
@@ -47,9 +47,9 @@ Skip returning attributes from the database (much faster)
 
 #### Defined in
 
-[lib/core/client/get-history-params.ts:24](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/core/client/get-history-params.ts#L24)
+[lib/core/client/get-history-params.ts:24](https://github.com/benwainwright/hass-ts/blob/c03f283/src/lib/core/client/get-history-params.ts#L24)
 
----
+___
 
 ### significantChangesOnly
 
@@ -59,9 +59,9 @@ Only return significant state changes
 
 #### Defined in
 
-[lib/core/client/get-history-params.ts:29](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/core/client/get-history-params.ts#L29)
+[lib/core/client/get-history-params.ts:29](https://github.com/benwainwright/hass-ts/blob/c03f283/src/lib/core/client/get-history-params.ts#L29)
 
----
+___
 
 ### timestamp
 
@@ -71,4 +71,4 @@ Beginning of the history period - defaults to 1 day before the request
 
 #### Defined in
 
-[lib/core/client/get-history-params.ts:8](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/core/client/get-history-params.ts#L8)
+[lib/core/client/get-history-params.ts:8](https://github.com/benwainwright/hass-ts/blob/c03f283/src/lib/core/client/get-history-params.ts#L8)

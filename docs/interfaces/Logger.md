@@ -1,4 +1,4 @@
-[hass-ts](../README.md) / Logger
+[homeassistant-typescript](../README.md) / Logger
 
 # Interface: Logger
 
@@ -25,8 +25,8 @@
 
 ##### Parameters
 
-| Name      | Type     |
-| :-------- | :------- |
+| Name | Type |
+| :------ | :------ |
 | `message` | `string` |
 
 ##### Returns
@@ -35,9 +35,9 @@
 
 #### Defined in
 
-[lib/types/logger.ts:6](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/logger.ts#L6)
+[lib/types/logger.ts:6](https://github.com/benwainwright/hass-ts/blob/c03f283/src/lib/types/logger.ts#L6)
 
----
+___
 
 ### error
 
@@ -49,8 +49,8 @@
 
 ##### Parameters
 
-| Name      | Type     |
-| :-------- | :------- |
+| Name | Type |
+| :------ | :------ |
 | `message` | `string` |
 
 ##### Returns
@@ -59,9 +59,9 @@
 
 #### Defined in
 
-[lib/types/logger.ts:9](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/logger.ts#L9)
+[lib/types/logger.ts:9](https://github.com/benwainwright/hass-ts/blob/c03f283/src/lib/types/logger.ts#L9)
 
----
+___
 
 ### fatal
 
@@ -73,8 +73,8 @@
 
 ##### Parameters
 
-| Name      | Type     |
-| :-------- | :------- |
+| Name | Type |
+| :------ | :------ |
 | `message` | `string` |
 
 ##### Returns
@@ -83,9 +83,9 @@
 
 #### Defined in
 
-[lib/types/logger.ts:10](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/logger.ts#L10)
+[lib/types/logger.ts:10](https://github.com/benwainwright/hass-ts/blob/c03f283/src/lib/types/logger.ts#L10)
 
----
+___
 
 ### info
 
@@ -97,8 +97,8 @@
 
 ##### Parameters
 
-| Name      | Type     |
-| :-------- | :------- |
+| Name | Type |
+| :------ | :------ |
 | `message` | `string` |
 
 ##### Returns
@@ -107,9 +107,9 @@
 
 #### Defined in
 
-[lib/types/logger.ts:7](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/logger.ts#L7)
+[lib/types/logger.ts:7](https://github.com/benwainwright/hass-ts/blob/c03f283/src/lib/types/logger.ts#L7)
 
----
+___
 
 ### trace
 
@@ -121,8 +121,8 @@
 
 ##### Parameters
 
-| Name      | Type     |
-| :-------- | :------- |
+| Name | Type |
+| :------ | :------ |
 | `message` | `string` |
 
 ##### Returns
@@ -131,9 +131,9 @@
 
 #### Defined in
 
-[lib/types/logger.ts:5](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/logger.ts#L5)
+[lib/types/logger.ts:5](https://github.com/benwainwright/hass-ts/blob/c03f283/src/lib/types/logger.ts#L5)
 
----
+___
 
 ### warn
 
@@ -145,8 +145,8 @@
 
 ##### Parameters
 
-| Name      | Type     |
-| :-------- | :------- |
+| Name | Type |
+| :------ | :------ |
 | `message` | `string` |
 
 ##### Returns
@@ -155,4 +155,4 @@
 
 #### Defined in
 
-[lib/types/logger.ts:8](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/logger.ts#L8)
+[lib/types/logger.ts:8](https://github.com/benwainwright/hass-ts/blob/c03f283/src/lib/types/logger.ts#L8)

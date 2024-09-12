@@ -1,3 +1,3 @@
-[hass-ts](../README.md) / CalendarDetails
+[homeassistant-typescript](../README.md) / CalendarDetails
 
 # Interface: CalendarDetails

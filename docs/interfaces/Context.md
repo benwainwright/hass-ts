@@ -1,4 +1,4 @@
-[hass-ts](../README.md) / Context
+[homeassistant-typescript](../README.md) / Context
 
 # Interface: Context
 
@@ -7,8 +7,8 @@
 ### Properties
 
 - [id](Context.md#id)
-- [parent_id](Context.md#parent_id)
-- [user_id](Context.md#user_id)
+- [parent\_id](Context.md#parent_id)
+- [user\_id](Context.md#user_id)
 
 ## Properties
 
@@ -18,24 +18,24 @@
 
 #### Defined in
 
-[lib/types/context.ts:5](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/context.ts#L5)
+[lib/types/context.ts:5](https://github.com/benwainwright/hass-ts/blob/c03f283/src/lib/types/context.ts#L5)
 
----
+___
 
-### parent_id
+### parent\_id
 
-• **parent_id**: `null`
-
-#### Defined in
-
-[lib/types/context.ts:6](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/context.ts#L6)
-
----
-
-### user_id
-
-• **user_id**: `string`
+• **parent\_id**: ``null``
 
 #### Defined in
 
-[lib/types/context.ts:7](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/context.ts#L7)
+[lib/types/context.ts:6](https://github.com/benwainwright/hass-ts/blob/c03f283/src/lib/types/context.ts#L6)
+
+___
+
+### user\_id
+
+• **user\_id**: `string`
+
+#### Defined in
+
+[lib/types/context.ts:7](https://github.com/benwainwright/hass-ts/blob/c03f283/src/lib/types/context.ts#L7)

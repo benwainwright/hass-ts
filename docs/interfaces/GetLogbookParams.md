@@ -1,4 +1,4 @@
-[hass-ts](../README.md) / GetLogbookParams
+[homeassistant-typescript](../README.md) / GetLogbookParams
 
 # Interface: GetLogbookParams
 
@@ -18,9 +18,9 @@
 
 #### Defined in
 
-[lib/core/client/get-logbook-params.ts:7](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/core/client/get-logbook-params.ts#L7)
+[lib/core/client/get-logbook-params.ts:7](https://github.com/benwainwright/hass-ts/blob/c03f283/src/lib/core/client/get-logbook-params.ts#L7)
 
----
+___
 
 ### entity
 
@@ -28,9 +28,9 @@
 
 #### Defined in
 
-[lib/core/client/get-logbook-params.ts:6](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/core/client/get-logbook-params.ts#L6)
+[lib/core/client/get-logbook-params.ts:6](https://github.com/benwainwright/hass-ts/blob/c03f283/src/lib/core/client/get-logbook-params.ts#L6)
 
----
+___
 
 ### timestamp
 
@@ -38,4 +38,4 @@
 
 #### Defined in
 
-[lib/core/client/get-logbook-params.ts:5](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/core/client/get-logbook-params.ts#L5)
+[lib/core/client/get-logbook-params.ts:5](https://github.com/benwainwright/hass-ts/blob/c03f283/src/lib/core/client/get-logbook-params.ts#L5)
