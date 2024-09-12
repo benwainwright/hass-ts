@@ -20,6 +20,9 @@ dependencies:
   globals:
     specifier: ^13.23.0
     version: 13.23.0
+  hass-ts:
+    specifier: ^1.3.3
+    version: 1.3.3(eslint@8.52.0)(semantic-release@24.1.1)
   semantic-release:
     specifier: ^24.1.1
     version: 24.1.1(typescript@5.5.4)
@@ -3917,6 +3920,24 @@ packages:
     dependencies:
       function-bind: 1.1.2
     dev: true
+
+  /hass-ts@1.3.3(eslint@8.52.0)(semantic-release@24.1.1):
+    resolution: {integrity: sha512-iEOm2+t+6sLQDYYxvWm8H7ai84ZgrSfiaigezusJ/nQDQl1VFkCjIaZ4yFEmU7z8VV6V8o4qgqHz56PIAYkDxA==}
+    dependencies:
+      '@eslint/js': 8.53.0
+      '@semantic-release/git': 10.0.1(semantic-release@24.1.1)
+      eslint-plugin-jsdoc: 46.9.0(eslint@8.52.0)
+      eslint-plugin-no-relative-import-paths: 1.5.3
+      globals: 13.23.0
+      type-fest: 4.7.1
+      ws: 8.14.2
+    transitivePeerDependencies:
+      - bufferutil
+      - eslint
+      - semantic-release
+      - supports-color
+      - utf-8-validate
+    dev: false
 
   /headers-polyfill@4.0.2:
     resolution: {integrity: sha512-EWGTfnTqAO2L/j5HZgoM/3z82L7necsJ0pO9Tp0X1wil3PDLrkypTBRgVO2ExehEEvUycejZD3FuRaXpZZc3kw==}

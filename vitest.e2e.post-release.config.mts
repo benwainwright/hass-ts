@@ -9,7 +9,7 @@ export default defineConfig({
     },
     globals: true,
     globalSetup: "./src/test-support/e2e-global-setup.ts",
-    setupFiles: "./src/test-support/setup-post-release-mock.mts",
+    setupFiles: "./src/test-support/setup-post-release-mock.ts",
     include: ["src/e2e-tests/**/*.spec.ts"],
   },
 });

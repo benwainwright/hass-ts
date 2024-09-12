@@ -8,8 +8,9 @@ import { delay } from "./delay.js";
 export const setup = async () => {
   if (process.env.POST_RELEASE === "true") {
     const packageName = getPackageName();
+    console.log(`Installing ${packageName}`);
     const execCommand = promisify(exec);
-    await execCommand(`npm install ${packageName}@latest`);
+    await execCommand(`pnpm install ${packageName}@latest`);
   }
 
   console.log(" ℹ️  Starting test HASS server...");
