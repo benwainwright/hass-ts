@@ -3,7 +3,7 @@ module.exports = {
     "main",
     {
       name: "alpha",
-      "pre-release": true,
+      prerelease: true,
     },
   ],
   plugins: [
