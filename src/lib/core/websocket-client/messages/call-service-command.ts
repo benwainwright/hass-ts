@@ -23,10 +23,10 @@ export interface CallServiceCommand extends Command {
    * Optional service data
    *
    * @example
-   * service_data: {
+   * service_data: \{
    *  color_name: "beige",
    *  brightness: "101"
-   * }
+   * \}
    */
   service_data?: Record<string, unknown>;
 
