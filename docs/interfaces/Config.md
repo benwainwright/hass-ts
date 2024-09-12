@@ -36,7 +36,7 @@
 
 #### Defined in
 
-[lib/types/config.ts:22](https://github.com/benwainwright/hass-ts/blob/432b3d4/src/lib/types/config.ts#L22)
+[lib/types/config.ts:22](https://github.com/benwainwright/hass-ts/blob/31505ab/src/lib/types/config.ts#L22)
 
 ___
 
@@ -46,7 +46,7 @@ ___
 
 #### Defined in
 
-[lib/types/config.ts:23](https://github.com/benwainwright/hass-ts/blob/432b3d4/src/lib/types/config.ts#L23)
+[lib/types/config.ts:23](https://github.com/benwainwright/hass-ts/blob/31505ab/src/lib/types/config.ts#L23)
 
 ___
 
@@ -56,7 +56,7 @@ ___
 
 #### Defined in
 
-[lib/types/config.ts:19](https://github.com/benwainwright/hass-ts/blob/432b3d4/src/lib/types/config.ts#L19)
+[lib/types/config.ts:19](https://github.com/benwainwright/hass-ts/blob/31505ab/src/lib/types/config.ts#L19)
 
 ___
 
@@ -66,7 +66,7 @@ ___
 
 #### Defined in
 
-[lib/types/config.ts:20](https://github.com/benwainwright/hass-ts/blob/432b3d4/src/lib/types/config.ts#L20)
+[lib/types/config.ts:20](https://github.com/benwainwright/hass-ts/blob/31505ab/src/lib/types/config.ts#L20)
 
 ___
 
@@ -76,7 +76,7 @@ ___
 
 #### Defined in
 
-[lib/types/config.ts:25](https://github.com/benwainwright/hass-ts/blob/432b3d4/src/lib/types/config.ts#L25)
+[lib/types/config.ts:25](https://github.com/benwainwright/hass-ts/blob/31505ab/src/lib/types/config.ts#L25)
 
 ___
 
@@ -86,7 +86,7 @@ ___
 
 #### Defined in
 
-[lib/types/config.ts:31](https://github.com/benwainwright/hass-ts/blob/432b3d4/src/lib/types/config.ts#L31)
+[lib/types/config.ts:31](https://github.com/benwainwright/hass-ts/blob/31505ab/src/lib/types/config.ts#L31)
 
 ___
 
@@ -96,7 +96,7 @@ ___
 
 #### Defined in
 
-[lib/types/config.ts:30](https://github.com/benwainwright/hass-ts/blob/432b3d4/src/lib/types/config.ts#L30)
+[lib/types/config.ts:30](https://github.com/benwainwright/hass-ts/blob/31505ab/src/lib/types/config.ts#L30)
 
 ___
 
@@ -106,7 +106,7 @@ ___
 
 #### Defined in
 
-[lib/types/config.ts:7](https://github.com/benwainwright/hass-ts/blob/432b3d4/src/lib/types/config.ts#L7)
+[lib/types/config.ts:7](https://github.com/benwainwright/hass-ts/blob/31505ab/src/lib/types/config.ts#L7)
 
 ___
 
@@ -116,7 +116,7 @@ ___
 
 #### Defined in
 
-[lib/types/config.ts:28](https://github.com/benwainwright/hass-ts/blob/432b3d4/src/lib/types/config.ts#L28)
+[lib/types/config.ts:28](https://github.com/benwainwright/hass-ts/blob/31505ab/src/lib/types/config.ts#L28)
 
 ___
 
@@ -126,7 +126,7 @@ ___
 
 #### Defined in
 
-[lib/types/config.ts:29](https://github.com/benwainwright/hass-ts/blob/432b3d4/src/lib/types/config.ts#L29)
+[lib/types/config.ts:29](https://github.com/benwainwright/hass-ts/blob/31505ab/src/lib/types/config.ts#L29)
 
 ___
 
@@ -136,7 +136,7 @@ ___
 
 #### Defined in
 
-[lib/types/config.ts:32](https://github.com/benwainwright/hass-ts/blob/432b3d4/src/lib/types/config.ts#L32)
+[lib/types/config.ts:32](https://github.com/benwainwright/hass-ts/blob/31505ab/src/lib/types/config.ts#L32)
 
 ___
 
@@ -146,7 +146,7 @@ ___
 
 #### Defined in
 
-[lib/types/config.ts:5](https://github.com/benwainwright/hass-ts/blob/432b3d4/src/lib/types/config.ts#L5)
+[lib/types/config.ts:5](https://github.com/benwainwright/hass-ts/blob/31505ab/src/lib/types/config.ts#L5)
 
 ___
 
@@ -156,7 +156,7 @@ ___
 
 #### Defined in
 
-[lib/types/config.ts:17](https://github.com/benwainwright/hass-ts/blob/432b3d4/src/lib/types/config.ts#L17)
+[lib/types/config.ts:17](https://github.com/benwainwright/hass-ts/blob/31505ab/src/lib/types/config.ts#L17)
 
 ___
 
@@ -166,7 +166,7 @@ ___
 
 #### Defined in
 
-[lib/types/config.ts:6](https://github.com/benwainwright/hass-ts/blob/432b3d4/src/lib/types/config.ts#L6)
+[lib/types/config.ts:6](https://github.com/benwainwright/hass-ts/blob/31505ab/src/lib/types/config.ts#L6)
 
 ___
 
@@ -176,7 +176,7 @@ ___
 
 #### Defined in
 
-[lib/types/config.ts:26](https://github.com/benwainwright/hass-ts/blob/432b3d4/src/lib/types/config.ts#L26)
+[lib/types/config.ts:26](https://github.com/benwainwright/hass-ts/blob/31505ab/src/lib/types/config.ts#L26)
 
 ___
 
@@ -186,7 +186,7 @@ ___
 
 #### Defined in
 
-[lib/types/config.ts:33](https://github.com/benwainwright/hass-ts/blob/432b3d4/src/lib/types/config.ts#L33)
+[lib/types/config.ts:33](https://github.com/benwainwright/hass-ts/blob/31505ab/src/lib/types/config.ts#L33)
 
 ___
 
@@ -196,7 +196,7 @@ ___
 
 #### Defined in
 
-[lib/types/config.ts:27](https://github.com/benwainwright/hass-ts/blob/432b3d4/src/lib/types/config.ts#L27)
+[lib/types/config.ts:27](https://github.com/benwainwright/hass-ts/blob/31505ab/src/lib/types/config.ts#L27)
 
 ___
 
@@ -206,7 +206,7 @@ ___
 
 #### Defined in
 
-[lib/types/config.ts:18](https://github.com/benwainwright/hass-ts/blob/432b3d4/src/lib/types/config.ts#L18)
+[lib/types/config.ts:18](https://github.com/benwainwright/hass-ts/blob/31505ab/src/lib/types/config.ts#L18)
 
 ___
 
@@ -228,7 +228,7 @@ ___
 
 #### Defined in
 
-[lib/types/config.ts:8](https://github.com/benwainwright/hass-ts/blob/432b3d4/src/lib/types/config.ts#L8)
+[lib/types/config.ts:8](https://github.com/benwainwright/hass-ts/blob/31505ab/src/lib/types/config.ts#L8)
 
 ___
 
@@ -238,7 +238,7 @@ ___
 
 #### Defined in
 
-[lib/types/config.ts:24](https://github.com/benwainwright/hass-ts/blob/432b3d4/src/lib/types/config.ts#L24)
+[lib/types/config.ts:24](https://github.com/benwainwright/hass-ts/blob/31505ab/src/lib/types/config.ts#L24)
 
 ___
 
@@ -248,4 +248,4 @@ ___
 
 #### Defined in
 
-[lib/types/config.ts:21](https://github.com/benwainwright/hass-ts/blob/432b3d4/src/lib/types/config.ts#L21)
+[lib/types/config.ts:21](https://github.com/benwainwright/hass-ts/blob/31505ab/src/lib/types/config.ts#L21)
