@@ -19,7 +19,7 @@
 
 #### Defined in
 
-lib/types/services.ts:11
+[lib/types/services.ts:11](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/services.ts#L11)
 
 ---
 
@@ -29,7 +29,7 @@ lib/types/services.ts:11
 
 #### Defined in
 
-lib/types/services.ts:12
+[lib/types/services.ts:12](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/services.ts#L12)
 
 ---
 
@@ -39,7 +39,7 @@ lib/types/services.ts:12
 
 #### Defined in
 
-lib/types/services.ts:10
+[lib/types/services.ts:10](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/services.ts#L10)
 
 ---
 
@@ -55,4 +55,4 @@ lib/types/services.ts:10
 
 #### Defined in
 
-lib/types/services.ts:13
+[lib/types/services.ts:13](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/services.ts#L13)

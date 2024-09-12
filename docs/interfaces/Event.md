@@ -20,7 +20,7 @@
 
 #### Defined in
 
-lib/types/event.ts:16
+[lib/types/event.ts:16](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/event.ts#L16)
 
 ---
 
@@ -38,7 +38,7 @@ lib/types/event.ts:16
 
 #### Defined in
 
-lib/types/event.ts:8
+[lib/types/event.ts:8](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/event.ts#L8)
 
 ---
 
@@ -48,7 +48,7 @@ lib/types/event.ts:8
 
 #### Defined in
 
-lib/types/event.ts:13
+[lib/types/event.ts:13](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/event.ts#L13)
 
 ---
 
@@ -58,7 +58,7 @@ lib/types/event.ts:13
 
 #### Defined in
 
-lib/types/event.ts:15
+[lib/types/event.ts:15](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/event.ts#L15)
 
 ---
 
@@ -68,4 +68,4 @@ lib/types/event.ts:15
 
 #### Defined in
 
-lib/types/event.ts:14
+[lib/types/event.ts:14](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/event.ts#L14)

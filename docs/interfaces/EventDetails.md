@@ -17,7 +17,7 @@
 
 #### Defined in
 
-lib/types/event-details.ts:5
+[lib/types/event-details.ts:5](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/event-details.ts#L5)
 
 ---
 
@@ -27,4 +27,4 @@ lib/types/event-details.ts:5
 
 #### Defined in
 
-lib/types/event-details.ts:6
+[lib/types/event-details.ts:6](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/event-details.ts#L6)

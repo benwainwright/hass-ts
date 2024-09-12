@@ -36,7 +36,7 @@
 
 #### Defined in
 
-lib/types/config.ts:22
+[lib/types/config.ts:22](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/config.ts#L22)
 
 ---
 
@@ -46,7 +46,7 @@ lib/types/config.ts:22
 
 #### Defined in
 
-lib/types/config.ts:23
+[lib/types/config.ts:23](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/config.ts#L23)
 
 ---
 
@@ -56,7 +56,7 @@ lib/types/config.ts:23
 
 #### Defined in
 
-lib/types/config.ts:19
+[lib/types/config.ts:19](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/config.ts#L19)
 
 ---
 
@@ -66,7 +66,7 @@ lib/types/config.ts:19
 
 #### Defined in
 
-lib/types/config.ts:20
+[lib/types/config.ts:20](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/config.ts#L20)
 
 ---
 
@@ -76,7 +76,7 @@ lib/types/config.ts:20
 
 #### Defined in
 
-lib/types/config.ts:25
+[lib/types/config.ts:25](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/config.ts#L25)
 
 ---
 
@@ -86,7 +86,7 @@ lib/types/config.ts:25
 
 #### Defined in
 
-lib/types/config.ts:31
+[lib/types/config.ts:31](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/config.ts#L31)
 
 ---
 
@@ -96,7 +96,7 @@ lib/types/config.ts:31
 
 #### Defined in
 
-lib/types/config.ts:30
+[lib/types/config.ts:30](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/config.ts#L30)
 
 ---
 
@@ -106,7 +106,7 @@ lib/types/config.ts:30
 
 #### Defined in
 
-lib/types/config.ts:7
+[lib/types/config.ts:7](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/config.ts#L7)
 
 ---
 
@@ -116,7 +116,7 @@ lib/types/config.ts:7
 
 #### Defined in
 
-lib/types/config.ts:28
+[lib/types/config.ts:28](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/config.ts#L28)
 
 ---
 
@@ -126,7 +126,7 @@ lib/types/config.ts:28
 
 #### Defined in
 
-lib/types/config.ts:29
+[lib/types/config.ts:29](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/config.ts#L29)
 
 ---
 
@@ -136,7 +136,7 @@ lib/types/config.ts:29
 
 #### Defined in
 
-lib/types/config.ts:32
+[lib/types/config.ts:32](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/config.ts#L32)
 
 ---
 
@@ -146,7 +146,7 @@ lib/types/config.ts:32
 
 #### Defined in
 
-lib/types/config.ts:5
+[lib/types/config.ts:5](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/config.ts#L5)
 
 ---
 
@@ -156,7 +156,7 @@ lib/types/config.ts:5
 
 #### Defined in
 
-lib/types/config.ts:17
+[lib/types/config.ts:17](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/config.ts#L17)
 
 ---
 
@@ -166,7 +166,7 @@ lib/types/config.ts:17
 
 #### Defined in
 
-lib/types/config.ts:6
+[lib/types/config.ts:6](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/config.ts#L6)
 
 ---
 
@@ -176,7 +176,7 @@ lib/types/config.ts:6
 
 #### Defined in
 
-lib/types/config.ts:26
+[lib/types/config.ts:26](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/config.ts#L26)
 
 ---
 
@@ -186,7 +186,7 @@ lib/types/config.ts:26
 
 #### Defined in
 
-lib/types/config.ts:33
+[lib/types/config.ts:33](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/config.ts#L33)
 
 ---
 
@@ -196,7 +196,7 @@ lib/types/config.ts:33
 
 #### Defined in
 
-lib/types/config.ts:27
+[lib/types/config.ts:27](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/config.ts#L27)
 
 ---
 
@@ -206,7 +206,7 @@ lib/types/config.ts:27
 
 #### Defined in
 
-lib/types/config.ts:18
+[lib/types/config.ts:18](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/config.ts#L18)
 
 ---
 
@@ -228,7 +228,7 @@ lib/types/config.ts:18
 
 #### Defined in
 
-lib/types/config.ts:8
+[lib/types/config.ts:8](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/config.ts#L8)
 
 ---
 
@@ -238,7 +238,7 @@ lib/types/config.ts:8
 
 #### Defined in
 
-lib/types/config.ts:24
+[lib/types/config.ts:24](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/config.ts#L24)
 
 ---
 
@@ -248,4 +248,4 @@ lib/types/config.ts:24
 
 #### Defined in
 
-lib/types/config.ts:21
+[lib/types/config.ts:21](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/config.ts#L21)

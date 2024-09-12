@@ -22,7 +22,7 @@ Filter response on one more entities
 
 #### Defined in
 
-lib/core/client/get-history-params.ts:13
+[lib/core/client/get-history-params.ts:13](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/core/client/get-history-params.ts#L13)
 
 ---
 
@@ -35,7 +35,7 @@ other than the first and last state in the period (much faster)
 
 #### Defined in
 
-lib/core/client/get-history-params.ts:19
+[lib/core/client/get-history-params.ts:19](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/core/client/get-history-params.ts#L19)
 
 ---
 
@@ -47,7 +47,7 @@ Skip returning attributes from the database (much faster)
 
 #### Defined in
 
-lib/core/client/get-history-params.ts:24
+[lib/core/client/get-history-params.ts:24](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/core/client/get-history-params.ts#L24)
 
 ---
 
@@ -59,7 +59,7 @@ Only return significant state changes
 
 #### Defined in
 
-lib/core/client/get-history-params.ts:29
+[lib/core/client/get-history-params.ts:29](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/core/client/get-history-params.ts#L29)
 
 ---
 
@@ -71,4 +71,4 @@ Beginning of the history period - defaults to 1 day before the request
 
 #### Defined in
 
-lib/core/client/get-history-params.ts:8
+[lib/core/client/get-history-params.ts:8](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/core/client/get-history-params.ts#L8)

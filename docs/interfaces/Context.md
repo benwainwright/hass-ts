@@ -18,7 +18,7 @@
 
 #### Defined in
 
-lib/types/context.ts:5
+[lib/types/context.ts:5](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/context.ts#L5)
 
 ---
 
@@ -28,7 +28,7 @@ lib/types/context.ts:5
 
 #### Defined in
 
-lib/types/context.ts:6
+[lib/types/context.ts:6](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/context.ts#L6)
 
 ---
 
@@ -38,4 +38,4 @@ lib/types/context.ts:6
 
 #### Defined in
 
-lib/types/context.ts:7
+[lib/types/context.ts:7](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/context.ts#L7)

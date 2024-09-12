@@ -48,7 +48,7 @@ hass-ts
 
 #### Defined in
 
-lib/core/initialise-client.ts:11
+[lib/core/initialise-client.ts:11](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/core/initialise-client.ts#L11)
 
 ## Type Aliases
 
@@ -62,4 +62,4 @@ lib/core/initialise-client.ts:11
 
 #### Defined in
 
-lib/types/services.ts:4
+[lib/types/services.ts:4](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/services.ts#L4)
