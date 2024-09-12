@@ -6,6 +6,7 @@ concurrency:
 
 permissions:
   contents: write
+
 on:
   push:
     branches: ["main", "alpha"]
@@ -61,9 +62,6 @@ jobs:
       - name: Setup job
         uses: ./.github/actions/install-dependencies
       - run: pnpm run test:e2e
-        env:
-          RTM_API_KEY: ${{ secrets.RTM_API_KEY }}
-          RTM_API_SECRET: ${{ secrets.RTM_API_SECRET }}
 
   checks:
     runs-on: ubuntu-latest
