@@ -38,8 +38,8 @@ hass-ts
 
 #### Parameters
 
-| Name     | Type                                                 | Description                          |
-| :------- | :--------------------------------------------------- | :----------------------------------- |
+| Name | Type | Description |
+| :------ | :------ | :------ |
 | `config` | [`HassClientConfig`](interfaces/HassClientConfig.md) | Config for the Home Assistant client |
 
 #### Returns
@@ -48,7 +48,7 @@ hass-ts
 
 #### Defined in
 
-lib/core/initialise-client.ts:11
+[lib/core/initialise-client.ts:11](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/core/initialise-client.ts#L11)
 
 ## Type Aliases
 
@@ -58,8 +58,8 @@ lib/core/initialise-client.ts:11
 
 #### Index signature
 
-▪ [key: `string`]: \{ `[key: string]`: [`Service`](interfaces/Service.md); }
+▪ [key: `string`]: \{ `[key: string]`: [`Service`](interfaces/Service.md);  }
 
 #### Defined in
 
-lib/types/services.ts:4
+[lib/types/services.ts:4](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/services.ts#L4)

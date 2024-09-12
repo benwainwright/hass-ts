@@ -8,9 +8,9 @@
 
 - [attributes](State.md#attributes)
 - [context](State.md#context)
-- [entity_id](State.md#entity_id)
-- [last_changed](State.md#last_changed)
-- [last_updated](State.md#last_updated)
+- [entity\_id](State.md#entity_id)
+- [last\_changed](State.md#last_changed)
+- [last\_updated](State.md#last_updated)
 - [state](State.md#state)
 
 ## Properties
@@ -21,9 +21,9 @@
 
 #### Defined in
 
-lib/types/state.ts:10
+[lib/types/state.ts:10](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/state.ts#L10)
 
----
+___
 
 ### context
 
@@ -31,39 +31,39 @@ lib/types/state.ts:10
 
 #### Defined in
 
-lib/types/state.ts:12
+[lib/types/state.ts:12](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/state.ts#L12)
 
----
+___
 
-### entity_id
+### entity\_id
 
-• **entity_id**: `string`
-
-#### Defined in
-
-lib/types/state.ts:7
-
----
-
-### last_changed
-
-• **last_changed**: `string`
+• **entity\_id**: `string`
 
 #### Defined in
 
-lib/types/state.ts:8
+[lib/types/state.ts:7](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/state.ts#L7)
 
----
+___
 
-### last_updated
+### last\_changed
 
-• **last_updated**: `string`
+• **last\_changed**: `string`
 
 #### Defined in
 
-lib/types/state.ts:11
+[lib/types/state.ts:8](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/state.ts#L8)
 
----
+___
+
+### last\_updated
+
+• **last\_updated**: `string`
+
+#### Defined in
+
+[lib/types/state.ts:11](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/state.ts#L11)
+
+___
 
 ### state
 
@@ -71,4 +71,4 @@ lib/types/state.ts:11
 
 #### Defined in
 
-lib/types/state.ts:9
+[lib/types/state.ts:9](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/state.ts#L9)

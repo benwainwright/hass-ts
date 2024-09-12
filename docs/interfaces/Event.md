@@ -8,9 +8,9 @@
 
 - [context](Event.md#context)
 - [data](Event.md#data)
-- [event_type](Event.md#event_type)
+- [event\_type](Event.md#event_type)
 - [origin](Event.md#origin)
-- [time_fired](Event.md#time_fired)
+- [time\_fired](Event.md#time_fired)
 
 ## Properties
 
@@ -20,9 +20,9 @@
 
 #### Defined in
 
-lib/types/event.ts:16
+[lib/types/event.ts:16](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/event.ts#L16)
 
----
+___
 
 ### data
 
@@ -30,27 +30,27 @@ lib/types/event.ts:16
 
 #### Type declaration
 
-| Name        | Type                |
-| :---------- | :------------------ |
-| `entity_id` | `string`            |
+| Name | Type |
+| :------ | :------ |
+| `entity_id` | `string` |
 | `new_state` | [`State`](State.md) |
 | `old_state` | [`State`](State.md) |
 
 #### Defined in
 
-lib/types/event.ts:8
+[lib/types/event.ts:8](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/event.ts#L8)
 
----
+___
 
-### event_type
+### event\_type
 
-• **event_type**: `string`
+• **event\_type**: `string`
 
 #### Defined in
 
-lib/types/event.ts:13
+[lib/types/event.ts:13](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/event.ts#L13)
 
----
+___
 
 ### origin
 
@@ -58,14 +58,14 @@ lib/types/event.ts:13
 
 #### Defined in
 
-lib/types/event.ts:15
+[lib/types/event.ts:15](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/event.ts#L15)
 
----
+___
 
-### time_fired
+### time\_fired
 
-• **time_fired**: `string`
+• **time\_fired**: `string`
 
 #### Defined in
 
-lib/types/event.ts:14
+[lib/types/event.ts:14](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/event.ts#L14)

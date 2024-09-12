@@ -6,49 +6,49 @@
 
 ### Properties
 
-- [allowlist_external_dirs](Config.md#allowlist_external_dirs)
-- [allowlist_external_urls](Config.md#allowlist_external_urls)
+- [allowlist\_external\_dirs](Config.md#allowlist_external_dirs)
+- [allowlist\_external\_urls](Config.md#allowlist_external_urls)
 - [components](Config.md#components)
-- [config_dir](Config.md#config_dir)
-- [config_source](Config.md#config_source)
+- [config\_dir](Config.md#config_dir)
+- [config\_source](Config.md#config_source)
 - [country](Config.md#country)
 - [currency](Config.md#currency)
 - [elevation](Config.md#elevation)
-- [external_url](Config.md#external_url)
-- [internal_url](Config.md#internal_url)
+- [external\_url](Config.md#external_url)
+- [internal\_url](Config.md#internal_url)
 - [language](Config.md#language)
 - [latitude](Config.md#latitude)
-- [location_name](Config.md#location_name)
+- [location\_name](Config.md#location_name)
 - [longitude](Config.md#longitude)
-- [recovery_mode](Config.md#recovery_mode)
-- [safe_mode](Config.md#safe_mode)
+- [recovery\_mode](Config.md#recovery_mode)
+- [safe\_mode](Config.md#safe_mode)
 - [state](Config.md#state)
-- [time_zone](Config.md#time_zone)
-- [unit_system](Config.md#unit_system)
+- [time\_zone](Config.md#time_zone)
+- [unit\_system](Config.md#unit_system)
 - [version](Config.md#version)
-- [whitelist_external_dirs](Config.md#whitelist_external_dirs)
+- [whitelist\_external\_dirs](Config.md#whitelist_external_dirs)
 
 ## Properties
 
-### allowlist_external_dirs
+### allowlist\_external\_dirs
 
-• **allowlist_external_dirs**: `string`[]
-
-#### Defined in
-
-lib/types/config.ts:22
-
----
-
-### allowlist_external_urls
-
-• **allowlist_external_urls**: `string`[]
+• **allowlist\_external\_dirs**: `string`[]
 
 #### Defined in
 
-lib/types/config.ts:23
+[lib/types/config.ts:22](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/config.ts#L22)
 
----
+___
+
+### allowlist\_external\_urls
+
+• **allowlist\_external\_urls**: `string`[]
+
+#### Defined in
+
+[lib/types/config.ts:23](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/config.ts#L23)
+
+___
 
 ### components
 
@@ -56,29 +56,29 @@ lib/types/config.ts:23
 
 #### Defined in
 
-lib/types/config.ts:19
+[lib/types/config.ts:19](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/config.ts#L19)
 
----
+___
 
-### config_dir
+### config\_dir
 
-• **config_dir**: `string`
-
-#### Defined in
-
-lib/types/config.ts:20
-
----
-
-### config_source
-
-• **config_source**: `string`
+• **config\_dir**: `string`
 
 #### Defined in
 
-lib/types/config.ts:25
+[lib/types/config.ts:20](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/config.ts#L20)
 
----
+___
+
+### config\_source
+
+• **config\_source**: `string`
+
+#### Defined in
+
+[lib/types/config.ts:25](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/config.ts#L25)
+
+___
 
 ### country
 
@@ -86,9 +86,9 @@ lib/types/config.ts:25
 
 #### Defined in
 
-lib/types/config.ts:31
+[lib/types/config.ts:31](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/config.ts#L31)
 
----
+___
 
 ### currency
 
@@ -96,9 +96,9 @@ lib/types/config.ts:31
 
 #### Defined in
 
-lib/types/config.ts:30
+[lib/types/config.ts:30](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/config.ts#L30)
 
----
+___
 
 ### elevation
 
@@ -106,29 +106,29 @@ lib/types/config.ts:30
 
 #### Defined in
 
-lib/types/config.ts:7
+[lib/types/config.ts:7](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/config.ts#L7)
 
----
+___
 
-### external_url
+### external\_url
 
-• **external_url**: `string`
-
-#### Defined in
-
-lib/types/config.ts:28
-
----
-
-### internal_url
-
-• **internal_url**: `string`
+• **external\_url**: `string`
 
 #### Defined in
 
-lib/types/config.ts:29
+[lib/types/config.ts:28](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/config.ts#L28)
 
----
+___
+
+### internal\_url
+
+• **internal\_url**: `string`
+
+#### Defined in
+
+[lib/types/config.ts:29](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/config.ts#L29)
+
+___
 
 ### language
 
@@ -136,9 +136,9 @@ lib/types/config.ts:29
 
 #### Defined in
 
-lib/types/config.ts:32
+[lib/types/config.ts:32](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/config.ts#L32)
 
----
+___
 
 ### latitude
 
@@ -146,19 +146,19 @@ lib/types/config.ts:32
 
 #### Defined in
 
-lib/types/config.ts:5
+[lib/types/config.ts:5](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/config.ts#L5)
 
----
+___
 
-### location_name
+### location\_name
 
-• **location_name**: `string`
+• **location\_name**: `string`
 
 #### Defined in
 
-lib/types/config.ts:17
+[lib/types/config.ts:17](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/config.ts#L17)
 
----
+___
 
 ### longitude
 
@@ -166,29 +166,29 @@ lib/types/config.ts:17
 
 #### Defined in
 
-lib/types/config.ts:6
+[lib/types/config.ts:6](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/config.ts#L6)
 
----
+___
 
-### recovery_mode
+### recovery\_mode
 
-• **recovery_mode**: `boolean`
-
-#### Defined in
-
-lib/types/config.ts:26
-
----
-
-### safe_mode
-
-• **safe_mode**: `boolean`
+• **recovery\_mode**: `boolean`
 
 #### Defined in
 
-lib/types/config.ts:33
+[lib/types/config.ts:26](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/config.ts#L26)
 
----
+___
+
+### safe\_mode
+
+• **safe\_mode**: `boolean`
+
+#### Defined in
+
+[lib/types/config.ts:33](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/config.ts#L33)
+
+___
 
 ### state
 
@@ -196,41 +196,41 @@ lib/types/config.ts:33
 
 #### Defined in
 
-lib/types/config.ts:27
+[lib/types/config.ts:27](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/config.ts#L27)
 
----
+___
 
-### time_zone
+### time\_zone
 
-• **time_zone**: `string`
+• **time\_zone**: `string`
 
 #### Defined in
 
-lib/types/config.ts:18
+[lib/types/config.ts:18](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/config.ts#L18)
 
----
+___
 
-### unit_system
+### unit\_system
 
-• **unit_system**: `Object`
+• **unit\_system**: `Object`
 
 #### Type declaration
 
-| Name                        | Type     |
-| :-------------------------- | :------- |
+| Name | Type |
+| :------ | :------ |
 | `accumulated_precipitation` | `string` |
-| `length`                    | `string` |
-| `mass`                      | `string` |
-| `pressure`                  | `string` |
-| `temperature`               | `string` |
-| `volume`                    | `string` |
-| `wind_speed`                | `string` |
+| `length` | `string` |
+| `mass` | `string` |
+| `pressure` | `string` |
+| `temperature` | `string` |
+| `volume` | `string` |
+| `wind_speed` | `string` |
 
 #### Defined in
 
-lib/types/config.ts:8
+[lib/types/config.ts:8](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/config.ts#L8)
 
----
+___
 
 ### version
 
@@ -238,14 +238,14 @@ lib/types/config.ts:8
 
 #### Defined in
 
-lib/types/config.ts:24
+[lib/types/config.ts:24](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/config.ts#L24)
 
----
+___
 
-### whitelist_external_dirs
+### whitelist\_external\_dirs
 
-• **whitelist_external_dirs**: `string`[]
+• **whitelist\_external\_dirs**: `string`[]
 
 #### Defined in
 
-lib/types/config.ts:21
+[lib/types/config.ts:21](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/config.ts#L21)

@@ -19,9 +19,9 @@
 
 #### Defined in
 
-lib/types/client-config.ts:7
+[lib/types/client-config.ts:7](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/client-config.ts#L7)
 
----
+___
 
 ### logger
 
@@ -29,9 +29,9 @@ lib/types/client-config.ts:7
 
 #### Defined in
 
-lib/types/client-config.ts:10
+[lib/types/client-config.ts:10](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/client-config.ts#L10)
 
----
+___
 
 ### port
 
@@ -39,9 +39,9 @@ lib/types/client-config.ts:10
 
 #### Defined in
 
-lib/types/client-config.ts:8
+[lib/types/client-config.ts:8](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/client-config.ts#L8)
 
----
+___
 
 ### token
 
@@ -49,4 +49,4 @@ lib/types/client-config.ts:8
 
 #### Defined in
 
-lib/types/client-config.ts:9
+[lib/types/client-config.ts:9](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/client-config.ts#L9)

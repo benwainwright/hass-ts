@@ -7,7 +7,7 @@
 ### Properties
 
 - [event](EventDetails.md#event)
-- [listener_count](EventDetails.md#listener_count)
+- [listener\_count](EventDetails.md#listener_count)
 
 ## Properties
 
@@ -17,14 +17,14 @@
 
 #### Defined in
 
-lib/types/event-details.ts:5
+[lib/types/event-details.ts:5](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/event-details.ts#L5)
 
----
+___
 
-### listener_count
+### listener\_count
 
-• **listener_count**: `number`
+• **listener\_count**: `number`
 
 #### Defined in
 
-lib/types/event-details.ts:6
+[lib/types/event-details.ts:6](https://github.com/benwainwright/hass-ts/blob/2754a39/src/lib/types/event-details.ts#L6)
