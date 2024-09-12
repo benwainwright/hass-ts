@@ -134,6 +134,11 @@ export interface HassClientConfig {
 
 // @alpha
 export interface IClient {
+    // Warning: (ae-forgotten-export) The symbol "CallServiceCommand" needs to be exported by the entry point index.d.ts
+    // Warning: (ae-forgotten-export) The symbol "CallServiceResponse" needs to be exported by the entry point index.d.ts
+    //
+    // (undocumented)
+    callService(params: Omit<CallServiceCommand, "id" | "type">): Promise<CallServiceResponse>;
     // (undocumented)
     close(): Promise<void>;
     // (undocumented)

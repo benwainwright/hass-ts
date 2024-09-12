@@ -6,6 +6,7 @@ import { SubscribeToEventsMessage } from "./subscribe-to-events.js";
 import { GetConfigCommand } from "./get-config-command.js";
 import { GetPanelsCommand } from "./get-panels-command.js";
 import { GetServicesCommand } from "./get-services-command.js";
+import { CallServiceCommand } from "./call-service-command.js";
 
 export type MessageToServer =
   | AuthRequiredMessageResponse
@@ -15,4 +16,5 @@ export type MessageToServer =
   | GetStatesCommand
   | GetConfigCommand
   | GetPanelsCommand
+  | CallServiceCommand
   | GetServicesCommand;

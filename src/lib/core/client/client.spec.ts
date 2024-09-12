@@ -13,7 +13,11 @@ import {
   State,
 } from "@types";
 
-import { WebsocketClient, MessageFromServer } from "@core/websocket-client";
+import {
+  WebsocketClient,
+  MessageFromServer,
+  CallServiceCommand,
+} from "@core/websocket-client";
 import { RestClient } from "@core/rest-client";
 
 import { Client } from "./client.js";
@@ -285,6 +289,45 @@ describe("The client", () => {
 
       const result = await client.getStates();
       expect(result).toEqual(states);
+    });
+  });
+
+  describe("callService", () => {
+    it("returns the results of a call_service command sent to the websocket client", async () => {
+      const mockWebsocketClient = mock<WebsocketClient>();
+
+      const message: Omit<CallServiceCommand, "id"> = {
+        type: "call_service",
+        domain: "light",
+        service: "turn_on",
+      };
+
+      const commandResult = {
+        context: {
+          id: "326ef27d19415c60c492fe330945f954",
+          parent_id: null,
+          user_id: "31ddb597e03147118cf8d2f8fbea5553",
+        },
+        response: { aResponse: "foo" },
+      };
+
+      when(mockWebsocketClient.sendCommand)
+        .calledWith(message)
+        .mockResolvedValue({
+          id: 24,
+          type: "result",
+          success: true,
+          result: commandResult,
+        });
+
+      const client = new Client(mockWebsocketClient, mock());
+
+      const result = await client.callService({
+        domain: "light",
+        service: "turn_on",
+      });
+
+      expect(result).toEqual(commandResult);
     });
   });
 

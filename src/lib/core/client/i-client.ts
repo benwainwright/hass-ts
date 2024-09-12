@@ -13,8 +13,13 @@ import {
 import { GetHistoryParams } from "./get-history-params.js";
 import { GetLogbookParams } from "./get-logbook-params.js";
 
+import {
+  CallServiceCommand,
+  CallServiceResponse,
+} from "@core/websocket-client";
+
 /**
- * The Home Assistant client API. Implements both the websocket and REST APIs
+ * The Home Assistant client API. Uses a combination of both the websocket and HTTP apis
  *
  * @alpha
  */
@@ -29,6 +34,17 @@ export interface IClient {
   getStates(): Promise<State[]>;
 
   getState(entityId: string): Promise<State>;
+
+  /**
+   * Call a service action
+   *
+   * See https://developers.home-assistant.io/docs/api/websocket/#calling-a-service-action
+   *
+   * @param params - parameters to send with the service command
+   */
+  callService(
+    params: Omit<CallServiceCommand, "id" | "type">,
+  ): Promise<CallServiceResponse>;
 
   getConfig(): Promise<Config>;
 

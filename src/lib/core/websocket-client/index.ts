@@ -10,6 +10,8 @@ export {
   GetConfigCommand,
   GetPanelsCommand,
   GetServicesCommand,
+  CallServiceCommand,
+  CallServiceResponse,
 } from "./messages/index.js";
 
 export { WebsocketClient } from "./websocket-client.js";

@@ -10,3 +10,5 @@ export { Result } from "./result.js";
 export { ErrorResult } from "./error-result.js";
 export { GetPanelsCommand } from "./get-panels-command.js";
 export { GetServicesCommand } from "./get-services-command.js";
+export { CallServiceCommand } from "./call-service-command.js";
+export { CallServiceResponse } from "./call-service-response.js";

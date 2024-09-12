@@ -21,6 +21,38 @@ describe("The Hass SDK", () => {
     });
   });
 
+  describe("callService", () => {
+    it("turns the test switch off without a problem", async () => {
+      const client = await getTestClient();
+
+      const testSwitchId = "input_boolean.test_switch";
+
+      const statesBefore = await client.getStates();
+
+      const theSwitchBefore = statesBefore.find(
+        (state) => state.entity_id === testSwitchId,
+      );
+
+      expect(theSwitchBefore?.state).toEqual("on");
+
+      await client.callService({
+        domain: "input_boolean",
+        service: "turn_off",
+        target: {
+          entity_id: testSwitchId,
+        },
+      });
+
+      const statesAfter = await client.getStates();
+
+      const theSwitchAfter = statesAfter.find(
+        (state) => state.entity_id === testSwitchId,
+      );
+
+      expect(theSwitchAfter?.state).toEqual("off");
+    });
+  });
+
   describe("getStates", () => {
     it("returns data of the correct format", async () => {
       const client = await getTestClient();

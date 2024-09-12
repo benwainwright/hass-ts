@@ -8,3 +8,8 @@ frontend:
 automation: !include automations.yaml
 script: !include scripts.yaml
 scene: !include scenes.yaml
+input_boolean:
+  test_switch:
+    name: Test switch
+    initial: true
+    icon: mdi:car
