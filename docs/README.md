@@ -20,9 +20,10 @@ homeassistant-typescript
 - [EventDetails](interfaces/EventDetails.md)
 - [GetHistoryParams](interfaces/GetHistoryParams.md)
 - [GetLogbookParams](interfaces/GetLogbookParams.md)
+- [HassArea](interfaces/HassArea.md)
 - [HassConfig](interfaces/HassConfig.md)
+- [HassDevice](interfaces/HassDevice.md)
 - [IClient](interfaces/IClient.md)
-- [LogBookEntry](interfaces/LogBookEntry.md)
 - [Logger](interfaces/Logger.md)
 - [Panel](interfaces/Panel.md)
 - [Service](interfaces/Service.md)
@@ -31,7 +32,7 @@ homeassistant-typescript
 
 ### Type Aliases
 
-- [Services](README.md#services)
+- [LogBookEntry](README.md#logbookentry)
 
 ## Functions
 
@@ -57,7 +58,7 @@ no environment variables need to be supplied
 
 #### Defined in
 
-[lib/core/get-config.ts:29](https://github.com/benwainwright/hass-ts/blob/31505ab/src/lib/core/get-config.ts#L29)
+[lib/core/get-config.ts:29](https://github.com/benwainwright/hass-ts/blob/65947ed/src/lib/core/get-config.ts#L29)
 
 ___
 
@@ -87,18 +88,16 @@ const client = await initialiseClient(config)
 
 #### Defined in
 
-[lib/core/initialise-client.ts:20](https://github.com/benwainwright/hass-ts/blob/31505ab/src/lib/core/initialise-client.ts#L20)
+[lib/core/initialise-client.ts:20](https://github.com/benwainwright/hass-ts/blob/65947ed/src/lib/core/initialise-client.ts#L20)
 
 ## Type Aliases
 
-### Services
+### LogBookEntry
 
-Ƭ **Services**: `Object`
+Ƭ **LogBookEntry**: `LogbookStatechangeEntry` \| `LogbookStatechangeEntry2` \| `LogbookTriggerEntry`
 
-#### Index signature
-
-▪ [key: `string`]: \{ `[key: string]`: [`Service`](interfaces/Service.md);  }
+An entry in the Home Assistant logbook
 
 #### Defined in
 
-[lib/types/services.ts:4](https://github.com/benwainwright/hass-ts/blob/31505ab/src/lib/types/services.ts#L4)
+[lib/types/logbook-entry.ts:6](https://github.com/benwainwright/hass-ts/blob/65947ed/src/lib/types/logbook-entry.ts#L6)

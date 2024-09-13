@@ -23,7 +23,7 @@ Home Assistant host
 
 #### Defined in
 
-[lib/types/client-config.ts:10](https://github.com/benwainwright/hass-ts/blob/31505ab/src/lib/types/client-config.ts#L10)
+[lib/types/client-config.ts:10](https://github.com/benwainwright/hass-ts/blob/65947ed/src/lib/types/client-config.ts#L10)
 
 ___
 
@@ -35,7 +35,7 @@ Path to HTTP API
 
 #### Defined in
 
-[lib/types/client-config.ts:30](https://github.com/benwainwright/hass-ts/blob/31505ab/src/lib/types/client-config.ts#L30)
+[lib/types/client-config.ts:30](https://github.com/benwainwright/hass-ts/blob/65947ed/src/lib/types/client-config.ts#L30)
 
 ___
 
@@ -47,7 +47,7 @@ A logger instance
 
 #### Defined in
 
-[lib/types/client-config.ts:35](https://github.com/benwainwright/hass-ts/blob/31505ab/src/lib/types/client-config.ts#L35)
+[lib/types/client-config.ts:35](https://github.com/benwainwright/hass-ts/blob/65947ed/src/lib/types/client-config.ts#L35)
 
 ___
 
@@ -59,7 +59,7 @@ Home Assistant port
 
 #### Defined in
 
-[lib/types/client-config.ts:15](https://github.com/benwainwright/hass-ts/blob/31505ab/src/lib/types/client-config.ts#L15)
+[lib/types/client-config.ts:15](https://github.com/benwainwright/hass-ts/blob/65947ed/src/lib/types/client-config.ts#L15)
 
 ___
 
@@ -71,7 +71,7 @@ Home assistant token
 
 #### Defined in
 
-[lib/types/client-config.ts:20](https://github.com/benwainwright/hass-ts/blob/31505ab/src/lib/types/client-config.ts#L20)
+[lib/types/client-config.ts:20](https://github.com/benwainwright/hass-ts/blob/65947ed/src/lib/types/client-config.ts#L20)
 
 ___
 
@@ -83,4 +83,4 @@ Path to Websocket API
 
 #### Defined in
 
-[lib/types/client-config.ts:25](https://github.com/benwainwright/hass-ts/blob/31505ab/src/lib/types/client-config.ts#L25)
+[lib/types/client-config.ts:25](https://github.com/benwainwright/hass-ts/blob/65947ed/src/lib/types/client-config.ts#L25)

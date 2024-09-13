@@ -2,6 +2,8 @@
 
 # Interface: Context
 
+Used to tie events and states together. See [https://data.home-assistant.io/docs/context/](https://data.home-assistant.io/docs/context/)
+
 ## Table of contents
 
 ### Properties
@@ -16,9 +18,11 @@
 
 • **id**: `string`
 
+Unique identifier for the context
+
 #### Defined in
 
-[lib/types/context.ts:5](https://github.com/benwainwright/hass-ts/blob/31505ab/src/lib/types/context.ts#L5)
+[lib/types/context.ts:10](https://github.com/benwainwright/hass-ts/blob/65947ed/src/lib/types/context.ts#L10)
 
 ___
 
@@ -26,9 +30,11 @@ ___
 
 • **parent\_id**: ``null``
 
+Unique identifier for the user that started the change
+
 #### Defined in
 
-[lib/types/context.ts:6](https://github.com/benwainwright/hass-ts/blob/31505ab/src/lib/types/context.ts#L6)
+[lib/types/context.ts:15](https://github.com/benwainwright/hass-ts/blob/65947ed/src/lib/types/context.ts#L15)
 
 ___
 
@@ -36,6 +42,8 @@ ___
 
 • **user\_id**: `string`
 
+Unique identifier of the parent context_id that started the change.
+
 #### Defined in
 
-[lib/types/context.ts:7](https://github.com/benwainwright/hass-ts/blob/31505ab/src/lib/types/context.ts#L7)
+[lib/types/context.ts:20](https://github.com/benwainwright/hass-ts/blob/65947ed/src/lib/types/context.ts#L20)

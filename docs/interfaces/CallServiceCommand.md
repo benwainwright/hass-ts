@@ -30,7 +30,7 @@ Service domain (e.g. 'light')
 
 #### Defined in
 
-[lib/core/websocket-client/messages/call-service-command.ts:15](https://github.com/benwainwright/hass-ts/blob/31505ab/src/lib/core/websocket-client/messages/call-service-command.ts#L15)
+[lib/core/websocket-client/messages/call-service-command.ts:15](https://github.com/benwainwright/hass-ts/blob/65947ed/src/lib/core/websocket-client/messages/call-service-command.ts#L15)
 
 ___
 
@@ -46,7 +46,7 @@ Command.id
 
 #### Defined in
 
-[lib/core/websocket-client/messages/command.ts:5](https://github.com/benwainwright/hass-ts/blob/31505ab/src/lib/core/websocket-client/messages/command.ts#L5)
+[lib/core/websocket-client/messages/command.ts:5](https://github.com/benwainwright/hass-ts/blob/65947ed/src/lib/core/websocket-client/messages/command.ts#L5)
 
 ___
 
@@ -58,7 +58,7 @@ Not optional for service actions that return response data
 
 #### Defined in
 
-[lib/core/websocket-client/messages/call-service-command.ts:45](https://github.com/benwainwright/hass-ts/blob/31505ab/src/lib/core/websocket-client/messages/call-service-command.ts#L45)
+[lib/core/websocket-client/messages/call-service-command.ts:45](https://github.com/benwainwright/hass-ts/blob/65947ed/src/lib/core/websocket-client/messages/call-service-command.ts#L45)
 
 ___
 
@@ -70,7 +70,7 @@ Service action (e.g. 'turn_on')
 
 #### Defined in
 
-[lib/core/websocket-client/messages/call-service-command.ts:20](https://github.com/benwainwright/hass-ts/blob/31505ab/src/lib/core/websocket-client/messages/call-service-command.ts#L20)
+[lib/core/websocket-client/messages/call-service-command.ts:20](https://github.com/benwainwright/hass-ts/blob/65947ed/src/lib/core/websocket-client/messages/call-service-command.ts#L20)
 
 ___
 
@@ -91,7 +91,7 @@ service_data: {
 
 #### Defined in
 
-[lib/core/websocket-client/messages/call-service-command.ts:31](https://github.com/benwainwright/hass-ts/blob/31505ab/src/lib/core/websocket-client/messages/call-service-command.ts#L31)
+[lib/core/websocket-client/messages/call-service-command.ts:31](https://github.com/benwainwright/hass-ts/blob/65947ed/src/lib/core/websocket-client/messages/call-service-command.ts#L31)
 
 ___
 
@@ -105,13 +105,13 @@ What entity is the service targeting
 
 | Name | Type |
 | :------ | :------ |
-| `area_id?` | `string` |
-| `device_id?` | `string` |
-| `entity_id?` | `string` |
+| `area_id?` | `string` \| `string`[] |
+| `device_id?` | `string` \| `string`[] |
+| `entity_id?` | `string` \| `string`[] |
 
 #### Defined in
 
-[lib/core/websocket-client/messages/call-service-command.ts:36](https://github.com/benwainwright/hass-ts/blob/31505ab/src/lib/core/websocket-client/messages/call-service-command.ts#L36)
+[lib/core/websocket-client/messages/call-service-command.ts:36](https://github.com/benwainwright/hass-ts/blob/65947ed/src/lib/core/websocket-client/messages/call-service-command.ts#L36)
 
 ___
 
@@ -123,4 +123,4 @@ Type of command on the Websocket API
 
 #### Defined in
 
-[lib/core/websocket-client/messages/call-service-command.ts:10](https://github.com/benwainwright/hass-ts/blob/31505ab/src/lib/core/websocket-client/messages/call-service-command.ts#L10)
+[lib/core/websocket-client/messages/call-service-command.ts:10](https://github.com/benwainwright/hass-ts/blob/65947ed/src/lib/core/websocket-client/messages/call-service-command.ts#L10)

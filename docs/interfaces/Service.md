@@ -6,6 +6,7 @@
 
 ### Properties
 
+- [Response](Service.md#response)
 - [description](Service.md#description)
 - [fields](Service.md#fields)
 - [name](Service.md#name)
@@ -13,13 +14,23 @@
 
 ## Properties
 
+### Response
+
+• **Response**: `unknown`
+
+#### Defined in
+
+[lib/types/services.ts:9](https://github.com/benwainwright/hass-ts/blob/65947ed/src/lib/types/services.ts#L9)
+
+___
+
 ### description
 
 • **description**: `string`
 
 #### Defined in
 
-[lib/types/services.ts:11](https://github.com/benwainwright/hass-ts/blob/31505ab/src/lib/types/services.ts#L11)
+[lib/types/services.ts:6](https://github.com/benwainwright/hass-ts/blob/65947ed/src/lib/types/services.ts#L6)
 
 ___
 
@@ -29,7 +40,7 @@ ___
 
 #### Defined in
 
-[lib/types/services.ts:12](https://github.com/benwainwright/hass-ts/blob/31505ab/src/lib/types/services.ts#L12)
+[lib/types/services.ts:7](https://github.com/benwainwright/hass-ts/blob/65947ed/src/lib/types/services.ts#L7)
 
 ___
 
@@ -39,7 +50,7 @@ ___
 
 #### Defined in
 
-[lib/types/services.ts:10](https://github.com/benwainwright/hass-ts/blob/31505ab/src/lib/types/services.ts#L10)
+[lib/types/services.ts:5](https://github.com/benwainwright/hass-ts/blob/65947ed/src/lib/types/services.ts#L5)
 
 ___
 
@@ -55,4 +66,4 @@ ___
 
 #### Defined in
 
-[lib/types/services.ts:13](https://github.com/benwainwright/hass-ts/blob/31505ab/src/lib/types/services.ts#L13)
+[lib/types/services.ts:8](https://github.com/benwainwright/hass-ts/blob/65947ed/src/lib/types/services.ts#L8)
