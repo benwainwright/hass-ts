@@ -22,7 +22,7 @@ import {
 } from "@core/websocket-client";
 
 /**
- * The Home Assistant client API. Once initialised, the client will make request via
+ * The Home Assistant client API. Once initialised, the client will make requests via
  * **either** the websocket or HTTP API where appropriate
  *
  * @public
