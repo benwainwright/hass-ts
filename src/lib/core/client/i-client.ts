@@ -2,13 +2,15 @@ import {
   Config,
   Event,
   Panel,
-  Services,
   State,
   CalendarDetails,
   ServiceDomainDetails,
   LogBookEntry,
   EventDetails,
   HassArea,
+  HassEntity,
+  HassDevice,
+  Service,
 } from "@types";
 
 import { GetHistoryParams } from "./get-history-params.js";
@@ -20,9 +22,10 @@ import {
 } from "@core/websocket-client";
 
 /**
- * The Home Assistant client API. Uses a combination of both the websocket and HTTP apis
+ * The Home Assistant client API. Once initialised, the client will make request via
+ * **either** the websocket or HTTP API where appropriate
  *
- * @alpha
+ * @public
  */
 export interface IClient {
   /**
@@ -30,9 +33,21 @@ export interface IClient {
    */
   getHistory(params: GetHistoryParams): Promise<State[][]>;
 
+  /**
+   * Gets a list of areas registered with home assistant
+   */
   getAreas(): Promise<HassArea[]>;
 
+  /**
+   * Gets a list of entries from the Home Assistant logbook
+   *
+   * @param params - params to filter the results
+   */
   getLogbook(params?: GetLogbookParams): Promise<LogBookEntry[]>;
+
+  getEntities(): Promise<HassEntity[]>;
+
+  getDevices(): Promise<HassDevice[]>;
 
   getStates(): Promise<State[]>;
 
@@ -41,7 +56,7 @@ export interface IClient {
   /**
    * Call a service action
    *
-   * See https://developers.home-assistant.io/docs/api/websocket/#calling-a-service-action
+   * See {@link https://developers.home-assistant.io/docs/api/websocket/#calling-a-service-action}
    *
    * @param params - parameters to send with the service command
    */
@@ -51,7 +66,7 @@ export interface IClient {
 
   getConfig(): Promise<Config>;
 
-  getServices(): Promise<Services>;
+  getServices(): Promise<Record<string, Service>>;
 
   getServiceDomains(): Promise<ServiceDomainDetails[]>;
 

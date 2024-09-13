@@ -34,9 +34,9 @@ export interface CallServiceCommand extends Command {
    * What entity is the service targeting
    */
   target?: {
-    entity_id?: string;
-    area_id?: string;
-    device_id?: string;
+    entity_id?: string | string[];
+    area_id?: string | string[];
+    device_id?: string | string[];
   };
 
   /**

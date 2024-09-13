@@ -6,6 +6,8 @@ import {
   CallServiceResponse,
   GetAreasCommand,
   GetConfigCommand,
+  GetDevicesCommand,
+  GetEntitiesCommand,
   GetPanelsCommand,
   GetServicesCommand,
   GetStatesCommand,
@@ -22,12 +24,14 @@ import {
   LogBookEntry,
   Panel,
   ServiceDomainDetails,
-  Services,
   State,
+  HassArea,
+  HassEntity,
+  HassDevice,
+  Service,
 } from "@types";
 import { GetHistoryParams } from "./get-history-params.js";
 import { GetLogbookParams } from "./get-logbook-params.js";
-import { HassArea } from "src/lib/types/area.js";
 
 export class Client implements IClient {
   constructor(
@@ -41,6 +45,26 @@ export class Client implements IClient {
       HassArea[]
     >({
       type: "config/area_registry/list",
+    });
+    return result;
+  }
+
+  public async getEntities() {
+    const { result } = await this.websocketClient.sendCommand<
+      GetEntitiesCommand,
+      HassEntity[]
+    >({
+      type: "config/entity_registry/list",
+    });
+    return result;
+  }
+
+  public async getDevices() {
+    const { result } = await this.websocketClient.sendCommand<
+      GetDevicesCommand,
+      HassDevice[]
+    >({
+      type: "config/device_registry/list",
     });
     return result;
   }
@@ -127,10 +151,10 @@ export class Client implements IClient {
     return await this.httpClient.get("/services");
   }
 
-  public async getServices(): Promise<Services> {
+  public async getServices(): Promise<Record<string, Service>> {
     const { result } = await this.websocketClient.sendCommand<
       GetServicesCommand,
-      Services
+      Record<string, Service>
     >({
       type: "get_services",
     });

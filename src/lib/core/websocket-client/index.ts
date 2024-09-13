@@ -8,6 +8,8 @@ export {
   AuthRequiredMessageResponse,
   GetStatesCommand,
   GetAreasCommand,
+  GetDevicesCommand,
+  GetEntitiesCommand,
   GetConfigCommand,
   GetPanelsCommand,
   GetServicesCommand,

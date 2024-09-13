@@ -14,6 +14,7 @@ export {
   MessageToServer,
   CallServiceCommand,
   CallServiceResponse,
+  GetPanelsCommand,
   HelloCommand,
 } from "./websocket-client/index.js";
 

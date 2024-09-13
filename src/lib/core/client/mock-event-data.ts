@@ -4,6 +4,7 @@ export const mockEventData = {
     new_state: {
       entity_id: "light.bed_light",
       last_changed: "2016-11-26T01:37:24.265390+00:00",
+      last_reported: "2016-11-26T01:37:24.265390+00:00",
       state: "on",
       attributes: {
         rgb_color: [254, 208, 0],
@@ -30,6 +31,7 @@ export const mockEventData = {
         friendly_name: "Bed Light",
       },
       last_updated: "2016-11-26T01:37:10.466994+00:00",
+      last_reported: "2016-11-26T01:37:24.265390+00:00",
       context: {
         id: "e4af5b117137425e97658041a0538441",
         parent_id: null,

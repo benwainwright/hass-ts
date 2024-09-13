@@ -12,4 +12,6 @@ export { GetPanelsCommand } from "./get-panels-command.js";
 export { GetServicesCommand } from "./get-services-command.js";
 export { CallServiceCommand } from "./call-service-command.js";
 export { CallServiceResponse } from "./call-service-response.js";
+export { GetEntitiesCommand } from "./get-entities-command.js";
+export { GetDevicesCommand } from "./get-devices-command.js";
 export { GetAreasCommand } from "./get-areas-command.js";

@@ -355,6 +355,222 @@ describe("The client", () => {
     });
   });
 
+  describe("getEntities", () => {
+    it("returns the results of a config/entity_registry/list command sent to the websocket client", async () => {
+      const entities = [
+        {
+          area_id: null,
+          categories: {},
+          config_entry_id: "b86b3a75f5f90105b2904bafc7ff16e2",
+          created_at: 1725723627.07158,
+          device_id: null,
+          disabled_by: null,
+          entity_category: null,
+          entity_id: "sensor.battery_2",
+          has_entity_name: true,
+          hidden_by: null,
+          icon: null,
+          id: "90333bf26191e55c561cf90ab123cff7",
+          labels: [],
+          modified_at: 1725723627.072837,
+          name: null,
+          options: {
+            "cloud.alexa": {
+              should_expose: false,
+            },
+            conversation: {
+              should_expose: false,
+            },
+          },
+          original_name: "Battery",
+          platform: "mqtt",
+          translation_key: null,
+          unique_id: "Magic_Mouse_c4_0b_31_0a_ed_fd",
+        },
+        {
+          area_id: null,
+          categories: {},
+          config_entry_id: "b86b3a75f5f90105b2904bafc7ff16e2",
+          created_at: 1725724561.818439,
+          device_id: "f2573047640f14820a65d1ae0c9a5f7e",
+          disabled_by: null,
+          entity_category: null,
+          entity_id:
+            "sensor.magic_keyboard_with_numeric_keypad_battery_battery",
+          has_entity_name: true,
+          hidden_by: null,
+          icon: null,
+          id: "3ca7200cd9fab9e80b55b41004a71b68",
+          labels: ["battery"],
+          modified_at: 1725732307.803289,
+          name: "Magic Keyboard",
+          options: {
+            "cloud.alexa": {
+              should_expose: false,
+            },
+            conversation: {
+              should_expose: false,
+            },
+            sensor: {
+              display_precision: null,
+            },
+          },
+          original_name: "Battery",
+          platform: "mqtt",
+          translation_key: null,
+          unique_id: "magic_keyboard_with_numeric_keypad_90_9c_4a_08_c4_ce",
+        },
+        {
+          area_id: null,
+          categories: {},
+          config_entry_id: "b86b3a75f5f90105b2904bafc7ff16e2",
+          created_at: 1725724561.823466,
+          device_id: "e4404dbac83109bf6b0927a0abe2c876",
+          disabled_by: null,
+          entity_category: null,
+          entity_id: "sensor.magic_mouse_battery_battery",
+          has_entity_name: true,
+          hidden_by: null,
+          icon: null,
+          id: "56946c51acbda8086d096c7cfcddb474",
+          labels: ["battery"],
+          modified_at: 1725732312.421748,
+          name: "Magic Mouse",
+          options: {
+            "cloud.alexa": {
+              should_expose: false,
+            },
+            conversation: {
+              should_expose: false,
+            },
+            sensor: {
+              display_precision: null,
+            },
+          },
+          original_name: "Battery",
+          platform: "mqtt",
+          translation_key: null,
+          unique_id: "magic_mouse_c4_0b_31_0a_ed_fd",
+        },
+      ];
+      const mockWebsocketClient = mock<WebsocketClient>();
+
+      when(mockWebsocketClient.sendCommand)
+        .calledWith({
+          type: "config/entity_registry/list",
+        })
+        .mockResolvedValue({
+          id: 1,
+          type: "result",
+          success: true,
+          result: entities,
+        });
+
+      const client = new Client(mockWebsocketClient, mock());
+
+      const result = await client.getEntities();
+      expect(result).toEqual(entities);
+    });
+  });
+
+  describe("getDevices", () => {
+    it("returns the results of a config/device_registry/list command sent to the websocket client", async () => {
+      const devices = [
+        {
+          area_id: null,
+          configuration_url: null,
+          config_entries: ["01J6ZJHE0Z6J0B04NJ0GWMPHFG"],
+          connections: [],
+          created_at: 1725650356.989378,
+          disabled_by: null,
+          entry_type: null,
+          hw_version: null,
+          id: "bf3dc401994ef5b76ae10b6a1aa9f904",
+          identifiers: [["jellyfin", "DDE349A2-4862-4119-97AF-24D44577641B"]],
+          labels: [],
+          manufacturer: "Jellyfin",
+          model: "Infuse-Direct",
+          model_id: null,
+          modified_at: 1725650356.989459,
+          name_by_user: null,
+          name: "Apple TV",
+          primary_config_entry: "01J6ZJHE0Z6J0B04NJ0GWMPHFG",
+          serial_number: null,
+          sw_version: "7.8.2",
+          via_device_id: "642bfac6f2dddddc4048b01fe4d770c4",
+        },
+        {
+          area_id: null,
+          configuration_url: null,
+          config_entries: ["b86b3a75f5f90105b2904bafc7ff16e2"],
+          connections: [],
+          created_at: 1725724561.817846,
+          disabled_by: null,
+          entry_type: null,
+          hw_version: null,
+          id: "f2573047640f14820a65d1ae0c9a5f7e",
+          identifiers: [
+            [
+              "mqtt",
+              "device_magic_keyboard_with_numeric_keypad_90_9c_4a_08_c4_ce",
+            ],
+          ],
+          labels: [],
+          manufacturer: null,
+          model: null,
+          model_id: null,
+          modified_at: 1725724561.817901,
+          name_by_user: null,
+          name: "Magic Keyboard with Numeric Keypad battery",
+          primary_config_entry: "b86b3a75f5f90105b2904bafc7ff16e2",
+          serial_number: null,
+          sw_version: null,
+          via_device_id: null,
+        },
+        {
+          area_id: null,
+          configuration_url: null,
+          config_entries: ["b86b3a75f5f90105b2904bafc7ff16e2"],
+          connections: [],
+          created_at: 1725724561.823048,
+          disabled_by: null,
+          entry_type: null,
+          hw_version: null,
+          id: "e4404dbac83109bf6b0927a0abe2c876",
+          identifiers: [["mqtt", "device_magic_mouse_c4_0b_31_0a_ed_fd"]],
+          labels: [],
+          manufacturer: null,
+          model: null,
+          model_id: null,
+          modified_at: 1725724561.823094,
+          name_by_user: null,
+          name: "Magic Mouse battery",
+          primary_config_entry: "b86b3a75f5f90105b2904bafc7ff16e2",
+          serial_number: null,
+          sw_version: null,
+          via_device_id: null,
+        },
+      ];
+      const mockWebsocketClient = mock<WebsocketClient>();
+
+      when(mockWebsocketClient.sendCommand)
+        .calledWith({
+          type: "config/device_registry/list",
+        })
+        .mockResolvedValue({
+          id: 1,
+          type: "result",
+          success: true,
+          result: devices,
+        });
+
+      const client = new Client(mockWebsocketClient, mock());
+
+      const result = await client.getDevices();
+      expect(result).toEqual(devices);
+    });
+  });
+
   describe("getAreas", () => {
     it("returns the results of a config/areas_registry/list command sent to the websocket client", async () => {
       const mockWebsocketClient = mock<WebsocketClient>();

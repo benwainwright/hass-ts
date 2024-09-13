@@ -89,7 +89,7 @@ export interface Config {
     whitelist_external_dirs: string[];
 }
 
-// @alpha (undocumented)
+// @alpha
 export interface Context {
     // (undocumented)
     id: string;
@@ -152,6 +152,19 @@ export interface GetLogbookParams {
     timestamp?: Date;
 }
 
+// @public
+export interface HassArea {
+    aliases: string[];
+    area_id: string;
+    created_at: number;
+    floor_id: string | null;
+    icon: string | null;
+    labels: string[] | null;
+    modified_at: number;
+    name: string;
+    picture: string | null;
+}
+
 // @alpha (undocumented)
 export interface HassConfig {
     host: string;
@@ -163,29 +176,106 @@ export interface HassConfig {
 }
 
 // @alpha
+export interface HassDevice {
+    // (undocumented)
+    area_id: string | null;
+    // (undocumented)
+    config_entries: string[];
+    // (undocumented)
+    configuration_url: string | null;
+    // (undocumented)
+    connections: string[][];
+    // (undocumented)
+    created_at: number;
+    // (undocumented)
+    disabled_by: string | null;
+    // (undocumented)
+    entry_type: string | null;
+    // (undocumented)
+    hw_version: string | null;
+    // (undocumented)
+    id: string;
+    // (undocumented)
+    identifiers: string[][];
+    // (undocumented)
+    labels: string[];
+    // (undocumented)
+    manufacturer: string | null;
+    // (undocumented)
+    model: string | null;
+    // (undocumented)
+    model_id: string | null;
+    // (undocumented)
+    modified_at: number;
+    // (undocumented)
+    name: string;
+    // (undocumented)
+    name_by_user: null | string;
+    // (undocumented)
+    primary_config_entry: string | null;
+    serial_number: unknown;
+    // (undocumented)
+    sw_version: string | null;
+    // (undocumented)
+    via_device_id: string | null;
+}
+
+// @public
 export interface IClient {
+    // Warning: (ae-incompatible-release-tags) The symbol "callService" is marked as @public, but its signature references "CallServiceCommand" which is marked as @alpha
+    // Warning: (ae-incompatible-release-tags) The symbol "callService" is marked as @public, but its signature references "CallServiceResponse" which is marked as @alpha
     callService(params: Omit<CallServiceCommand, "id" | "type">): Promise<CallServiceResponse>;
     // (undocumented)
     close(): Promise<void>;
+    getAreas(): Promise<HassArea[]>;
+    // Warning: (ae-incompatible-release-tags) The symbol "getCalendars" is marked as @public, but its signature references "CalendarDetails" which is marked as @alpha
+    //
     // (undocumented)
     getCalendars(): Promise<CalendarDetails>;
+    // Warning: (ae-incompatible-release-tags) The symbol "getConfig" is marked as @public, but its signature references "Config" which is marked as @alpha
+    //
     // (undocumented)
     getConfig(): Promise<Config>;
+    // Warning: (ae-incompatible-release-tags) The symbol "getDevices" is marked as @public, but its signature references "HassDevice" which is marked as @alpha
+    //
+    // (undocumented)
+    getDevices(): Promise<HassDevice[]>;
+    // Warning: (ae-forgotten-export) The symbol "HassEntity" needs to be exported by the entry point index.d.ts
+    //
+    // (undocumented)
+    getEntities(): Promise<HassEntity[]>;
     // (undocumented)
     getErrorLog(): Promise<string>;
+    // Warning: (ae-incompatible-release-tags) The symbol "getEvents" is marked as @public, but its signature references "EventDetails" which is marked as @alpha
+    //
     // (undocumented)
     getEvents(): Promise<EventDetails[]>;
+    // Warning: (ae-incompatible-release-tags) The symbol "getHistory" is marked as @public, but its signature references "GetHistoryParams" which is marked as @alpha
+    // Warning: (ae-incompatible-release-tags) The symbol "getHistory" is marked as @public, but its signature references "State" which is marked as @alpha
     getHistory(params: GetHistoryParams): Promise<State[][]>;
+    // Warning: (ae-incompatible-release-tags) The symbol "getLogbook" is marked as @public, but its signature references "GetLogbookParams" which is marked as @alpha
+    // Warning: (ae-incompatible-release-tags) The symbol "getLogbook" is marked as @public, but its signature references "LogBookEntry" which is marked as @alpha
+    //
     // (undocumented)
     getLogbook(params?: GetLogbookParams): Promise<LogBookEntry[]>;
+    // Warning: (ae-incompatible-release-tags) The symbol "getPanels" is marked as @public, but its signature references "Panel" which is marked as @alpha
+    //
     // (undocumented)
     getPanels(): Promise<Record<string, Panel>>;
+    // Warning: (ae-incompatible-release-tags) The symbol "getServiceDomains" is marked as @public, but its signature references "ServiceDomainDetails" which is marked as @alpha
+    //
     // (undocumented)
     getServiceDomains(): Promise<ServiceDomainDetails[]>;
+    // Warning: (ae-incompatible-release-tags) The symbol "getServices" is marked as @public, but its signature references "Services" which is marked as @alpha
+    //
     // (undocumented)
     getServices(): Promise<Services>;
+    // Warning: (ae-incompatible-release-tags) The symbol "getState" is marked as @public, but its signature references "State" which is marked as @alpha
+    //
     // (undocumented)
     getState(entityId: string): Promise<State>;
+    // Warning: (ae-incompatible-release-tags) The symbol "getStates" is marked as @public, but its signature references "State" which is marked as @alpha
+    //
     // (undocumented)
     getStates(): Promise<State[]>;
     // (undocumented)
@@ -280,17 +370,13 @@ export type Services = {
 
 // @alpha (undocumented)
 export interface State {
-    // (undocumented)
     attributes: Record<string, unknown>;
     // (undocumented)
     context: Context;
-    // (undocumented)
     entity_id: string;
-    // (undocumented)
     last_changed: string;
-    // (undocumented)
+    last_reported: string;
     last_updated: string;
-    // (undocumented)
     state: string;
 }
 
