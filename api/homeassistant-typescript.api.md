@@ -17,9 +17,9 @@ export interface CallServiceCommand extends Command {
     service: string;
     service_data?: Record<string, unknown>;
     target?: {
-        entity_id?: string;
-        area_id?: string;
-        device_id?: string;
+        entity_id?: string | string[];
+        area_id?: string | string[];
+        device_id?: string | string[];
     };
     type: "call_service";
 }
@@ -89,20 +89,15 @@ export interface Config {
     whitelist_external_dirs: string[];
 }
 
-// @alpha
+// @public
 export interface Context {
-    // (undocumented)
     id: string;
-    // (undocumented)
     parent_id: null;
-    // (undocumented)
     user_id: string;
 }
 
 // @public (undocumented)
 interface Event_2 {
-    // Warning: (ae-incompatible-release-tags) The symbol "context" is marked as @public, but its signature references "Context" which is marked as @alpha
-    //
     // (undocumented)
     context: Context;
     // (undocumented)
@@ -251,12 +246,8 @@ export interface IClient {
     // (undocumented)
     getEvents(): Promise<EventDetails[]>;
     // Warning: (ae-incompatible-release-tags) The symbol "getHistory" is marked as @public, but its signature references "GetHistoryParams" which is marked as @alpha
-    // Warning: (ae-incompatible-release-tags) The symbol "getHistory" is marked as @public, but its signature references "State" which is marked as @alpha
     getHistory(params: GetHistoryParams): Promise<State[][]>;
     // Warning: (ae-incompatible-release-tags) The symbol "getLogbook" is marked as @public, but its signature references "GetLogbookParams" which is marked as @alpha
-    // Warning: (ae-incompatible-release-tags) The symbol "getLogbook" is marked as @public, but its signature references "LogBookEntry" which is marked as @alpha
-    //
-    // (undocumented)
     getLogbook(params?: GetLogbookParams): Promise<LogBookEntry[]>;
     // Warning: (ae-incompatible-release-tags) The symbol "getPanels" is marked as @public, but its signature references "Panel" which is marked as @alpha
     //
@@ -266,16 +257,12 @@ export interface IClient {
     //
     // (undocumented)
     getServiceDomains(): Promise<ServiceDomainDetails[]>;
-    // Warning: (ae-incompatible-release-tags) The symbol "getServices" is marked as @public, but its signature references "Services" which is marked as @alpha
+    // Warning: (ae-incompatible-release-tags) The symbol "getServices" is marked as @public, but its signature references "Service" which is marked as @alpha
     //
     // (undocumented)
-    getServices(): Promise<Services>;
-    // Warning: (ae-incompatible-release-tags) The symbol "getState" is marked as @public, but its signature references "State" which is marked as @alpha
-    //
+    getServices(): Promise<Record<string, Service>>;
     // (undocumented)
     getState(entityId: string): Promise<State>;
-    // Warning: (ae-incompatible-release-tags) The symbol "getStates" is marked as @public, but its signature references "State" which is marked as @alpha
-    //
     // (undocumented)
     getStates(): Promise<State[]>;
     // (undocumented)
@@ -287,21 +274,12 @@ export interface IClient {
 // @alpha
 export const initialiseClient: ({ host, port, httpPath, websocketPath, token, logger, }: HassConfig) => Promise<IClient>;
 
-// @alpha (undocumented)
-export interface LogBookEntry {
-    // (undocumented)
-    context_user_id: string;
-    // (undocumented)
-    domain: string;
-    // (undocumented)
-    entity_id: string;
-    // (undocumented)
-    message: string;
-    // (undocumented)
-    name: string;
-    // (undocumented)
-    when: string;
-}
+// Warning: (ae-forgotten-export) The symbol "LogbookStatechangeEntry" needs to be exported by the entry point index.d.ts
+// Warning: (ae-forgotten-export) The symbol "LogbookStatechangeEntry2" needs to be exported by the entry point index.d.ts
+// Warning: (ae-forgotten-export) The symbol "LogbookTriggerEntry" needs to be exported by the entry point index.d.ts
+//
+// @public
+export type LogBookEntry = LogbookStatechangeEntry | LogbookStatechangeEntry2 | LogbookTriggerEntry;
 
 // @alpha (undocumented)
 export interface Logger {
@@ -348,6 +326,8 @@ export interface Service {
     // (undocumented)
     name: string;
     // (undocumented)
+    Response: unknown;
+    // (undocumented)
     target?: {
         entity: Record<string, unknown>[];
     };
@@ -361,17 +341,9 @@ export interface ServiceDomainDetails {
     serices: string[];
 }
 
-// @alpha (undocumented)
-export type Services = {
-    [key: string]: {
-        [key: string]: Service;
-    };
-};
-
-// @alpha (undocumented)
+// @public (undocumented)
 export interface State {
     attributes: Record<string, unknown>;
-    // (undocumented)
     context: Context;
     entity_id: string;
     last_changed: string;
@@ -379,11 +351,6 @@ export interface State {
     last_updated: string;
     state: string;
 }
-
-// Warnings were encountered during analysis:
-//
-// dist/src/lib/types/event.d.ts:9:9 - (ae-incompatible-release-tags) The symbol "new_state" is marked as @public, but its signature references "State" which is marked as @alpha
-// dist/src/lib/types/event.d.ts:10:9 - (ae-incompatible-release-tags) The symbol "old_state" is marked as @public, but its signature references "State" which is marked as @alpha
 
 // (No @packageDocumentation comment for this package)
 
