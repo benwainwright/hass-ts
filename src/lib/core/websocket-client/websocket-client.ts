@@ -76,7 +76,7 @@ export class WebsocketClient {
     const id = this.id;
     this.sendToSocket({ ...command, id });
     this.id++;
-    return await this.waitForAndReturnResponse<R>(id);
+    return await this.waitForAndReturnResponse<T, R>(command, id);
   }
 
   public addMessageListener(listener: (message: MessageFromServer) => void) {
@@ -113,7 +113,10 @@ export class WebsocketClient {
     });
   }
 
-  private async waitForAndReturnResponse<R>(id: number): Promise<Result<R>> {
+  private async waitForAndReturnResponse<T extends MessageToServer, R>(
+    command: Omit<T, "id">,
+    id: number,
+  ): Promise<Result<R>> {
     return await new Promise<Result<R>>((accept, reject) => {
       this.responseCallbacks.set(
         id,
@@ -125,6 +128,7 @@ export class WebsocketClient {
             reject(
               new ErrorResponseError(
                 response.error.code,
+                JSON.stringify(command, null, 2),
                 response.error.message,
               ),
             );

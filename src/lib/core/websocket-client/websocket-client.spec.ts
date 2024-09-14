@@ -216,7 +216,11 @@ describe("The websocket client", () => {
       const client = new WebsocketClient(host, port, path, token, mock());
       await client.init();
       await expect(client.sendCommand({ type: "throw" })).rejects.toThrow(
-        new ErrorResponseError(TEST_ERROR_CODE, TEST_ERROR_MESSAGE),
+        new ErrorResponseError(
+          TEST_ERROR_CODE,
+          JSON.stringify({ type: "throw" }, null, 2),
+          TEST_ERROR_MESSAGE,
+        ),
       );
       await client.close();
     });
