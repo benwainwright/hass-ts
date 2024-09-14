@@ -45,12 +45,26 @@ export interface IClient {
    */
   getLogbook(params?: GetLogbookParams): Promise<LogBookEntry[]>;
 
+  /**
+   * Get a list of all entities currently registered by home assistant
+   */
   getEntities(): Promise<HassEntity[]>;
 
+  /**
+   * Get a list of all devices currently registered by home assistant
+   */
   getDevices(): Promise<HassDevice[]>;
 
+  /**
+   * Get a list of the current states of all entities
+   */
   getStates(): Promise<State[]>;
 
+  /**
+   * Get the current state of a specific entity
+   *
+   * @param entityId - The entity id in the form <domain>.<id>
+   */
   getState(entityId: string): Promise<State>;
 
   /**
@@ -64,10 +78,19 @@ export interface IClient {
     params: Omit<CallServiceCommand, "id" | "type">,
   ): Promise<CallServiceResponse>;
 
+  /**
+   * Get the current Home Assistant configuration
+   */
   getConfig(): Promise<Config>;
 
+  /**
+   * Get details of all the services currently registered in home assistant, grouped by domain
+   */
   getServices(): Promise<Record<string, Service>>;
 
+  /**
+   * Get a list of
+   */
   getServiceDomains(): Promise<ServiceDomainDetails[]>;
 
   getPanels(): Promise<Record<string, Panel>>;
