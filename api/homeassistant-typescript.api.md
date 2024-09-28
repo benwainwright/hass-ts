@@ -228,16 +228,10 @@ export interface IClient {
     // (undocumented)
     getCalendars(): Promise<CalendarDetails>;
     // Warning: (ae-incompatible-release-tags) The symbol "getConfig" is marked as @public, but its signature references "Config" which is marked as @alpha
-    //
-    // (undocumented)
     getConfig(): Promise<Config>;
     // Warning: (ae-incompatible-release-tags) The symbol "getDevices" is marked as @public, but its signature references "HassDevice" which is marked as @alpha
-    //
-    // (undocumented)
     getDevices(): Promise<HassDevice[]>;
     // Warning: (ae-forgotten-export) The symbol "HassEntity" needs to be exported by the entry point index.d.ts
-    //
-    // (undocumented)
     getEntities(): Promise<HassEntity[]>;
     // (undocumented)
     getErrorLog(): Promise<string>;
@@ -254,16 +248,10 @@ export interface IClient {
     // (undocumented)
     getPanels(): Promise<Record<string, Panel>>;
     // Warning: (ae-incompatible-release-tags) The symbol "getServiceDomains" is marked as @public, but its signature references "ServiceDomainDetails" which is marked as @alpha
-    //
-    // (undocumented)
     getServiceDomains(): Promise<ServiceDomainDetails[]>;
     // Warning: (ae-incompatible-release-tags) The symbol "getServices" is marked as @public, but its signature references "Service" which is marked as @alpha
-    //
-    // (undocumented)
     getServices(): Promise<Record<string, Service>>;
-    // (undocumented)
     getState(entityId: string): Promise<State>;
-    // (undocumented)
     getStates(): Promise<State[]>;
     // (undocumented)
     subscribeToEvents(callback: (message: Event_2) => void): Promise<void>;
@@ -321,15 +309,18 @@ export interface Panel {
 export interface Service {
     // (undocumented)
     description: string;
+    // Warning: (ae-forgotten-export) The symbol "ServiceFields" needs to be exported by the entry point index.d.ts
+    //
     // (undocumented)
-    fields: Record<string, unknown>;
+    fields: ServiceFields;
     // (undocumented)
     name: string;
     // (undocumented)
     Response: unknown;
     // (undocumented)
     target?: {
-        entity: Record<string, unknown>[];
+        entity?: EntityTarget[];
+        device?: DeviceTarget[];
     };
 }
 
@@ -338,7 +329,7 @@ export interface ServiceDomainDetails {
     // (undocumented)
     domain: string;
     // (undocumented)
-    serices: string[];
+    services: Record<string, Service>;
 }
 
 // @public (undocumented)
@@ -351,6 +342,11 @@ export interface State {
     last_updated: string;
     state: string;
 }
+
+// Warnings were encountered during analysis:
+//
+// dist/src/lib/types/services.d.ts:9:9 - (ae-forgotten-export) The symbol "EntityTarget" needs to be exported by the entry point index.d.ts
+// dist/src/lib/types/services.d.ts:10:9 - (ae-forgotten-export) The symbol "DeviceTarget" needs to be exported by the entry point index.d.ts
 
 // (No @packageDocumentation comment for this package)
 
