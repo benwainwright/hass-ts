@@ -7,7 +7,7 @@
 ### Properties
 
 - [domain](ServiceDomainDetails.md#domain)
-- [serices](ServiceDomainDetails.md#serices)
+- [services](ServiceDomainDetails.md#services)
 
 ## Properties
 
@@ -17,14 +17,14 @@
 
 #### Defined in
 
-[lib/types/service-domain-details.ts:5](https://github.com/benwainwright/hass-ts/blob/65947ed/src/lib/types/service-domain-details.ts#L5)
+[lib/types/service-domain-details.ts:7](https://github.com/benwainwright/hass-ts/blob/847beec/src/lib/types/service-domain-details.ts#L7)
 
 ___
 
-### serices
+### services
 
-• **serices**: `string`[]
+• **services**: `Record`\<`string`, [`Service`](Service.md)\>
 
 #### Defined in
 
-[lib/types/service-domain-details.ts:6](https://github.com/benwainwright/hass-ts/blob/65947ed/src/lib/types/service-domain-details.ts#L6)
+[lib/types/service-domain-details.ts:8](https://github.com/benwainwright/hass-ts/blob/847beec/src/lib/types/service-domain-details.ts#L8)

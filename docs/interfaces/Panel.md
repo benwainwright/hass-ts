@@ -22,7 +22,7 @@
 
 #### Defined in
 
-[lib/types/panel.ts:5](https://github.com/benwainwright/hass-ts/blob/65947ed/src/lib/types/panel.ts#L5)
+[lib/types/panel.ts:5](https://github.com/benwainwright/hass-ts/blob/847beec/src/lib/types/panel.ts#L5)
 
 ___
 
@@ -32,7 +32,7 @@ ___
 
 #### Defined in
 
-[lib/types/panel.ts:8](https://github.com/benwainwright/hass-ts/blob/65947ed/src/lib/types/panel.ts#L8)
+[lib/types/panel.ts:8](https://github.com/benwainwright/hass-ts/blob/847beec/src/lib/types/panel.ts#L8)
 
 ___
 
@@ -42,7 +42,7 @@ ___
 
 #### Defined in
 
-[lib/types/panel.ts:11](https://github.com/benwainwright/hass-ts/blob/65947ed/src/lib/types/panel.ts#L11)
+[lib/types/panel.ts:11](https://github.com/benwainwright/hass-ts/blob/847beec/src/lib/types/panel.ts#L11)
 
 ___
 
@@ -52,7 +52,7 @@ ___
 
 #### Defined in
 
-[lib/types/panel.ts:6](https://github.com/benwainwright/hass-ts/blob/65947ed/src/lib/types/panel.ts#L6)
+[lib/types/panel.ts:6](https://github.com/benwainwright/hass-ts/blob/847beec/src/lib/types/panel.ts#L6)
 
 ___
 
@@ -62,7 +62,7 @@ ___
 
 #### Defined in
 
-[lib/types/panel.ts:10](https://github.com/benwainwright/hass-ts/blob/65947ed/src/lib/types/panel.ts#L10)
+[lib/types/panel.ts:10](https://github.com/benwainwright/hass-ts/blob/847beec/src/lib/types/panel.ts#L10)
 
 ___
 
@@ -72,7 +72,7 @@ ___
 
 #### Defined in
 
-[lib/types/panel.ts:7](https://github.com/benwainwright/hass-ts/blob/65947ed/src/lib/types/panel.ts#L7)
+[lib/types/panel.ts:7](https://github.com/benwainwright/hass-ts/blob/847beec/src/lib/types/panel.ts#L7)
 
 ___
 
@@ -82,4 +82,4 @@ ___
 
 #### Defined in
 
-[lib/types/panel.ts:9](https://github.com/benwainwright/hass-ts/blob/65947ed/src/lib/types/panel.ts#L9)
+[lib/types/panel.ts:9](https://github.com/benwainwright/hass-ts/blob/847beec/src/lib/types/panel.ts#L9)

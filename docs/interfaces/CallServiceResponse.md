@@ -25,7 +25,7 @@
 
 #### Defined in
 
-[lib/core/websocket-client/messages/call-service-response.ts:5](https://github.com/benwainwright/hass-ts/blob/65947ed/src/lib/core/websocket-client/messages/call-service-response.ts#L5)
+[lib/core/websocket-client/messages/call-service-response.ts:5](https://github.com/benwainwright/hass-ts/blob/847beec/src/lib/core/websocket-client/messages/call-service-response.ts#L5)
 
 ___
 
@@ -38,4 +38,4 @@ will be `null` if the action does not support response data
 
 #### Defined in
 
-[lib/core/websocket-client/messages/call-service-response.ts:15](https://github.com/benwainwright/hass-ts/blob/65947ed/src/lib/core/websocket-client/messages/call-service-response.ts#L15)
+[lib/core/websocket-client/messages/call-service-response.ts:15](https://github.com/benwainwright/hass-ts/blob/847beec/src/lib/core/websocket-client/messages/call-service-response.ts#L15)

@@ -58,7 +58,7 @@ no environment variables need to be supplied
 
 #### Defined in
 
-[lib/core/get-config.ts:29](https://github.com/benwainwright/hass-ts/blob/65947ed/src/lib/core/get-config.ts#L29)
+[lib/core/get-config.ts:29](https://github.com/benwainwright/hass-ts/blob/847beec/src/lib/core/get-config.ts#L29)
 
 ___
 
@@ -88,7 +88,7 @@ const client = await initialiseClient(config)
 
 #### Defined in
 
-[lib/core/initialise-client.ts:20](https://github.com/benwainwright/hass-ts/blob/65947ed/src/lib/core/initialise-client.ts#L20)
+[lib/core/initialise-client.ts:20](https://github.com/benwainwright/hass-ts/blob/847beec/src/lib/core/initialise-client.ts#L20)
 
 ## Type Aliases
 
@@ -100,4 +100,4 @@ An entry in the Home Assistant logbook
 
 #### Defined in
 
-[lib/types/logbook-entry.ts:6](https://github.com/benwainwright/hass-ts/blob/65947ed/src/lib/types/logbook-entry.ts#L6)
+[lib/types/logbook-entry.ts:6](https://github.com/benwainwright/hass-ts/blob/847beec/src/lib/types/logbook-entry.ts#L6)
