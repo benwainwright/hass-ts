@@ -74,9 +74,10 @@ export class WebsocketClient {
       throw new HassTsError(ERRORS.notInitialised);
     }
     const id = this.id;
-    this.sendToSocket({ ...command, id });
     this.id++;
-    return await this.waitForAndReturnResponse<T, R>(command, id);
+    const responsePromise = this.waitForAndReturnResponse<T, R>(command, id);
+    this.sendToSocket({ ...command, id });
+    return await responsePromise;
   }
 
   public addMessageListener(listener: (message: MessageFromServer) => void) {
