@@ -31,7 +31,7 @@ The Home Assistant client API. Once initialised, the client will make requests v
 
 ### callService
 
-▸ **callService**(`params`): `Promise`\<[`CallServiceResponse`](CallServiceResponse.md)\>
+▸ **callService**(`params`): `Promise`\<[`State`](State.md)[]\>
 
 Call a service action
 
@@ -45,11 +45,11 @@ See [https://developers.home-assistant.io/docs/api/websocket/#calling-a-service-
 
 #### Returns
 
-`Promise`\<[`CallServiceResponse`](CallServiceResponse.md)\>
+`Promise`\<[`State`](State.md)[]\>
 
 #### Defined in
 
-[lib/core/client/i-client.ts:77](https://github.com/benwainwright/hass-ts/blob/847beec/src/lib/core/client/i-client.ts#L77)
+[lib/core/client/i-client.ts:74](https://github.com/benwainwright/hass-ts/blob/283d3f2/src/lib/core/client/i-client.ts#L74)
 
 ___
 
@@ -63,7 +63,7 @@ ___
 
 #### Defined in
 
-[lib/core/client/i-client.ts:111](https://github.com/benwainwright/hass-ts/blob/847beec/src/lib/core/client/i-client.ts#L111)
+[lib/core/client/i-client.ts:108](https://github.com/benwainwright/hass-ts/blob/283d3f2/src/lib/core/client/i-client.ts#L108)
 
 ___
 
@@ -79,7 +79,7 @@ Gets a list of areas registered with home assistant
 
 #### Defined in
 
-[lib/core/client/i-client.ts:39](https://github.com/benwainwright/hass-ts/blob/847beec/src/lib/core/client/i-client.ts#L39)
+[lib/core/client/i-client.ts:36](https://github.com/benwainwright/hass-ts/blob/283d3f2/src/lib/core/client/i-client.ts#L36)
 
 ___
 
@@ -93,7 +93,7 @@ ___
 
 #### Defined in
 
-[lib/core/client/i-client.ts:98](https://github.com/benwainwright/hass-ts/blob/847beec/src/lib/core/client/i-client.ts#L98)
+[lib/core/client/i-client.ts:95](https://github.com/benwainwright/hass-ts/blob/283d3f2/src/lib/core/client/i-client.ts#L95)
 
 ___
 
@@ -109,7 +109,7 @@ Get the current Home Assistant configuration
 
 #### Defined in
 
-[lib/core/client/i-client.ts:84](https://github.com/benwainwright/hass-ts/blob/847beec/src/lib/core/client/i-client.ts#L84)
+[lib/core/client/i-client.ts:81](https://github.com/benwainwright/hass-ts/blob/283d3f2/src/lib/core/client/i-client.ts#L81)
 
 ___
 
@@ -125,7 +125,7 @@ Get a list of all devices currently registered by home assistant
 
 #### Defined in
 
-[lib/core/client/i-client.ts:56](https://github.com/benwainwright/hass-ts/blob/847beec/src/lib/core/client/i-client.ts#L56)
+[lib/core/client/i-client.ts:53](https://github.com/benwainwright/hass-ts/blob/283d3f2/src/lib/core/client/i-client.ts#L53)
 
 ___
 
@@ -141,7 +141,7 @@ Get a list of all entities currently registered by home assistant
 
 #### Defined in
 
-[lib/core/client/i-client.ts:51](https://github.com/benwainwright/hass-ts/blob/847beec/src/lib/core/client/i-client.ts#L51)
+[lib/core/client/i-client.ts:48](https://github.com/benwainwright/hass-ts/blob/283d3f2/src/lib/core/client/i-client.ts#L48)
 
 ___
 
@@ -155,7 +155,7 @@ ___
 
 #### Defined in
 
-[lib/core/client/i-client.ts:102](https://github.com/benwainwright/hass-ts/blob/847beec/src/lib/core/client/i-client.ts#L102)
+[lib/core/client/i-client.ts:99](https://github.com/benwainwright/hass-ts/blob/283d3f2/src/lib/core/client/i-client.ts#L99)
 
 ___
 
@@ -169,7 +169,7 @@ ___
 
 #### Defined in
 
-[lib/core/client/i-client.ts:100](https://github.com/benwainwright/hass-ts/blob/847beec/src/lib/core/client/i-client.ts#L100)
+[lib/core/client/i-client.ts:97](https://github.com/benwainwright/hass-ts/blob/283d3f2/src/lib/core/client/i-client.ts#L97)
 
 ___
 
@@ -191,7 +191,7 @@ Returns an array of state changes from the past
 
 #### Defined in
 
-[lib/core/client/i-client.ts:34](https://github.com/benwainwright/hass-ts/blob/847beec/src/lib/core/client/i-client.ts#L34)
+[lib/core/client/i-client.ts:31](https://github.com/benwainwright/hass-ts/blob/283d3f2/src/lib/core/client/i-client.ts#L31)
 
 ___
 
@@ -213,7 +213,7 @@ Gets a list of entries from the Home Assistant logbook
 
 #### Defined in
 
-[lib/core/client/i-client.ts:46](https://github.com/benwainwright/hass-ts/blob/847beec/src/lib/core/client/i-client.ts#L46)
+[lib/core/client/i-client.ts:43](https://github.com/benwainwright/hass-ts/blob/283d3f2/src/lib/core/client/i-client.ts#L43)
 
 ___
 
@@ -227,7 +227,7 @@ ___
 
 #### Defined in
 
-[lib/core/client/i-client.ts:96](https://github.com/benwainwright/hass-ts/blob/847beec/src/lib/core/client/i-client.ts#L96)
+[lib/core/client/i-client.ts:93](https://github.com/benwainwright/hass-ts/blob/283d3f2/src/lib/core/client/i-client.ts#L93)
 
 ___
 
@@ -243,7 +243,7 @@ Get a list of
 
 #### Defined in
 
-[lib/core/client/i-client.ts:94](https://github.com/benwainwright/hass-ts/blob/847beec/src/lib/core/client/i-client.ts#L94)
+[lib/core/client/i-client.ts:91](https://github.com/benwainwright/hass-ts/blob/283d3f2/src/lib/core/client/i-client.ts#L91)
 
 ___
 
@@ -259,7 +259,7 @@ Get details of all the services currently registered in home assistant, grouped 
 
 #### Defined in
 
-[lib/core/client/i-client.ts:89](https://github.com/benwainwright/hass-ts/blob/847beec/src/lib/core/client/i-client.ts#L89)
+[lib/core/client/i-client.ts:86](https://github.com/benwainwright/hass-ts/blob/283d3f2/src/lib/core/client/i-client.ts#L86)
 
 ___
 
@@ -281,7 +281,7 @@ Get the current state of a specific entity
 
 #### Defined in
 
-[lib/core/client/i-client.ts:68](https://github.com/benwainwright/hass-ts/blob/847beec/src/lib/core/client/i-client.ts#L68)
+[lib/core/client/i-client.ts:65](https://github.com/benwainwright/hass-ts/blob/283d3f2/src/lib/core/client/i-client.ts#L65)
 
 ___
 
@@ -297,7 +297,7 @@ Get a list of the current states of all entities
 
 #### Defined in
 
-[lib/core/client/i-client.ts:61](https://github.com/benwainwright/hass-ts/blob/847beec/src/lib/core/client/i-client.ts#L61)
+[lib/core/client/i-client.ts:58](https://github.com/benwainwright/hass-ts/blob/283d3f2/src/lib/core/client/i-client.ts#L58)
 
 ___
 
@@ -317,7 +317,7 @@ ___
 
 #### Defined in
 
-[lib/core/client/i-client.ts:104](https://github.com/benwainwright/hass-ts/blob/847beec/src/lib/core/client/i-client.ts#L104)
+[lib/core/client/i-client.ts:101](https://github.com/benwainwright/hass-ts/blob/283d3f2/src/lib/core/client/i-client.ts#L101)
 
 ▸ **subscribeToEvents**(`type`, `callback`): `Promise`\<`void`\>
 
@@ -334,4 +334,4 @@ ___
 
 #### Defined in
 
-[lib/core/client/i-client.ts:106](https://github.com/benwainwright/hass-ts/blob/847beec/src/lib/core/client/i-client.ts#L106)
+[lib/core/client/i-client.ts:103](https://github.com/benwainwright/hass-ts/blob/283d3f2/src/lib/core/client/i-client.ts#L103)

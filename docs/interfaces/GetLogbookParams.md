@@ -18,7 +18,7 @@
 
 #### Defined in
 
-[lib/core/client/get-logbook-params.ts:7](https://github.com/benwainwright/hass-ts/blob/847beec/src/lib/core/client/get-logbook-params.ts#L7)
+[lib/core/client/get-logbook-params.ts:7](https://github.com/benwainwright/hass-ts/blob/283d3f2/src/lib/core/client/get-logbook-params.ts#L7)
 
 ___
 
@@ -28,7 +28,7 @@ ___
 
 #### Defined in
 
-[lib/core/client/get-logbook-params.ts:6](https://github.com/benwainwright/hass-ts/blob/847beec/src/lib/core/client/get-logbook-params.ts#L6)
+[lib/core/client/get-logbook-params.ts:6](https://github.com/benwainwright/hass-ts/blob/283d3f2/src/lib/core/client/get-logbook-params.ts#L6)
 
 ___
 
@@ -38,4 +38,4 @@ ___
 
 #### Defined in
 
-[lib/core/client/get-logbook-params.ts:5](https://github.com/benwainwright/hass-ts/blob/847beec/src/lib/core/client/get-logbook-params.ts#L5)
+[lib/core/client/get-logbook-params.ts:5](https://github.com/benwainwright/hass-ts/blob/283d3f2/src/lib/core/client/get-logbook-params.ts#L5)
