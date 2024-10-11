@@ -30,7 +30,7 @@ export const setup = async () => {
     },
   });
 
-  await delay(3000);
+  await delay(5000);
 };
 
 export const teardown = async () => {
