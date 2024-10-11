@@ -218,8 +218,7 @@ export interface HassDevice {
 // @public
 export interface IClient {
     // Warning: (ae-incompatible-release-tags) The symbol "callService" is marked as @public, but its signature references "CallServiceCommand" which is marked as @alpha
-    // Warning: (ae-incompatible-release-tags) The symbol "callService" is marked as @public, but its signature references "CallServiceResponse" which is marked as @alpha
-    callService(params: Omit<CallServiceCommand, "id" | "type">): Promise<CallServiceResponse>;
+    callService(params: Omit<CallServiceCommand, "id" | "type">): Promise<State[]>;
     // (undocumented)
     close(): Promise<void>;
     getAreas(): Promise<HassArea[]>;
