@@ -16,10 +16,7 @@ import {
 import { GetHistoryParams } from "./get-history-params.js";
 import { GetLogbookParams } from "./get-logbook-params.js";
 
-import {
-  CallServiceCommand,
-  CallServiceResponse,
-} from "@core/websocket-client";
+import { CallServiceCommand } from "@core/websocket-client";
 
 /**
  * The Home Assistant client API. Once initialised, the client will make requests via
@@ -76,7 +73,7 @@ export interface IClient {
    */
   callService(
     params: Omit<CallServiceCommand, "id" | "type">,
-  ): Promise<CallServiceResponse>;
+  ): Promise<State[]>;
 
   /**
    * Get the current Home Assistant configuration

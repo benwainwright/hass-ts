@@ -3,7 +3,6 @@ import { convertCamelCaseToUnderscoreCase } from "@utils";
 import { RestClient } from "@core/rest-client";
 import {
   CallServiceCommand,
-  CallServiceResponse,
   GetAreasCommand,
   GetConfigCommand,
   GetDevicesCommand,
@@ -71,15 +70,15 @@ export class Client implements IClient {
 
   public async callService(
     params: Omit<CallServiceCommand, "type" | "id">,
-  ): Promise<CallServiceResponse> {
-    const { result } = await this.websocketClient.sendCommand<
-      CallServiceCommand,
-      CallServiceResponse
-    >({
-      type: "call_service",
-      ...params,
-    });
-    return result;
+  ): Promise<State[]> {
+    const { domain, service, target, service_data } = params;
+
+    const args = { ...target, ...(service_data ?? {}) };
+
+    return await this.httpClient.post<typeof args, State[]>(
+      `/services/${domain}/${service}`,
+      args,
+    );
   }
 
   public async getState(entityId: string): Promise<State> {

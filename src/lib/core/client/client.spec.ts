@@ -13,11 +13,7 @@ import {
   State,
 } from "@types";
 
-import {
-  WebsocketClient,
-  MessageFromServer,
-  CallServiceCommand,
-} from "@core/websocket-client";
+import { WebsocketClient, MessageFromServer } from "@core/websocket-client";
 import { RestClient } from "@core/rest-client";
 
 import { Client } from "./client.js";
@@ -294,37 +290,24 @@ describe("The client", () => {
 
   describe("callService", () => {
     it("returns the results of a call_service command sent to the websocket client", async () => {
-      const mockWebsocketClient = mock<WebsocketClient>();
+      const mockHttpClient = mock<RestClient>();
 
-      const message: Omit<CallServiceCommand, "id"> = {
-        type: "call_service",
-        domain: "light",
-        service: "turn_on",
-      };
+      const state = mock<State>();
 
-      const commandResult = {
-        context: {
-          id: "326ef27d19415c60c492fe330945f954",
-          parent_id: null,
-          user_id: "31ddb597e03147118cf8d2f8fbea5553",
-        },
-        response: { aResponse: "foo" },
-      };
+      const commandResult: State[] = [state];
 
-      when(mockWebsocketClient.sendCommand)
-        .calledWith(message)
-        .mockResolvedValue({
-          id: 24,
-          type: "result",
-          success: true,
-          result: commandResult,
-        });
+      when(mockHttpClient.post)
+        .calledWith(`/services/light/turn_on`, { entity_id: "foo" })
+        .mockResolvedValue(commandResult);
 
-      const client = new Client(mockWebsocketClient, mock());
+      const client = new Client(mock(), mockHttpClient);
 
       const result = await client.callService({
         domain: "light",
         service: "turn_on",
+        target: {
+          entity_id: "foo",
+        },
       });
 
       expect(result).toEqual(commandResult);

@@ -33,13 +33,13 @@
     "format": "prettier --write .",
     "release:dry-run": "semantic-release --dry-run --no-ci",
     "types:watch": "tsc --noEmit --watch",
-    "test:verbose": "vitest --config vitest.unit.config.mts --coverage --reporter verbose",
-    "test": "vitest --config vitest.unit.config.mts --coverage",
+    "test:verbose": "vitest --config vitest.config.mts --coverage --reporter verbose",
+    "test": "vitest --config vitest.config.mts --coverage",
     "test:e2e": "vitest --config vitest.e2e.config.mts",
     "test:e2e:post-release": "POST_RELEASE=true vitest --config vitest.e2e.post-release.config.mts",
-    "test:watch": "vitest --allowOnly --config vitest.unit.config.mts --coverage --watch",
-    "test:watch:withoutcoverage": "vitest --allowOnly --config vitest.unit.config.mts --watch",
-    "test:ui": "vitest --config vitest.unit.config.mts --watch --ui",
+    "test:watch": "vitest --allowOnly --config vitest.config.mts --coverage --watch",
+    "test:watch:withoutcoverage": "vitest --allowOnly --config vitest.config.mts --watch",
+    "test:ui": "vitest --config vitest.config.mts --watch --ui",
     "prepare": "husky install"
   },
   "devDependencies": {
