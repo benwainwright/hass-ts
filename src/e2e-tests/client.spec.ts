@@ -51,6 +51,22 @@ describe("The Hass SDK", () => {
 
       expect(theSwitchAfter?.state).toEqual("off");
     });
+
+    it("throws an error if you supply a non existent service", async () => {
+      const client = await getTestClient();
+
+      const testSwitchId = "input_boolean.test_switch";
+
+      await expect(
+        client.callService({
+          domain: "input_boolean",
+          service: "not_real",
+          target: {
+            entity_id: testSwitchId,
+          },
+        }),
+      ).rejects.toThrow();
+    });
   });
 
   describe("getStates", () => {
