@@ -38,7 +38,7 @@ A registered Home Assistant device
 
 #### Defined in
 
-[lib/types/hass-device.ts:7](https://github.com/benwainwright/hass-ts/blob/847beec/src/lib/types/hass-device.ts#L7)
+[lib/types/hass-device.ts:7](https://github.com/benwainwright/hass-ts/blob/283d3f2/src/lib/types/hass-device.ts#L7)
 
 ___
 
@@ -48,7 +48,7 @@ ___
 
 #### Defined in
 
-[lib/types/hass-device.ts:9](https://github.com/benwainwright/hass-ts/blob/847beec/src/lib/types/hass-device.ts#L9)
+[lib/types/hass-device.ts:9](https://github.com/benwainwright/hass-ts/blob/283d3f2/src/lib/types/hass-device.ts#L9)
 
 ___
 
@@ -58,7 +58,7 @@ ___
 
 #### Defined in
 
-[lib/types/hass-device.ts:8](https://github.com/benwainwright/hass-ts/blob/847beec/src/lib/types/hass-device.ts#L8)
+[lib/types/hass-device.ts:8](https://github.com/benwainwright/hass-ts/blob/283d3f2/src/lib/types/hass-device.ts#L8)
 
 ___
 
@@ -68,7 +68,7 @@ ___
 
 #### Defined in
 
-[lib/types/hass-device.ts:10](https://github.com/benwainwright/hass-ts/blob/847beec/src/lib/types/hass-device.ts#L10)
+[lib/types/hass-device.ts:10](https://github.com/benwainwright/hass-ts/blob/283d3f2/src/lib/types/hass-device.ts#L10)
 
 ___
 
@@ -78,7 +78,7 @@ ___
 
 #### Defined in
 
-[lib/types/hass-device.ts:11](https://github.com/benwainwright/hass-ts/blob/847beec/src/lib/types/hass-device.ts#L11)
+[lib/types/hass-device.ts:11](https://github.com/benwainwright/hass-ts/blob/283d3f2/src/lib/types/hass-device.ts#L11)
 
 ___
 
@@ -88,7 +88,7 @@ ___
 
 #### Defined in
 
-[lib/types/hass-device.ts:12](https://github.com/benwainwright/hass-ts/blob/847beec/src/lib/types/hass-device.ts#L12)
+[lib/types/hass-device.ts:12](https://github.com/benwainwright/hass-ts/blob/283d3f2/src/lib/types/hass-device.ts#L12)
 
 ___
 
@@ -98,7 +98,7 @@ ___
 
 #### Defined in
 
-[lib/types/hass-device.ts:13](https://github.com/benwainwright/hass-ts/blob/847beec/src/lib/types/hass-device.ts#L13)
+[lib/types/hass-device.ts:13](https://github.com/benwainwright/hass-ts/blob/283d3f2/src/lib/types/hass-device.ts#L13)
 
 ___
 
@@ -108,7 +108,7 @@ ___
 
 #### Defined in
 
-[lib/types/hass-device.ts:14](https://github.com/benwainwright/hass-ts/blob/847beec/src/lib/types/hass-device.ts#L14)
+[lib/types/hass-device.ts:14](https://github.com/benwainwright/hass-ts/blob/283d3f2/src/lib/types/hass-device.ts#L14)
 
 ___
 
@@ -118,7 +118,7 @@ ___
 
 #### Defined in
 
-[lib/types/hass-device.ts:15](https://github.com/benwainwright/hass-ts/blob/847beec/src/lib/types/hass-device.ts#L15)
+[lib/types/hass-device.ts:15](https://github.com/benwainwright/hass-ts/blob/283d3f2/src/lib/types/hass-device.ts#L15)
 
 ___
 
@@ -128,7 +128,7 @@ ___
 
 #### Defined in
 
-[lib/types/hass-device.ts:16](https://github.com/benwainwright/hass-ts/blob/847beec/src/lib/types/hass-device.ts#L16)
+[lib/types/hass-device.ts:16](https://github.com/benwainwright/hass-ts/blob/283d3f2/src/lib/types/hass-device.ts#L16)
 
 ___
 
@@ -138,7 +138,7 @@ ___
 
 #### Defined in
 
-[lib/types/hass-device.ts:17](https://github.com/benwainwright/hass-ts/blob/847beec/src/lib/types/hass-device.ts#L17)
+[lib/types/hass-device.ts:17](https://github.com/benwainwright/hass-ts/blob/283d3f2/src/lib/types/hass-device.ts#L17)
 
 ___
 
@@ -148,7 +148,7 @@ ___
 
 #### Defined in
 
-[lib/types/hass-device.ts:18](https://github.com/benwainwright/hass-ts/blob/847beec/src/lib/types/hass-device.ts#L18)
+[lib/types/hass-device.ts:18](https://github.com/benwainwright/hass-ts/blob/283d3f2/src/lib/types/hass-device.ts#L18)
 
 ___
 
@@ -158,7 +158,7 @@ ___
 
 #### Defined in
 
-[lib/types/hass-device.ts:19](https://github.com/benwainwright/hass-ts/blob/847beec/src/lib/types/hass-device.ts#L19)
+[lib/types/hass-device.ts:19](https://github.com/benwainwright/hass-ts/blob/283d3f2/src/lib/types/hass-device.ts#L19)
 
 ___
 
@@ -168,7 +168,7 @@ ___
 
 #### Defined in
 
-[lib/types/hass-device.ts:20](https://github.com/benwainwright/hass-ts/blob/847beec/src/lib/types/hass-device.ts#L20)
+[lib/types/hass-device.ts:20](https://github.com/benwainwright/hass-ts/blob/283d3f2/src/lib/types/hass-device.ts#L20)
 
 ___
 
@@ -178,7 +178,7 @@ ___
 
 #### Defined in
 
-[lib/types/hass-device.ts:21](https://github.com/benwainwright/hass-ts/blob/847beec/src/lib/types/hass-device.ts#L21)
+[lib/types/hass-device.ts:21](https://github.com/benwainwright/hass-ts/blob/283d3f2/src/lib/types/hass-device.ts#L21)
 
 ___
 
@@ -188,7 +188,7 @@ ___
 
 #### Defined in
 
-[lib/types/hass-device.ts:23](https://github.com/benwainwright/hass-ts/blob/847beec/src/lib/types/hass-device.ts#L23)
+[lib/types/hass-device.ts:23](https://github.com/benwainwright/hass-ts/blob/283d3f2/src/lib/types/hass-device.ts#L23)
 
 ___
 
@@ -198,7 +198,7 @@ ___
 
 #### Defined in
 
-[lib/types/hass-device.ts:22](https://github.com/benwainwright/hass-ts/blob/847beec/src/lib/types/hass-device.ts#L22)
+[lib/types/hass-device.ts:22](https://github.com/benwainwright/hass-ts/blob/283d3f2/src/lib/types/hass-device.ts#L22)
 
 ___
 
@@ -208,7 +208,7 @@ ___
 
 #### Defined in
 
-[lib/types/hass-device.ts:24](https://github.com/benwainwright/hass-ts/blob/847beec/src/lib/types/hass-device.ts#L24)
+[lib/types/hass-device.ts:24](https://github.com/benwainwright/hass-ts/blob/283d3f2/src/lib/types/hass-device.ts#L24)
 
 ___
 
@@ -221,7 +221,7 @@ I don't have any devices in my database that aren't null
 
 #### Defined in
 
-[lib/types/hass-device.ts:30](https://github.com/benwainwright/hass-ts/blob/847beec/src/lib/types/hass-device.ts#L30)
+[lib/types/hass-device.ts:30](https://github.com/benwainwright/hass-ts/blob/283d3f2/src/lib/types/hass-device.ts#L30)
 
 ___
 
@@ -231,7 +231,7 @@ ___
 
 #### Defined in
 
-[lib/types/hass-device.ts:31](https://github.com/benwainwright/hass-ts/blob/847beec/src/lib/types/hass-device.ts#L31)
+[lib/types/hass-device.ts:31](https://github.com/benwainwright/hass-ts/blob/283d3f2/src/lib/types/hass-device.ts#L31)
 
 ___
 
@@ -241,4 +241,4 @@ ___
 
 #### Defined in
 
-[lib/types/hass-device.ts:32](https://github.com/benwainwright/hass-ts/blob/847beec/src/lib/types/hass-device.ts#L32)
+[lib/types/hass-device.ts:32](https://github.com/benwainwright/hass-ts/blob/283d3f2/src/lib/types/hass-device.ts#L32)
