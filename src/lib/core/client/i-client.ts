@@ -107,7 +107,7 @@ export interface IClient {
    */
   registerTrigger(
     trigger: SubscribeToTriggerMessage["trigger"],
-    callback: (event: unknown) => void,
+    callback: (event: unknown) => void | Promise<void>,
   ): Promise<void>;
 
   subscribeToEvents(

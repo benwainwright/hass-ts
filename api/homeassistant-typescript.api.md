@@ -253,7 +253,7 @@ export interface IClient {
     getState(entityId: string): Promise<State>;
     getStates(): Promise<State[]>;
     // Warning: (ae-forgotten-export) The symbol "SubscribeToTriggerMessage" needs to be exported by the entry point index.d.ts
-    registerTrigger(trigger: SubscribeToTriggerMessage["trigger"], callback: (event: unknown) => void): Promise<void>;
+    registerTrigger(trigger: SubscribeToTriggerMessage["trigger"], callback: (event: unknown) => void | Promise<void>): Promise<void>;
     // Warning: (ae-incompatible-release-tags) The symbol "subscribeToEvents" is marked as @public, but its signature references "TriggerEventMessage" which is marked as @alpha
     //
     // (undocumented)
