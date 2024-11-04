@@ -252,10 +252,14 @@ export interface IClient {
     getServices(): Promise<Record<string, Service>>;
     getState(entityId: string): Promise<State>;
     getStates(): Promise<State[]>;
+    // Warning: (ae-forgotten-export) The symbol "SubscribeToTriggerMessage" needs to be exported by the entry point index.d.ts
+    registerTrigger(trigger: SubscribeToTriggerMessage['trigger'], callback: (event: unknown) => void): Promise<void>;
+    // Warning: (ae-forgotten-export) The symbol "TriggerEventMessage" needs to be exported by the entry point index.d.ts
+    //
     // (undocumented)
-    subscribeToEvents(callback: (message: Event_2) => void): Promise<void>;
+    subscribeToEvents(callback: (message: Event_2 | TriggerEventMessage['event']) => void): Promise<void>;
     // (undocumented)
-    subscribeToEvents(type: string, callback: (message: Event_2) => void): Promise<void>;
+    subscribeToEvents(type: string, callback: (message: Event_2 | TriggerEventMessage['event']) => void): Promise<void>;
 }
 
 // @alpha
