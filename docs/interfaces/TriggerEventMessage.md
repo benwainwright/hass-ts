@@ -31,7 +31,7 @@
 
 #### Defined in
 
-[lib/core/websocket-client/messages/trigger-event-message.ts:7](https://github.com/benwainwright/hass-ts/blob/24908fa/src/lib/core/websocket-client/messages/trigger-event-message.ts#L7)
+[lib/core/websocket-client/messages/trigger-event-message.ts:7](https://github.com/benwainwright/hass-ts/blob/01f576e/src/lib/core/websocket-client/messages/trigger-event-message.ts#L7)
 
 ___
 
@@ -41,7 +41,7 @@ ___
 
 #### Defined in
 
-[lib/core/websocket-client/messages/trigger-event-message.ts:5](https://github.com/benwainwright/hass-ts/blob/24908fa/src/lib/core/websocket-client/messages/trigger-event-message.ts#L5)
+[lib/core/websocket-client/messages/trigger-event-message.ts:5](https://github.com/benwainwright/hass-ts/blob/01f576e/src/lib/core/websocket-client/messages/trigger-event-message.ts#L5)
 
 ___
 
@@ -51,4 +51,4 @@ ___
 
 #### Defined in
 
-[lib/core/websocket-client/messages/trigger-event-message.ts:6](https://github.com/benwainwright/hass-ts/blob/24908fa/src/lib/core/websocket-client/messages/trigger-event-message.ts#L6)
+[lib/core/websocket-client/messages/trigger-event-message.ts:6](https://github.com/benwainwright/hass-ts/blob/01f576e/src/lib/core/websocket-client/messages/trigger-event-message.ts#L6)

@@ -35,7 +35,7 @@
 
 #### Defined in
 
-[lib/types/logger.ts:6](https://github.com/benwainwright/hass-ts/blob/24908fa/src/lib/types/logger.ts#L6)
+[lib/types/logger.ts:6](https://github.com/benwainwright/hass-ts/blob/01f576e/src/lib/types/logger.ts#L6)
 
 ___
 
@@ -59,7 +59,7 @@ ___
 
 #### Defined in
 
-[lib/types/logger.ts:9](https://github.com/benwainwright/hass-ts/blob/24908fa/src/lib/types/logger.ts#L9)
+[lib/types/logger.ts:9](https://github.com/benwainwright/hass-ts/blob/01f576e/src/lib/types/logger.ts#L9)
 
 ___
 
@@ -83,7 +83,7 @@ ___
 
 #### Defined in
 
-[lib/types/logger.ts:10](https://github.com/benwainwright/hass-ts/blob/24908fa/src/lib/types/logger.ts#L10)
+[lib/types/logger.ts:10](https://github.com/benwainwright/hass-ts/blob/01f576e/src/lib/types/logger.ts#L10)
 
 ___
 
@@ -107,7 +107,7 @@ ___
 
 #### Defined in
 
-[lib/types/logger.ts:7](https://github.com/benwainwright/hass-ts/blob/24908fa/src/lib/types/logger.ts#L7)
+[lib/types/logger.ts:7](https://github.com/benwainwright/hass-ts/blob/01f576e/src/lib/types/logger.ts#L7)
 
 ___
 
@@ -131,7 +131,7 @@ ___
 
 #### Defined in
 
-[lib/types/logger.ts:5](https://github.com/benwainwright/hass-ts/blob/24908fa/src/lib/types/logger.ts#L5)
+[lib/types/logger.ts:5](https://github.com/benwainwright/hass-ts/blob/01f576e/src/lib/types/logger.ts#L5)
 
 ___
 
@@ -155,4 +155,4 @@ ___
 
 #### Defined in
 
-[lib/types/logger.ts:8](https://github.com/benwainwright/hass-ts/blob/24908fa/src/lib/types/logger.ts#L8)
+[lib/types/logger.ts:8](https://github.com/benwainwright/hass-ts/blob/01f576e/src/lib/types/logger.ts#L8)
