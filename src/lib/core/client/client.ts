@@ -10,6 +10,7 @@ import {
   GetPanelsCommand,
   GetServicesCommand,
   GetStatesCommand,
+  MessageFromServer,
   WebsocketClient,
 } from "@core/websocket-client";
 
@@ -31,6 +32,10 @@ import {
 } from "@types";
 import { GetHistoryParams } from "./get-history-params.js";
 import { GetLogbookParams } from "./get-logbook-params.js";
+import {
+  TriggerEventMessage,
+  SubscribeToTriggerMessage,
+} from "@core/websocket-client";
 
 export class Client implements IClient {
   constructor(
@@ -83,6 +88,31 @@ export class Client implements IClient {
 
   public async getState(entityId: string): Promise<State> {
     return await this.httpClient.get(`/states/${entityId}`);
+  }
+
+  public async registerTrigger<T extends Record<string, unknown>>(
+    trigger: SubscribeToTriggerMessage["trigger"],
+    callback: (event: T) => void,
+  ) {
+    const { id } = await this.websocketClient.sendCommand<
+      SubscribeToTriggerMessage,
+      null
+    >({
+      type: "subscribe_trigger",
+      trigger,
+    });
+
+    this.websocketClient.addMessageListener((message: MessageFromServer) => {
+      const isTriggerEvent = (
+        message: MessageFromServer,
+      ): message is TriggerEventMessage<T> => {
+        return message.type === "event" && message.id === id;
+      };
+
+      if (isTriggerEvent(message)) {
+        callback(message.event.variables.trigger);
+      }
+    });
   }
 
   public async getLogbook(
@@ -181,15 +211,19 @@ export class Client implements IClient {
   }
 
   public async subscribeToEvents(
-    callback: (message: Event) => void,
+    callback: (message: Event | TriggerEventMessage["event"]) => void,
   ): Promise<void>;
   public async subscribeToEvents(
     type: string,
-    callback: (message: Event) => void,
+    callback: (message: Event | TriggerEventMessage["event"]) => void,
   ): Promise<void>;
   public async subscribeToEvents(
-    typeOrCallback: string | ((message: Event) => void),
-    callbackIfTypeIsSupplied?: (message: Event) => void,
+    typeOrCallback:
+      | string
+      | ((message: Event | TriggerEventMessage["event"]) => void),
+    callbackIfTypeIsSupplied?: (
+      message: Event | TriggerEventMessage["event"],
+    ) => void,
   ): Promise<void> {
     const { type, callback } = this.getTypeAndCallback(
       typeOrCallback,
@@ -217,8 +251,12 @@ export class Client implements IClient {
   }
 
   private getTypeAndCallback(
-    typeOrCallback: string | ((message: Event) => void),
-    callbackIfTypeIsSupplied?: (message: Event) => void,
+    typeOrCallback:
+      | string
+      | ((message: Event | TriggerEventMessage["event"]) => void),
+    callbackIfTypeIsSupplied?: (
+      message: Event | TriggerEventMessage["event"],
+    ) => void,
   ) {
     /* istanbul ignore else -- @preserve */
     if (

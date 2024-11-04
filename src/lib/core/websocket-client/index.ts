@@ -15,6 +15,8 @@ export {
   GetServicesCommand,
   CallServiceCommand,
   CallServiceResponse,
+  TriggerEventMessage,
+  SubscribeToTriggerMessage,
 } from "./messages/index.js";
 
 export { WebsocketClient } from "./websocket-client.js";

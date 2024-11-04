@@ -1,3 +1,4 @@
+import { vi } from "vitest";
 import { getTestClient } from "./get-test-client.js";
 
 describe("The Hass SDK", () => {
@@ -18,6 +19,50 @@ describe("The Hass SDK", () => {
       const theConfig = await client.getConfig();
       expect(theConfig.time_zone).toEqual("Europe/London");
       await client.close();
+    });
+  });
+
+  describe("register trigger", () => {
+    it("allows you to register a trigger and calls the callback when it fires", async () => {
+      const client = await getTestClient();
+
+      const testSwitchId = "input_boolean.test_switch";
+
+      await client.callService({
+        domain: "input_boolean",
+        service: "turn_off",
+        target: {
+          entity_id: testSwitchId,
+        },
+      });
+
+      let callbackCalled = false;
+
+      const callback = () => {
+        callbackCalled = true;
+      };
+
+      await client.registerTrigger(
+        {
+          platform: "state",
+          entity_id: testSwitchId,
+          from: "off",
+          to: "on",
+        },
+        callback,
+      );
+
+      await client.callService({
+        domain: "input_boolean",
+        service: "turn_on",
+        target: {
+          entity_id: testSwitchId,
+        },
+      });
+
+      await vi.waitFor(() => {
+        expect(callbackCalled).toEqual(true);
+      });
     });
   });
 

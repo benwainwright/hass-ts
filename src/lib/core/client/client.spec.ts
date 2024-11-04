@@ -18,6 +18,7 @@ import { RestClient } from "@core/rest-client";
 
 import { Client } from "./client.js";
 import { mockEventData } from "./mock-event-data.js";
+import { SubscribeToTriggerMessage } from "src/lib/core/websocket-client/messages/index.js";
 
 beforeAll(() => {
   vi.useFakeTimers();
@@ -682,6 +683,104 @@ describe("The client", () => {
 
       const result = await client.getPanels();
       expect(result).toEqual(panels);
+    });
+  });
+
+  describe("registerTrigger", () => {
+    it("sends a register trigger command and then registers a callback that correctly fires if a trigger response is recieved", async () => {
+      const id = 8;
+
+      const mockTriggerResponse = {
+        platform: "state",
+      };
+
+      const mockWebsocketClient = mock<WebsocketClient>({
+        addMessageListener(listener: (message: MessageFromServer) => void) {
+          listener({
+            type: "event",
+            id,
+            event: {
+              variables: {
+                trigger: mockTriggerResponse,
+              },
+            },
+          });
+        },
+      });
+      const client = new Client(mockWebsocketClient, mock());
+      const callback = vi.fn();
+
+      const testTriggerParams = {
+        platform: "state",
+        entity_id: "foo",
+        from: "off",
+        to: "on",
+      };
+
+      const message: Omit<SubscribeToTriggerMessage, "id"> = {
+        type: "subscribe_trigger",
+        trigger: testTriggerParams,
+      };
+
+      when(mockWebsocketClient.sendCommand)
+        .calledWith(message)
+        .mockResolvedValue({
+          id,
+          type: "result",
+          success: true,
+          result: null,
+        });
+
+      await client.registerTrigger(testTriggerParams, callback);
+
+      expect(callback).toHaveBeenCalledWith(mockTriggerResponse);
+    });
+
+    it("does not fire the callback for unrelated events", async () => {
+      const mockTriggerResponse = {
+        platform: "state",
+      };
+
+      const mockWebsocketClient = mock<WebsocketClient>({
+        addMessageListener(listener: (message: MessageFromServer) => void) {
+          listener({
+            type: "event",
+            id: 10,
+            event: {
+              variables: {
+                trigger: mockTriggerResponse,
+              },
+            },
+          });
+        },
+      });
+      const client = new Client(mockWebsocketClient, mock());
+      const callback = vi.fn();
+
+      const testTriggerParams = {
+        platform: "state",
+        entity_id: "foo",
+        from: "off",
+        to: "on",
+      };
+
+      const message: Omit<SubscribeToTriggerMessage, "id"> = {
+        type: "subscribe_trigger",
+        trigger: testTriggerParams,
+      };
+
+      when(mockWebsocketClient.sendCommand)
+        .calledWith(message)
+        .mockResolvedValue({
+          id: 8,
+          type: "result",
+          success: true,
+          result: null,
+        });
+
+      await client.registerTrigger(testTriggerParams, callback);
+
+      expect(callback).not.toHaveBeenCalled();
     });
   });
 

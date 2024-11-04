@@ -2,6 +2,8 @@ export { MessageFromServer } from "./message-from-server.js";
 export { ThrowCommand } from "./throw-command.js";
 export { GetConfigCommand } from "./get-config-command.js";
 export { MessageToServer } from "./message-to-server.js";
+export { SubscribeToTriggerMessage } from "./subscribe-to-trigger.js";
+export { TriggerEventMessage } from "./trigger-event-message.js";
 export { HelloCommand } from "./hello.js";
 export { SubscribeToEventsMessage } from "./subscribe-to-events.js";
 export { AuthRequiredMessageResponse } from "./auth.js";

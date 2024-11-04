@@ -16,7 +16,11 @@ import {
 import { GetHistoryParams } from "./get-history-params.js";
 import { GetLogbookParams } from "./get-logbook-params.js";
 
-import { CallServiceCommand } from "@core/websocket-client";
+import {
+  CallServiceCommand,
+  TriggerEventMessage,
+  SubscribeToTriggerMessage,
+} from "@core/websocket-client";
 
 /**
  * The Home Assistant client API. Once initialised, the client will make requests via
@@ -98,11 +102,21 @@ export interface IClient {
 
   getErrorLog(): Promise<string>;
 
-  subscribeToEvents(callback: (message: Event) => void): Promise<void>;
+  /**
+   * Subscribe to a trigger. See https://developers.home-assistant.io/docs/api/websocket/#subscribe-to-trigger
+   */
+  registerTrigger(
+    trigger: SubscribeToTriggerMessage["trigger"],
+    callback: (event: unknown) => void,
+  ): Promise<void>;
+
+  subscribeToEvents(
+    callback: (message: Event | TriggerEventMessage["event"]) => void,
+  ): Promise<void>;
 
   subscribeToEvents(
     type: string,
-    callback: (message: Event) => void,
+    callback: (message: Event | TriggerEventMessage["event"]) => void,
   ): Promise<void>;
 
   close(): Promise<void>;
