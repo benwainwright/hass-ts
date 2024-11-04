@@ -1,3 +1,6 @@
+/**
+ * @alpha
+ */
 export interface TriggerEventMessage<T = unknown> {
   id: number;
   type: "event";

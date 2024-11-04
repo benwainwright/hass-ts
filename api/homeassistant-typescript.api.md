@@ -254,8 +254,6 @@ export interface IClient {
     getStates(): Promise<State[]>;
     // Warning: (ae-forgotten-export) The symbol "SubscribeToTriggerMessage" needs to be exported by the entry point index.d.ts
     registerTrigger(trigger: SubscribeToTriggerMessage["trigger"], callback: (event: unknown) => void): Promise<void>;
-    // Warning: (ae-forgotten-export) The symbol "TriggerEventMessage" needs to be exported by the entry point index.d.ts
-    //
     // (undocumented)
     subscribeToEvents(callback: (message: Event_2 | TriggerEventMessage["event"]) => void): Promise<void>;
     // (undocumented)
@@ -344,6 +342,20 @@ export interface State {
     last_reported: string;
     last_updated: string;
     state: string;
+}
+
+// @public (undocumented)
+export interface TriggerEventMessage<T = unknown> {
+    // (undocumented)
+    event: {
+        variables: {
+            trigger: T;
+        };
+    };
+    // (undocumented)
+    id: number;
+    // (undocumented)
+    type: "event";
 }
 
 // Warnings were encountered during analysis:

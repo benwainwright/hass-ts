@@ -16,6 +16,7 @@ export {
   CallServiceResponse,
   GetPanelsCommand,
   HelloCommand,
+  TriggerEventMessage,
 } from "./websocket-client/index.js";
 
 export { HTTP } from "./constants.js";

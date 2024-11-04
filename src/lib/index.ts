@@ -6,6 +6,7 @@ export {
   GetLogbookParams,
   CallServiceCommand,
   CallServiceResponse,
+  TriggerEventMessage,
 } from "@core";
 
 export type {
