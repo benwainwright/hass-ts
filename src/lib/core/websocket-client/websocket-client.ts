@@ -17,7 +17,9 @@ export class WebsocketClient {
   private socket: WebSocket;
   private connected = false;
   private readonly path: string;
-  private messageCallbacks: ((message: MessageFromServer) => void)[] = [];
+  private messageCallbacks: ((
+    message: MessageFromServer,
+  ) => void | Promise<void>)[] = [];
   private authCompleteCallbacks: [success: () => void, failure: () => void][] =
     [];
   private responseCallbacks = new Map<
@@ -49,12 +51,13 @@ export class WebsocketClient {
 
   public async init(): Promise<void> {
     this.socket.on("open", () => {
-      this.socket.on("message", (data: Buffer) => {
+      // eslint-disable-next-line @typescript-eslint/no-misused-promises
+      this.socket.on("message", async (data: Buffer) => {
         const message = safeJsonParse<MessageFromServer>(
           data.toString("utf-8"),
         );
         this.logger.trace(`Received (ws): ${JSON.stringify(message)}`);
-        this.handleMessage(message);
+        await this.handleMessage(message);
       });
     });
     await this.waitTillAuthFinished();
@@ -80,14 +83,18 @@ export class WebsocketClient {
     return await responsePromise;
   }
 
-  public addMessageListener(listener: (message: MessageFromServer) => void) {
+  public addMessageListener(
+    listener: (message: MessageFromServer) => void | Promise<void>,
+  ) {
     if (!this.connected) {
       throw new HassTsError(ERRORS.notInitialised);
     }
     this.messageCallbacks.push(listener);
   }
 
-  public removeMessageListener(listener: (message: MessageFromServer) => void) {
+  public removeMessageListener(
+    listener: (message: MessageFromServer) => void | Promise<void>,
+  ) {
     if (!this.connected) {
       throw new HassTsError(ERRORS.notInitialised);
     }
@@ -175,13 +182,14 @@ export class WebsocketClient {
     callback?.(message);
   }
 
-  private handleOtherMessages(message: MessageFromServer) {
-    this.messageCallbacks.forEach((callback) => {
-      callback(message);
-    });
+  private async handleOtherMessages(message: MessageFromServer) {
+    await this.messageCallbacks.reduce(async (accum, callback) => {
+      await accum;
+      await callback(message);
+    }, Promise.resolve());
   }
 
-  private handleMessage(message: MessageFromServer) {
+  private async handleMessage(message: MessageFromServer) {
     switch (message.type) {
       case "auth_required":
         this.handleAuthRequired();
@@ -196,7 +204,7 @@ export class WebsocketClient {
         this.handleResult(message);
         break;
       default:
-        this.handleOtherMessages(message);
+        await this.handleOtherMessages(message);
     }
   }
 }

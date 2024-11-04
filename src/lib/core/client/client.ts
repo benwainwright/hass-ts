@@ -92,7 +92,7 @@ export class Client implements IClient {
 
   public async registerTrigger<T extends Record<string, unknown>>(
     trigger: SubscribeToTriggerMessage["trigger"],
-    callback: (event: T) => void,
+    callback: (event: T) => void | Promise<void>,
   ) {
     const { id } = await this.websocketClient.sendCommand<
       SubscribeToTriggerMessage,
@@ -102,17 +102,19 @@ export class Client implements IClient {
       trigger,
     });
 
-    this.websocketClient.addMessageListener((message: MessageFromServer) => {
-      const isTriggerEvent = (
-        message: MessageFromServer,
-      ): message is TriggerEventMessage<T> => {
-        return message.type === "event" && message.id === id;
-      };
+    this.websocketClient.addMessageListener(
+      async (message: MessageFromServer) => {
+        const isTriggerEvent = (
+          message: MessageFromServer,
+        ): message is TriggerEventMessage<T> => {
+          return message.type === "event" && message.id === id;
+        };
 
-      if (isTriggerEvent(message)) {
-        callback(message.event.variables.trigger);
-      }
-    });
+        if (isTriggerEvent(message)) {
+          await callback(message.event.variables.trigger);
+        }
+      },
+    );
   }
 
   public async getLogbook(
