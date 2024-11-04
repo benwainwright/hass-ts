@@ -28,7 +28,7 @@ Aliases for this area
 
 #### Defined in
 
-[lib/types/area.ts:10](https://github.com/benwainwright/hass-ts/blob/283d3f2/src/lib/types/area.ts#L10)
+[lib/types/area.ts:10](https://github.com/benwainwright/hass-ts/blob/7a1b65e/src/lib/types/area.ts#L10)
 
 ___
 
@@ -40,7 +40,7 @@ Unique id that can be used to identify this area
 
 #### Defined in
 
-[lib/types/area.ts:15](https://github.com/benwainwright/hass-ts/blob/283d3f2/src/lib/types/area.ts#L15)
+[lib/types/area.ts:15](https://github.com/benwainwright/hass-ts/blob/7a1b65e/src/lib/types/area.ts#L15)
 
 ___
 
@@ -52,7 +52,7 @@ When was the area created (Unix timestamp in seconds)
 
 #### Defined in
 
-[lib/types/area.ts:45](https://github.com/benwainwright/hass-ts/blob/283d3f2/src/lib/types/area.ts#L45)
+[lib/types/area.ts:45](https://github.com/benwainwright/hass-ts/blob/7a1b65e/src/lib/types/area.ts#L45)
 
 ___
 
@@ -64,7 +64,7 @@ What floor is this area on
 
 #### Defined in
 
-[lib/types/area.ts:20](https://github.com/benwainwright/hass-ts/blob/283d3f2/src/lib/types/area.ts#L20)
+[lib/types/area.ts:20](https://github.com/benwainwright/hass-ts/blob/7a1b65e/src/lib/types/area.ts#L20)
 
 ___
 
@@ -76,7 +76,7 @@ Material icon used to represent this area
 
 #### Defined in
 
-[lib/types/area.ts:25](https://github.com/benwainwright/hass-ts/blob/283d3f2/src/lib/types/area.ts#L25)
+[lib/types/area.ts:25](https://github.com/benwainwright/hass-ts/blob/7a1b65e/src/lib/types/area.ts#L25)
 
 ___
 
@@ -88,7 +88,7 @@ List of labels associated with this area
 
 #### Defined in
 
-[lib/types/area.ts:30](https://github.com/benwainwright/hass-ts/blob/283d3f2/src/lib/types/area.ts#L30)
+[lib/types/area.ts:30](https://github.com/benwainwright/hass-ts/blob/7a1b65e/src/lib/types/area.ts#L30)
 
 ___
 
@@ -100,7 +100,7 @@ When was the area modified (Unix timestamp in seconds)
 
 #### Defined in
 
-[lib/types/area.ts:50](https://github.com/benwainwright/hass-ts/blob/283d3f2/src/lib/types/area.ts#L50)
+[lib/types/area.ts:50](https://github.com/benwainwright/hass-ts/blob/7a1b65e/src/lib/types/area.ts#L50)
 
 ___
 
@@ -112,7 +112,7 @@ Name of the area
 
 #### Defined in
 
-[lib/types/area.ts:35](https://github.com/benwainwright/hass-ts/blob/283d3f2/src/lib/types/area.ts#L35)
+[lib/types/area.ts:35](https://github.com/benwainwright/hass-ts/blob/7a1b65e/src/lib/types/area.ts#L35)
 
 ___
 
@@ -124,4 +124,4 @@ URL for the area picture
 
 #### Defined in
 
-[lib/types/area.ts:40](https://github.com/benwainwright/hass-ts/blob/283d3f2/src/lib/types/area.ts#L40)
+[lib/types/area.ts:40](https://github.com/benwainwright/hass-ts/blob/7a1b65e/src/lib/types/area.ts#L40)

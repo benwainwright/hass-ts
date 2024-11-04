@@ -24,7 +24,7 @@ State attributes (Specific to different entity domains)
 
 #### Defined in
 
-[lib/types/state.ts:30](https://github.com/benwainwright/hass-ts/blob/283d3f2/src/lib/types/state.ts#L30)
+[lib/types/state.ts:30](https://github.com/benwainwright/hass-ts/blob/7a1b65e/src/lib/types/state.ts#L30)
 
 ___
 
@@ -36,7 +36,7 @@ The context associated with this state change
 
 #### Defined in
 
-[lib/types/state.ts:40](https://github.com/benwainwright/hass-ts/blob/283d3f2/src/lib/types/state.ts#L40)
+[lib/types/state.ts:40](https://github.com/benwainwright/hass-ts/blob/7a1b65e/src/lib/types/state.ts#L40)
 
 ___
 
@@ -48,7 +48,7 @@ Home assistant entity id string in the format <domain>.<id>
 
 #### Defined in
 
-[lib/types/state.ts:10](https://github.com/benwainwright/hass-ts/blob/283d3f2/src/lib/types/state.ts#L10)
+[lib/types/state.ts:10](https://github.com/benwainwright/hass-ts/blob/7a1b65e/src/lib/types/state.ts#L10)
 
 ___
 
@@ -60,7 +60,7 @@ When was the entity last changed (ISO timestamp)
 
 #### Defined in
 
-[lib/types/state.ts:15](https://github.com/benwainwright/hass-ts/blob/283d3f2/src/lib/types/state.ts#L15)
+[lib/types/state.ts:15](https://github.com/benwainwright/hass-ts/blob/7a1b65e/src/lib/types/state.ts#L15)
 
 ___
 
@@ -72,7 +72,7 @@ When did the entity last report its state (ISO timestamp)
 
 #### Defined in
 
-[lib/types/state.ts:20](https://github.com/benwainwright/hass-ts/blob/283d3f2/src/lib/types/state.ts#L20)
+[lib/types/state.ts:20](https://github.com/benwainwright/hass-ts/blob/7a1b65e/src/lib/types/state.ts#L20)
 
 ___
 
@@ -84,7 +84,7 @@ When was the entity last updated (ISO timestamp)
 
 #### Defined in
 
-[lib/types/state.ts:35](https://github.com/benwainwright/hass-ts/blob/283d3f2/src/lib/types/state.ts#L35)
+[lib/types/state.ts:35](https://github.com/benwainwright/hass-ts/blob/7a1b65e/src/lib/types/state.ts#L35)
 
 ___
 
@@ -96,4 +96,4 @@ Current state of the entity
 
 #### Defined in
 
-[lib/types/state.ts:25](https://github.com/benwainwright/hass-ts/blob/283d3f2/src/lib/types/state.ts#L25)
+[lib/types/state.ts:25](https://github.com/benwainwright/hass-ts/blob/7a1b65e/src/lib/types/state.ts#L25)
