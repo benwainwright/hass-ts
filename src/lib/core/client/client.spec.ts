@@ -835,7 +835,7 @@ describe("The client", () => {
       vi.mocked(mockWebsocketClient.addMessageListener).mockImplementation(
         (callback) => {
           setTimeout(() => {
-            callback(message);
+            void callback(message);
           }, EVENT_DELAY);
         },
       );
@@ -872,7 +872,7 @@ describe("The client", () => {
       vi.mocked(mockWebsocketClient.addMessageListener).mockImplementation(
         (callback) => {
           setTimeout(() => {
-            callback(message);
+            void callback(message);
           }, EVENT_DELAY);
         },
       );
@@ -936,7 +936,7 @@ describe("The client", () => {
       vi.mocked(mockWebsocketClient.addMessageListener).mockImplementation(
         (callback) => {
           setTimeout(() => {
-            callback(message);
+            void callback(message);
           }, EVENT_DELAY);
         },
       );
